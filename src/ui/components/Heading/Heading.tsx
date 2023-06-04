@@ -1,4 +1,4 @@
-import * as React from 'react'
+import type * as React from 'react'
 import TextWrapBalancer from 'react-wrap-balancer'
 import { cn, type ClassNameValue, type PolymorphicComponentPropWithoutRef } from '@ui/core'
 import * as styles from './styles.css'
