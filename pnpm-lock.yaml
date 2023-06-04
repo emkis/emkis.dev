@@ -11,6 +11,9 @@ dependencies:
   '@vanilla-extract/css':
     specifier: ^1.11.0
     version: 1.11.0
+  '@vanilla-extract/dynamic':
+    specifier: ^2.0.3
+    version: 2.0.3
   clsx:
     specifier: ^1.2.1
     version: 1.2.1
@@ -1016,6 +1019,12 @@ packages:
       deepmerge: 4.3.1
       media-query-parser: 2.0.2
       outdent: 0.8.0
+
+  /@vanilla-extract/dynamic@2.0.3:
+    resolution: {integrity: sha512-Rglfw2gXAYiBzAQ4jgUG7rBgE2c88e/zcG27ZVoIqMHVq56wf2C1katGMm1yFMNBgzqM7oBNYzz4YOMzznydkg==}
+    dependencies:
+      '@vanilla-extract/private': 1.0.3
+    dev: false
 
   /@vanilla-extract/integration@6.2.1(@types/node@18.16.0):
     resolution: {integrity: sha512-+xYJz07G7TFAMZGrOqArOsURG+xcYvqctujEkANjw2McCBvGEK505RxQqOuNiA9Mi9hgGdNp2JedSa94f3eoLg==}
