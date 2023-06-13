@@ -13,7 +13,9 @@ export type HeadingProps<Component extends React.ElementType> = PolymorphicCompo
   }
 >
 
-export function Heading<Component extends React.ElementType>(props: HeadingProps<Component>) {
+export function Heading<Component extends React.ElementType = 'span'>(
+  props: HeadingProps<Component>
+) {
   const { children, as, className, level, ...restProps } = props
   const levelClassNames = styles.levelVariant[level]
   const Element = as ?? 'span'

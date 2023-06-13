@@ -16,7 +16,7 @@ export type TextProps<Component extends React.ElementType> = PolymorphicComponen
   }
 >
 
-export function Text<Component extends React.ElementType>(props: TextProps<Component>) {
+export function Text<Component extends React.ElementType = 'span'>(props: TextProps<Component>) {
   const {
     children,
     as,
