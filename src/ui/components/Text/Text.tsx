@@ -2,36 +2,40 @@ import * as React from 'react'
 import { cn, type ClassNameValue, type PolymorphicComponentPropWithoutRef } from '@ui/core'
 import * as styles from './styles.css'
 
-type TextSize = 'base' | 'large'
-type TextVariant = 'regular' | 'bold'
+type TextSize = keyof typeof styles.sizeVariant
+type TextWeight = keyof typeof styles.weightVariant
+type TextFont = keyof typeof styles.fontVariant
 
 export type TextProps<Component extends React.ElementType> = PolymorphicComponentPropWithoutRef<
   Component,
   {
-    className?: ClassNameValue
     size?: TextSize
-    variant?: TextVariant
+    font?: TextFont
+    weight?: TextWeight
+    className?: ClassNameValue
   }
 >
 
-const textSizes = {
-  base: styles.sizeBase,
-  large: styles.sizeLarge,
-} satisfies Record<TextSize, string>
-
-const textVariants = {
-  regular: styles.variantRegular,
-  bold: styles.variantBold,
-} satisfies Record<TextVariant, string>
-
 export function Text<Component extends React.ElementType>(props: TextProps<Component>) {
-  const { children, as, className, size = 'base', variant = 'regular', ...restProps } = props
-  const sizeClassName = textSizes[size]
-  const variantClassName = textVariants[variant]
+  const {
+    children,
+    as,
+    className,
+    size = 'base',
+    weight = 'regular',
+    font = 'sans-serif',
+    ...restProps
+  } = props
+  const sizeClassName = styles.sizeVariant[size]
+  const weightClassName = styles.weightVariant[weight]
+  const fontClassName = styles.fontVariant[font]
   const Element = as ?? 'span'
 
   return (
-    <Element {...restProps} className={cn(styles.base, sizeClassName, variantClassName, className)}>
+    <Element
+      {...restProps}
+      className={cn(fontClassName, sizeClassName, weightClassName, className)}
+    >
       {children}
     </Element>
   )

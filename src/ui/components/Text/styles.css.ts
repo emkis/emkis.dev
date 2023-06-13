@@ -1,11 +1,7 @@
-import { style } from '@vanilla-extract/css'
+import { style, styleVariants } from '@vanilla-extract/css'
 import { slateDark } from '@radix-ui/colors'
 
-export const base = style({
-  fontFamily: 'var(--font-inter)',
-})
-
-export const sizeBase = style({
+const sizeBase = style({
   fontSize: '16px',
   lineHeight: 1.8,
 
@@ -16,7 +12,7 @@ export const sizeBase = style({
   },
 })
 
-export const sizeLarge = style({
+const sizeLarge = style({
   fontSize: '18px',
   lineHeight: 1.7,
 
@@ -27,12 +23,27 @@ export const sizeLarge = style({
   },
 })
 
-export const variantRegular = style({
-  color: slateDark.slate11,
-  fontWeight: 400,
+export const sizeVariant = styleVariants({
+  base: [sizeBase],
+  large: [sizeLarge],
 })
 
-export const variantBold = style({
-  color: slateDark.slate12,
-  fontWeight: 500,
+export const weightVariant = styleVariants({
+  regular: {
+    fontWeight: 400,
+    color: slateDark.slate11,
+  },
+  bold: {
+    fontWeight: 500,
+    color: slateDark.slate12,
+  },
+})
+
+export const fontVariant = styleVariants({
+  ['sans-serif']: {
+    fontFamily: 'var(--font-inter)',
+  },
+  monospaced: {
+    fontFamily: 'var(--font-fira-code)',
+  },
 })
