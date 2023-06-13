@@ -1,14 +1,14 @@
+import { style, styleVariants } from '@vanilla-extract/css'
 import { slateDark } from '@radix-ui/colors'
-import { style } from '@vanilla-extract/css'
 
-export const base = style({
+const base = style({
   display: 'block',
   fontFamily: 'var(--font-inter)',
   fontWeight: 500,
   color: slateDark.slate12,
 })
 
-export const level1 = style({
+const level1 = style({
   fontSize: '36px',
   lineHeight: 1.3,
   letterSpacing: '-1px',
@@ -20,7 +20,7 @@ export const level1 = style({
   },
 })
 
-export const level2 = style({
+const level2 = style({
   fontSize: '30px',
   lineHeight: 1.38,
   letterSpacing: '-1px',
@@ -32,7 +32,7 @@ export const level2 = style({
   },
 })
 
-export const level3 = style({
+const level3 = style({
   fontSize: '24px',
   lineHeight: 1.48,
   letterSpacing: '-1px',
@@ -44,7 +44,7 @@ export const level3 = style({
   },
 })
 
-export const level4 = style({
+const level4 = style({
   fontSize: '20px',
   lineHeight: 1.58,
 
@@ -53,4 +53,11 @@ export const level4 = style({
       fontSize: '24px',
     },
   },
+})
+
+export const levelVariant = styleVariants({
+  1: [base, level1],
+  2: [base, level2],
+  3: [base, level3],
+  4: [base, level4],
 })

@@ -3,7 +3,7 @@ import TextWrapBalancer from 'react-wrap-balancer'
 import { cn, type ClassNameValue, type PolymorphicComponentPropWithoutRef } from '@ui/core'
 import * as styles from './styles.css'
 
-type HeadingLevel = 1 | 2 | 3 | 4
+type HeadingLevel = keyof typeof styles.levelVariant
 
 export type HeadingProps<Component extends React.ElementType> = PolymorphicComponentPropWithoutRef<
   Component,
@@ -13,20 +13,13 @@ export type HeadingProps<Component extends React.ElementType> = PolymorphicCompo
   }
 >
 
-const headingLevels = {
-  1: styles.level1,
-  2: styles.level2,
-  3: styles.level3,
-  4: styles.level4,
-} satisfies Record<HeadingLevel, string>
-
 export function Heading<Component extends React.ElementType>(props: HeadingProps<Component>) {
   const { children, as, className, level, ...restProps } = props
-  const levelClassNames = headingLevels[level]
+  const levelClassNames = styles.levelVariant[level]
   const Element = as ?? 'span'
 
   return (
-    <Element {...restProps} className={cn(styles.base, levelClassNames, className)}>
+    <Element {...restProps} className={cn(levelClassNames, className)}>
       <TextWrapBalancer>{children}</TextWrapBalancer>
     </Element>
   )
