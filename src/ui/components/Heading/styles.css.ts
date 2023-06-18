@@ -1,56 +1,57 @@
 import { style, styleVariants } from '@vanilla-extract/css'
-import { slateDark } from '@radix-ui/colors'
+import { Tokens } from '@ui/tokens/index.css'
 
 const base = style({
   display: 'block',
-  fontFamily: 'var(--font-inter)',
-  fontWeight: 500,
-  color: slateDark.slate12,
+  fontFamily: Tokens.fontFamily.heading,
+  fontWeight: Tokens.fontWeight.heading.medium,
+  color: Tokens.color.textPrimary,
 })
 
 const level1 = style({
-  fontSize: '36px',
+  fontSize: Tokens.fontSize[450],
   lineHeight: 1.3,
-  letterSpacing: '-1px',
+  letterSpacing: Tokens.letterSpacing.dense,
 
   '@media': {
     '(min-width: 1024px)': {
-      fontSize: '48px',
+      fontSize: Tokens.fontSize[600],
     },
   },
 })
 
 const level2 = style({
-  fontSize: '30px',
+  fontSize: Tokens.fontSize[375],
   lineHeight: 1.38,
-  letterSpacing: '-1px',
+  letterSpacing: Tokens.letterSpacing.dense,
 
   '@media': {
     '(min-width: 1024px)': {
-      fontSize: '36px',
+      fontSize: Tokens.fontSize[450],
     },
   },
 })
 
 const level3 = style({
-  fontSize: '24px',
+  fontSize: Tokens.fontSize[300],
   lineHeight: 1.48,
-  letterSpacing: '-1px',
+  letterSpacing: Tokens.letterSpacing.dense,
 
   '@media': {
     '(min-width: 1024px)': {
-      fontSize: '30px',
+      fontSize: Tokens.fontSize[375],
     },
   },
 })
 
 const level4 = style({
-  fontSize: '20px',
+  fontSize: Tokens.fontSize[250],
   lineHeight: 1.58,
+  letterSpacing: Tokens.letterSpacing.regular,
 
   '@media': {
     '(min-width: 1024px)': {
-      fontSize: '24px',
+      fontSize: Tokens.fontSize[300],
     },
   },
 })
