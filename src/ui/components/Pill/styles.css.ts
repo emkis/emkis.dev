@@ -1,20 +1,17 @@
 import { style, styleVariants } from '@vanilla-extract/css'
 import { Tokens } from '@ui/tokens/index.css'
-import { lightTheme } from '@ui/tokens/themes/light.css'
 
-const root = style({
+export const pill = style({
   padding: `${Tokens.padding[100]} ${Tokens.padding[200]}`,
   display: 'inline-block',
   lineHeight: 1,
   border: 0,
   borderRadius: Tokens.radius[400],
+  background: Tokens.color.interactive,
   transitionProperty: 'color, background-color',
   transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
   transitionDuration: '200ms',
-})
 
-const background = style({
-  background: Tokens.color.interactive,
   selectors: {
     '&:hover, &:focus': {
       background: Tokens.color.interactiveHover,
@@ -25,12 +22,7 @@ const background = style({
   },
 })
 
-export const backgroundVariant = styleVariants({
-  default: [root, background],
-  active: [lightTheme, root, background],
-})
-
-export const textVariant = styleVariants({
+export const variant = styleVariants({
   default: {
     color: `${Tokens.color.textSecondary} !important`,
     lineHeight: '1 !important',
