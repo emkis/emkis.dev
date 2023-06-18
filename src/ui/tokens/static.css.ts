@@ -28,6 +28,10 @@ export const staticTokens = createGlobalTheme(':root', {
       regular: '400',
     },
   },
+  letterSpacing: {
+    regular: '0',
+    dense: '-1px',
+  },
   padding: {
     100: '8px',
     200: '16px',
