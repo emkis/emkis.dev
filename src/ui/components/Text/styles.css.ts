@@ -1,24 +1,24 @@
 import { style, styleVariants } from '@vanilla-extract/css'
-import { slateDark } from '@radix-ui/colors'
+import { Tokens } from '@ui/tokens/index.css'
 
 const sizeBase = style({
-  fontSize: '16px',
+  fontSize: Tokens.fontSize[200],
   lineHeight: 1.8,
 
   '@media': {
     '(min-width: 1024px)': {
-      fontSize: '18px',
+      fontSize: Tokens.fontSize[225],
     },
   },
 })
 
 const sizeLarge = style({
-  fontSize: '18px',
+  fontSize: Tokens.fontSize[225],
   lineHeight: 1.7,
 
   '@media': {
     '(min-width: 1024px)': {
-      fontSize: '20px',
+      fontSize: Tokens.fontSize[250],
     },
   },
 })
@@ -30,20 +30,20 @@ export const sizeVariant = styleVariants({
 
 export const weightVariant = styleVariants({
   regular: {
-    fontWeight: 400,
-    color: slateDark.slate11,
+    fontWeight: Tokens.fontWeight.body.regular,
+    color: Tokens.color.textSecondary,
   },
   bold: {
-    fontWeight: 500,
-    color: slateDark.slate12,
+    fontWeight: Tokens.fontWeight.body.medium,
+    color: Tokens.color.textPrimary,
   },
 })
 
 export const fontVariant = styleVariants({
   ['sans-serif']: {
-    fontFamily: 'var(--font-inter)',
+    fontFamily: Tokens.fontFamily.body,
   },
   monospaced: {
-    fontFamily: 'var(--font-fira-code)',
+    fontFamily: Tokens.fontFamily.monospaced,
   },
 })
