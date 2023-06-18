@@ -11,5 +11,8 @@ export const lightTheme = createTheme(dynamicTokens, {
     backgroundScreen: slate.slate1,
     backgroundNeutral: slate.slate2,
     backgroundElevated: slate.slate1,
+    interactive: slate.slate3,
+    interactiveHover: slate.slate4,
+    interactiveActive: slate.slate5,
   },
 })

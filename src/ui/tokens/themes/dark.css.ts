@@ -13,5 +13,8 @@ export const darkTheme = createTheme(dynamicTokens, {
     backgroundScreen: baseDark,
     backgroundNeutral: slateDark.slate2,
     backgroundElevated: baseDark,
+    interactive: slateDark.slate3,
+    interactiveHover: slateDark.slate4,
+    interactiveActive: slateDark.slate5,
   },
 })

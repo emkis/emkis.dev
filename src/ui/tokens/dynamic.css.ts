@@ -9,5 +9,8 @@ export const dynamicTokens = createThemeContract({
     backgroundScreen: null,
     backgroundNeutral: null,
     backgroundElevated: null,
+    interactive: null,
+    interactiveHover: null,
+    interactiveActive: null,
   },
 })
