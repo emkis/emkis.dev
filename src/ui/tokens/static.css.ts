@@ -1,10 +1,32 @@
 import { createGlobalTheme } from '@vanilla-extract/css'
 
 export const staticTokens = createGlobalTheme(':root', {
-  font: {
+  fontFamily: {
     body: 'var(--font-body)',
     heading: 'var(--font-body)',
     monospaced: 'var(--font-monospaced)',
+  },
+  fontSize: {
+    200: '16px',
+    225: '18px',
+    250: '20px',
+    300: '24px',
+    375: '30px',
+    450: '36px',
+    600: '48px',
+  },
+  fontWeight: {
+    body: {
+      regular: '400',
+      medium: '500',
+    },
+    heading: {
+      regular: '400',
+      medium: '500',
+    },
+    monospaced: {
+      regular: '400',
+    },
   },
   padding: {
     100: '8px',
