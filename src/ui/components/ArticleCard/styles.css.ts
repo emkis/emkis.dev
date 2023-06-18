@@ -1,6 +1,8 @@
 import { style, createVar, fallbackVar } from '@vanilla-extract/css'
+import { Tokens } from '@ui/tokens/index.css'
 import { slateDark } from '@radix-ui/colors'
 
+const cardRadius = Tokens.radius[400]
 export const articleBackground = createVar()
 
 export const card = style({
@@ -10,17 +12,17 @@ export const card = style({
 export const background = style({
   height: '304px',
   width: '100%',
-  borderRadius: '32px',
+  borderRadius: cardRadius,
   background: fallbackVar(articleBackground, slateDark.slate5),
 })
 
 export const title = style({
-  marginTop: '20px',
+  marginTop: Tokens.spacing[200],
 })
 
 export const description = style({
-  marginTop: '4px',
-  color: slateDark.slate11,
+  marginTop: Tokens.spacing[50],
+  color: `${Tokens.color.textSecondary} !important`,
 })
 
 export const articleLink = style({
@@ -31,6 +33,6 @@ export const articleLink = style({
     top: 0,
     width: '100%',
     height: '100%',
-    borderRadius: '32px',
+    borderRadius: cardRadius,
   },
 })
