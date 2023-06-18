@@ -1,4 +1,5 @@
 import { createGlobalTheme } from '@vanilla-extract/css'
+import { pxToRem } from '@ui/core/px-to-rem'
 
 export const staticTokens = createGlobalTheme(':root', {
   fontFamily: {
@@ -7,13 +8,13 @@ export const staticTokens = createGlobalTheme(':root', {
     monospaced: 'var(--font-monospaced)',
   },
   fontSize: {
-    200: '16px',
-    225: '18px',
-    250: '20px',
-    300: '24px',
-    375: '30px',
-    450: '36px',
-    600: '48px',
+    200: pxToRem(16),
+    225: pxToRem(18),
+    250: pxToRem(20),
+    300: pxToRem(24),
+    375: pxToRem(30),
+    450: pxToRem(36),
+    600: pxToRem(48),
   },
   fontWeight: {
     body: {
