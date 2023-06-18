@@ -1,10 +1,10 @@
-import { slateDark } from '@radix-ui/colors'
 import { style } from '@vanilla-extract/css'
+import { Tokens } from '@ui/tokens/index.css'
 
 export const link = style({
-  fontFamily: 'var(--font-inter)',
+  fontFamily: Tokens.fontFamily.body,
   cursor: 'pointer',
-  color: slateDark.slate12,
+  color: Tokens.color.textPrimary,
   textDecoration: 'underline',
   textUnderlineOffset: '2px',
 })
