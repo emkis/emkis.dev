@@ -1,12 +1,13 @@
 import { style, createVar } from '@vanilla-extract/css'
-import { slateDark } from '@radix-ui/colors'
+import { Tokens } from '@ui/tokens/index.css'
 
 const spacingX = createVar()
 const spacingY = createVar()
+const profileSize = createVar()
 
 export const contentContainer = style({
   vars: {
-    [spacingX]: '16px',
+    [spacingX]: Tokens.spacing[200],
     [spacingY]: '160px',
   },
   padding: `128px ${spacingX}`,
@@ -16,7 +17,7 @@ export const contentContainer = style({
   '@media': {
     '(min-width: 768px)': {
       vars: {
-        [spacingX]: '24px',
+        [spacingX]: Tokens.spacing[300],
         [spacingY]: '192px',
       },
       padding: `${spacingY} ${spacingX}`,
@@ -37,19 +38,23 @@ export const contentContainer = style({
 
 export const greetingContainer = style({
   display: 'grid',
-  gap: '32px',
+  gap: Tokens.spacing[400],
 })
 
 export const profileImage = style({
-  height: '144px',
-  width: '144px',
-  borderRadius: '50%',
+  vars: {
+    [profileSize]: '144px',
+  },
+  height: profileSize,
+  width: profileSize,
+  borderRadius: Tokens.radius.full,
   objectFit: 'cover',
 
   '@media': {
     '(min-width: 1024px)': {
-      height: '160px',
-      width: '160px',
+      vars: {
+        [profileSize]: '160px',
+      },
     },
   },
 })
@@ -60,23 +65,23 @@ export const greetingHeadline = style({
 
 export const greetingSubHeadline = style({
   display: 'block',
-  color: slateDark.slate11,
+  color: Tokens.color.textSecondary,
 })
 
 export const featured = style({
-  marginBottom: '32px',
+  marginBottom: Tokens.spacing[400],
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
 })
 
 export const featuredHeading = style({
-  lineHeight: `1 !important`,
+  lineHeight: '1 !important',
 })
 
 export const articles = style({
   display: 'grid',
-  gap: '24px',
+  gap: Tokens.spacing[300],
 
   '@media': {
     '(min-width: 768px)': {
@@ -86,5 +91,5 @@ export const articles = style({
 })
 
 export const contactInfo = style({
-  color: `${slateDark.slate11} !important`,
+  color: `${Tokens.color.textSecondary} !important`,
 })
