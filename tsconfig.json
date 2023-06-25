@@ -20,7 +20,9 @@
       "@/*": ["./*"],
       "@app/*": ["src/app/*"],
       "@shared/*": ["src/shared/*"],
-      "@ui/*": ["src/ui/*"]
+      "@ui/*": ["src/ui/*"],
+      "@tokens/*": ["src/tokens/*"],
+      "@tokens": ["src/tokens"]
     }
   },
   "include": [
