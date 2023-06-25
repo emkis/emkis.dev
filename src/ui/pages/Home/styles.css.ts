@@ -1,5 +1,5 @@
 import { style, createVar } from '@vanilla-extract/css'
-import { Tokens } from '@ui/tokens/index.css'
+import { token } from '@tokens'
 
 const spacingX = createVar()
 const spacingY = createVar()
@@ -7,7 +7,7 @@ const profileSize = createVar()
 
 export const contentContainer = style({
   vars: {
-    [spacingX]: Tokens.spacing[200],
+    [spacingX]: token('spacing.200'),
     [spacingY]: '160px',
   },
   padding: `128px ${spacingX}`,
@@ -17,7 +17,7 @@ export const contentContainer = style({
   '@media': {
     '(min-width: 768px)': {
       vars: {
-        [spacingX]: Tokens.spacing[300],
+        [spacingX]: token('spacing.300'),
         [spacingY]: '192px',
       },
       padding: `${spacingY} ${spacingX}`,
@@ -38,7 +38,7 @@ export const contentContainer = style({
 
 export const greetingContainer = style({
   display: 'grid',
-  gap: Tokens.spacing[400],
+  gap: token('spacing.400'),
 })
 
 export const profileImage = style({
@@ -47,7 +47,7 @@ export const profileImage = style({
   },
   height: profileSize,
   width: profileSize,
-  borderRadius: Tokens.radius.full,
+  borderRadius: token('radius.full'),
   objectFit: 'cover',
 
   '@media': {
@@ -65,11 +65,11 @@ export const greetingHeadline = style({
 
 export const greetingSubHeadline = style({
   display: 'block',
-  color: Tokens.color.textSecondary,
+  color: token('color.text-secondary'),
 })
 
 export const featured = style({
-  marginBottom: Tokens.spacing[400],
+  marginBottom: token('spacing.400'),
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -81,7 +81,7 @@ export const featuredHeading = style({
 
 export const articles = style({
   display: 'grid',
-  gap: Tokens.spacing[300],
+  gap: token('spacing.300'),
 
   '@media': {
     '(min-width: 768px)': {
@@ -91,5 +91,5 @@ export const articles = style({
 })
 
 export const contactInfo = style({
-  color: `${Tokens.color.textSecondary} !important`,
+  color: `${token('color.text-secondary')} !important`,
 })

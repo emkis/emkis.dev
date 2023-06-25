@@ -1,8 +1,8 @@
 import { style, createVar, fallbackVar } from '@vanilla-extract/css'
-import { Tokens } from '@ui/tokens/index.css'
 import { slateDark } from '@radix-ui/colors'
+import { token } from '@tokens'
 
-const cardRadius = Tokens.radius[400]
+const cardRadius = token('radius.400')
 export const articleBackground = createVar()
 
 export const card = style({
@@ -17,12 +17,12 @@ export const background = style({
 })
 
 export const title = style({
-  marginTop: Tokens.spacing[200],
+  marginTop: token('spacing.200'),
 })
 
 export const description = style({
-  marginTop: Tokens.spacing[50],
-  color: `${Tokens.color.textSecondary} !important`,
+  marginTop: token('spacing.50'),
+  color: `${token('color.text-secondary')} !important`,
 })
 
 export const articleLink = style({

@@ -1,24 +1,22 @@
 import { style, styleVariants } from '@vanilla-extract/css'
-import { Tokens } from '@ui/tokens/index.css'
+import { token } from '@tokens'
 
 const sizeBase = style({
-  fontSize: Tokens.fontSize[200],
+  fontSize: token('font-size.200'),
   lineHeight: 1.8,
-
   '@media': {
     '(min-width: 1024px)': {
-      fontSize: Tokens.fontSize[225],
+      fontSize: token('font-size.225'),
     },
   },
 })
 
 const sizeLarge = style({
-  fontSize: Tokens.fontSize[225],
+  fontSize: token('font-size.225'),
   lineHeight: 1.7,
-
   '@media': {
     '(min-width: 1024px)': {
-      fontSize: Tokens.fontSize[250],
+      fontSize: token('font-size.250'),
     },
   },
 })
@@ -30,20 +28,20 @@ export const sizeVariant = styleVariants({
 
 export const weightVariant = styleVariants({
   regular: {
-    fontWeight: Tokens.fontWeight.body.regular,
-    color: Tokens.color.textSecondary,
+    fontWeight: token('font-weight.body.regular'),
+    color: token('color.text-secondary'),
   },
   bold: {
-    fontWeight: Tokens.fontWeight.body.medium,
-    color: Tokens.color.textPrimary,
+    fontWeight: token('font-weight.body.medium'),
+    color: token('color.text-primary'),
   },
 })
 
 export const fontVariant = styleVariants({
   ['sans-serif']: {
-    fontFamily: Tokens.fontFamily.body,
+    fontFamily: token('font-family.body'),
   },
   monospaced: {
-    fontFamily: Tokens.fontFamily.monospaced,
+    fontFamily: token('font-family.monospaced'),
   },
 })

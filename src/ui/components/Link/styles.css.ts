@@ -1,10 +1,10 @@
 import { style } from '@vanilla-extract/css'
-import { Tokens } from '@ui/tokens/index.css'
+import { token } from '@tokens'
 
 export const link = style({
-  fontFamily: Tokens.fontFamily.body,
+  fontFamily: token('font-family.body'),
   cursor: 'pointer',
-  color: Tokens.color.textPrimary,
+  color: token('color.text-primary'),
   textDecoration: 'underline',
   textUnderlineOffset: '2px',
 })

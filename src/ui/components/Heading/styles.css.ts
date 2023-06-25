@@ -1,57 +1,53 @@
 import { style, styleVariants } from '@vanilla-extract/css'
-import { Tokens } from '@ui/tokens/index.css'
+import { token } from '@tokens'
 
 const base = style({
   display: 'block',
-  fontFamily: Tokens.fontFamily.heading,
-  fontWeight: Tokens.fontWeight.heading.medium,
-  color: Tokens.color.textPrimary,
+  fontFamily: token('font-family.heading'),
+  fontWeight: token('font-weight.heading.medium'),
+  color: token('color.text-primary'),
 })
 
 const level1 = style({
-  fontSize: Tokens.fontSize[450],
+  fontSize: token('font-size.450'),
   lineHeight: 1.3,
-  letterSpacing: Tokens.letterSpacing.dense,
-
+  letterSpacing: token('letter-spacing.dense'),
   '@media': {
     '(min-width: 1024px)': {
-      fontSize: Tokens.fontSize[600],
+      fontSize: token('font-size.600'),
     },
   },
 })
 
 const level2 = style({
-  fontSize: Tokens.fontSize[375],
+  fontSize: token('font-size.375'),
   lineHeight: 1.38,
-  letterSpacing: Tokens.letterSpacing.dense,
-
+  letterSpacing: token('letter-spacing.dense'),
   '@media': {
     '(min-width: 1024px)': {
-      fontSize: Tokens.fontSize[450],
+      fontSize: token('font-size.450'),
     },
   },
 })
 
 const level3 = style({
-  fontSize: Tokens.fontSize[300],
+  fontSize: token('font-size.300'),
   lineHeight: 1.48,
-  letterSpacing: Tokens.letterSpacing.dense,
-
+  letterSpacing: token('letter-spacing.dense'),
   '@media': {
     '(min-width: 1024px)': {
-      fontSize: Tokens.fontSize[375],
+      fontSize: token('font-size.375'),
     },
   },
 })
 
 const level4 = style({
-  fontSize: Tokens.fontSize[250],
+  fontSize: token('font-size.250'),
   lineHeight: 1.58,
-  letterSpacing: Tokens.letterSpacing.regular,
-
+  letterSpacing: token('letter-spacing.regular'),
   '@media': {
     '(min-width: 1024px)': {
-      fontSize: Tokens.fontSize[300],
+      fontSize: token('font-size.300'),
     },
   },
 })

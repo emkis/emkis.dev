@@ -1,34 +1,33 @@
 import { style, styleVariants } from '@vanilla-extract/css'
-import { Tokens } from '@ui/tokens/index.css'
+import { token } from '@tokens'
 
 export const pill = style({
-  padding: `${Tokens.padding[100]} ${Tokens.padding[200]}`,
+  padding: `${token('padding.100')} ${token('padding.200')}`,
   display: 'inline-block',
   lineHeight: 1,
   border: 0,
-  borderRadius: Tokens.radius[400],
-  background: Tokens.color.interactive,
+  borderRadius: token('radius.400'),
+  background: token('color.interactive'),
   transitionProperty: 'color, background-color',
   transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
   transitionDuration: '200ms',
-
   selectors: {
     '&:hover, &:focus': {
-      background: Tokens.color.interactiveHover,
+      background: token('color.interactive-hover'),
     },
   },
   ':active': {
-    background: Tokens.color.interactiveActive,
+    background: token('color.interactive-active'),
   },
 })
 
 export const variant = styleVariants({
   default: {
-    color: `${Tokens.color.textSecondary} !important`,
+    color: `${token('color.text-secondary')} !important`,
     lineHeight: '1 !important',
   },
   active: {
-    color: `${Tokens.color.textPrimary} !important`,
+    color: `${token('color.text-primary')} !important`,
     lineHeight: '1 !important',
   },
 })
