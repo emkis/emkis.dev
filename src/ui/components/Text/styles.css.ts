@@ -45,3 +45,12 @@ export const fontVariant = styleVariants({
     fontFamily: token('font-family.monospaced'),
   },
 })
+
+export const colorVariant = styleVariants({
+  primary: {
+    color: token('color.text-primary'),
+  },
+  secondary: {
+    color: token('color.text-secondary'),
+  },
+})
