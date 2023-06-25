@@ -14,6 +14,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeRaw from 'rehype-raw'
 import rehypeReact from 'rehype-react'
 import { Text } from '@ui/components/Text'
+import { Navbar } from '@ui/components/Navbar'
 import { Heading } from '@ui/components/Heading'
 import { Link } from '@ui/components/Link'
 import * as styles from './styles.css'
@@ -110,18 +111,21 @@ export async function Article({ params }: PageProps) {
     .process(rawMarkdown)
 
   return (
-    <main>
-      <header className={styles.header}>
-        <div className={styles.headerContent}>
-          <Heading as="h1" level={1}>
-            The path of building my personal website on 2023
-          </Heading>
-          <Text as="time" size="large">
-            14 March, 2023 — 15 min
-          </Text>
-        </div>
-      </header>
-      <article className={styles.article}>{snippet.result}</article>
-    </main>
+    <React.Fragment>
+      <Navbar />
+      <main>
+        <header className={styles.header}>
+          <div className={styles.headerContent}>
+            <Heading as="h1" level={1}>
+              The path of building my personal website on 2023
+            </Heading>
+            <Text as="time" size="large">
+              14 March, 2023 — 15 min
+            </Text>
+          </div>
+        </header>
+        <article className={styles.article}>{snippet.result}</article>
+      </main>
+    </React.Fragment>
   )
 }
