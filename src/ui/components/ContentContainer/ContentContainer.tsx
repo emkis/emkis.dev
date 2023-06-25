@@ -1,8 +1,14 @@
-import type * as React from 'react'
+import { type PolymorphicComponentPropWithoutRef } from '@ui/core'
+import * as styles from './styles.css'
 
-export type ContentContainerProps = React.PropsWithChildren
+export type ContentContainerProps<Component extends React.ElementType> =
+  PolymorphicComponentPropWithoutRef<Component, {}>
 
-export function ContentContainer(props: ContentContainerProps) {
-  const { children } = props
-  return <div>{children}</div>
+export function ContentContainer<Component extends React.ElementType = 'div'>(
+  props: ContentContainerProps<Component>
+) {
+  const { children, as } = props
+  const Element = as ?? 'div'
+
+  return <Element className={styles.container}>{children}</Element>
 }

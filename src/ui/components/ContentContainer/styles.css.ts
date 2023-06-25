@@ -4,7 +4,7 @@ import { token } from '@tokens'
 const spacingX = createVar()
 const spacingY = createVar()
 
-export const contentContainer = style({
+export const container = style({
   vars: {
     [spacingX]: token('spacing.200'),
     [spacingY]: '160px',
