@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { ContentContainer } from '@ui/components/ContentContainer'
 import { ArticleCard } from '@ui/components/ArticleCard'
 import { Heading } from '@ui/components/Heading'
 import { Link } from '@ui/components/Link'
@@ -12,7 +13,7 @@ export function Home() {
   return (
     <React.Fragment>
       <Navbar />
-      <main className={styles.contentContainer}>
+      <ContentContainer as="main">
         <header className={styles.greetingContainer}>
           <Image alt="" src={profile} width={160} height={160} className={styles.profileImage} />
           <Heading as="h1" level={3}>
@@ -59,7 +60,7 @@ export function Home() {
             school, <HeresMyEmail />.
           </Heading>
         </footer>
-      </main>
+      </ContentContainer>
     </React.Fragment>
   )
 }
