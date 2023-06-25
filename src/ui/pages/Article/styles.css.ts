@@ -3,6 +3,7 @@ import { slateDark } from '@radix-ui/colors'
 import { token } from '@tokens'
 
 const articleBackground = createVar()
+const spacingX = createVar()
 
 export const header = style({
   maxWidth: '1280px',
@@ -25,9 +26,24 @@ export const headerContent = style({
 })
 
 export const article = style({
+  vars: {
+    [spacingX]: token('padding.200'),
+  },
   margin: '0 auto',
   maxWidth: '904px',
-  padding: `${token('spacing.700')} 0`,
+  padding: `${token('spacing.700')} ${spacingX}`,
+  '@media': {
+    '(min-width: 768px)': {
+      vars: {
+        [spacingX]: token('padding.300'),
+      },
+    },
+    '(min-width: 928px)': {
+      vars: {
+        [spacingX]: '0',
+      },
+    },
+  },
 })
 
 globalStyle(`${article} > * + *`, {
