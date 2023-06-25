@@ -1,4 +1,5 @@
 import * as React from 'react'
+import type { Metadata } from 'next'
 import { ContentContainer } from '@ui/components/ContentContainer'
 import { ArticleCard } from '@ui/components/ArticleCard'
 import { Heading } from '@ui/components/Heading'
@@ -8,6 +9,10 @@ import { Pill } from '@ui/components/Pill'
 import profile from '@/public/profile.jpg'
 import Image from 'next/image'
 import * as styles from './styles.css'
+
+export const metadata: Metadata = {
+  description: `Hey I'm Nicolas, a frontend engineer. I'm obsessed with developer experience and passionate about creating beautiful and intuitive user interfaces.`,
+}
 
 export function Home() {
   return (
