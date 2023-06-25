@@ -9,5 +9,15 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',
+    '@typescript-eslint/ban-types': [
+      'error',
+      {
+        extendDefaults: true,
+        types: {
+          // un-ban a type that's banned by default
+          '{}': false,
+        },
+      },
+    ],
   },
 }
