@@ -43,7 +43,7 @@ export const color = {
     variable: 'color-background-neutral',
     value: {
       dark: slateDark.slate2,
-      light: slate.slate2,
+      light: slate.slate4,
     },
   },
   backgroundElevated: {
