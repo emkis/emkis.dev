@@ -3,6 +3,15 @@ import { token } from '@tokens'
 
 export const navbarBackground = createVar()
 
+export const emkis = style({
+  display: 'none',
+  '@media': {
+    '(min-width: 768px)': {
+      display: 'block',
+    },
+  },
+})
+
 export const navbar = style({
   maxWidth: '1280px',
   display: 'flex',
@@ -10,6 +19,11 @@ export const navbar = style({
   margin: '0 auto',
   background: fallbackVar(navbarBackground, token('color.background-screen')),
   height: '68px',
+  '@media': {
+    '(min-width: 768px)': {
+      padding: `0 ${token('padding.300')}`,
+    },
+  },
 })
 
 export const content = style({
@@ -17,8 +31,13 @@ export const content = style({
   flex: '1',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  justifyContent: 'center',
   fontSize: token('font-size.250'),
+  '@media': {
+    '(min-width: 768px)': {
+      justifyContent: 'space-between',
+    },
+  },
 })
 
 export const links = style({

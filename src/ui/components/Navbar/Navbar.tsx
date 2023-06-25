@@ -15,7 +15,15 @@ export function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.content}>
-        <Text as={Link} unstyled href="/" weight="bold" size="large" color="primary">
+        <Text
+          as={Link}
+          unstyled
+          href="/"
+          weight="bold"
+          size="large"
+          color="primary"
+          className={styles.emkis}
+        >
           emkis.dev
         </Text>
 
