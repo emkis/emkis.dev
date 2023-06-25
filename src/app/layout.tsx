@@ -4,8 +4,9 @@ import '@tokens/styles/theme-light.css'
 import '@tokens/styles/theme-dark.css'
 
 import type * as React from 'react'
+import { registerTheme } from '@tokens'
+import { font } from '@tokens/font'
 import { cn } from '@ui/core'
-import { Font } from '@ui/tokens'
 import * as styles from './app.css'
 
 type RootLayoutProps = { children: React.ReactNode }
@@ -14,13 +15,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      data-theme="dark"
-      className={cn(
-        Font.body.variable,
-        Font.heading.variable,
-        Font.monospaced.variable,
-        styles.app
-      )}
+      {...registerTheme('dark')}
+      className={cn(font.body, font.heading, font.monospaced, styles.app)}
     >
       <body>{children}</body>
     </html>
