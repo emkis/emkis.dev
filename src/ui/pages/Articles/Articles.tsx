@@ -43,7 +43,7 @@ export function Articles() {
     'Moving state outside React',
     'Optimizing Web Performance: Tips and Tricks for Faster Websites',
     'How I like to learn new technologies',
-    'The path of building my personal website',
+    'The path of building my website on 2023',
     'How to track custom events in a scalable way',
     'Smooth Scrolling Links with Scroll Targets',
   ]
@@ -72,7 +72,7 @@ export function Articles() {
           <ArticlesGrid as="ul">
             {articleColors.map((article, articleIndex) => (
               <ArticleCard.Root key={articleIndex} as="li" background={article}>
-                <ArticleCard.Title articleSlug="hello-markdown">
+                <ArticleCard.Title articleSlug="second-post">
                   {articleTitles[articleIndex]}
                 </ArticleCard.Title>
                 <ArticleCard.Description>24min</ArticleCard.Description>

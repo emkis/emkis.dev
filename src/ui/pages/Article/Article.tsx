@@ -117,7 +117,7 @@ export async function Article({ params }: PageProps) {
         <header className={styles.header}>
           <div className={styles.headerContent}>
             <Heading as="h1" level={1}>
-              The path of building my personal website on 2023
+              The path of building my website on 2023
             </Heading>
             <Text as="time" size="large">
               14 March, 2023 — 15 min

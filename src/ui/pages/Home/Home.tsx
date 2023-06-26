@@ -45,17 +45,14 @@ export function Home() {
 
           <ArticlesGrid as="section">
             <ArticleCard.Root as="article" background="#5C3F3F">
-              <ArticleCard.Title as="h3" articleSlug="second-post">
-                Moving state outside React
+              <ArticleCard.Title as="h3" articleSlug="the-path-of-building-my-website-on-2023">
+                The path of building my website on 2023
               </ArticleCard.Title>
-              <ArticleCard.Description>6min</ArticleCard.Description>
+              <ArticleCard.Description>7min</ArticleCard.Description>
             </ArticleCard.Root>
 
             <ArticleCard.Root as="article" background="#48482D">
-              <ArticleCard.Title as="h3" articleSlug="hello-markdown">
-                Optimizing Web Performance: Tips and Tricks for Faster Websites
-              </ArticleCard.Title>
-              <ArticleCard.Description>14min</ArticleCard.Description>
+              <ArticleCard.Title as="h3">Coming...</ArticleCard.Title>
             </ArticleCard.Root>
           </ArticlesGrid>
         </section>
