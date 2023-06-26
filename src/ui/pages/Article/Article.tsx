@@ -18,6 +18,7 @@ import { Navbar } from '@ui/components/Navbar'
 import { Heading } from '@ui/components/Heading'
 import { Link } from '@ui/components/Link'
 import * as styles from './styles.css'
+import { slateDark } from '@radix-ui/colors'
 
 type PageProps = {
   params: {
@@ -112,7 +113,7 @@ export async function Article({ params }: PageProps) {
 
   return (
     <React.Fragment>
-      <Navbar />
+      <Navbar background={slateDark.slate2} />
       <main>
         <header className={styles.header}>
           <div className={styles.headerContent}>
