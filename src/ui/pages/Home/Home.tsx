@@ -6,6 +6,7 @@ import { Heading } from '@ui/components/Heading'
 import { Link } from '@ui/components/Link'
 import { Navbar } from '@ui/components/Navbar'
 import { Pill } from '@ui/components/Pill'
+import { ArticlesGrid } from '@ui/components/ArticlesGrid'
 import profile from '@/public/profile.jpg'
 import Image from 'next/image'
 import * as styles from './styles.css'
@@ -42,7 +43,7 @@ export function Home() {
             </Pill>
           </div>
 
-          <div className={styles.articles}>
+          <ArticlesGrid as="section">
             <ArticleCard.Root as="article" background="#5C3F3F">
               <ArticleCard.Title as="h3" articleSlug="second-post">
                 Moving state outside React
@@ -56,7 +57,7 @@ export function Home() {
               </ArticleCard.Title>
               <ArticleCard.Description>14min</ArticleCard.Description>
             </ArticleCard.Root>
-          </div>
+          </ArticlesGrid>
         </section>
 
         <footer>

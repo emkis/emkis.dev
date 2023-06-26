@@ -46,17 +46,6 @@ export const featuredHeading = style({
   lineHeight: '1 !important',
 })
 
-export const articles = style({
-  display: 'grid',
-  gap: token('spacing.300'),
-
-  '@media': {
-    '(min-width: 768px)': {
-      gridTemplateColumns: 'repeat(2, 1fr)',
-    },
-  },
-})
-
 export const contactInfo = style({
   color: `${token('color.text-secondary')} !important`,
 })

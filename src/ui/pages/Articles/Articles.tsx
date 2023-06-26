@@ -1,6 +1,7 @@
 import * as React from 'react'
 import type { Metadata } from 'next'
 import { ContentContainer } from '@ui/components/ContentContainer'
+import { ArticlesGrid } from '@ui/components/ArticlesGrid'
 import { Navbar } from '@ui/components/Navbar'
 import { Heading } from '@ui/components/Heading'
 import { Text } from '@ui/components/Text'
@@ -68,7 +69,7 @@ export function Articles() {
             All articles
           </Heading>
 
-          <ul className={styles.articleList}>
+          <ArticlesGrid as="ul">
             {articleColors.map((article, articleIndex) => (
               <ArticleCard.Root key={articleIndex} as="li" background={article}>
                 <ArticleCard.Title articleSlug="hello-markdown">
@@ -77,7 +78,7 @@ export function Articles() {
                 <ArticleCard.Description>24min</ArticleCard.Description>
               </ArticleCard.Root>
             ))}
-          </ul>
+          </ArticlesGrid>
         </section>
       </ContentContainer>
     </React.Fragment>
