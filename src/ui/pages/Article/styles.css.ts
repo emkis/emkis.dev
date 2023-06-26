@@ -163,3 +163,7 @@ globalStyle(`${article} blockquote p`, {
   paddingLeft: token('spacing.300'),
   borderLeft: '4px hsl(201, 6.2%, 20.5%) solid',
 })
+
+globalStyle(`${article} img`, {
+  borderRadius: token('radius.200'),
+})
