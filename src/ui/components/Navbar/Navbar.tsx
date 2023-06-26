@@ -1,19 +1,35 @@
 'use client'
 
+import { assignInlineVars } from '@vanilla-extract/dynamic'
 import { usePathname } from 'next/navigation'
 import { Text } from '@ui/components/Text'
 import { Pill } from '@ui/components/Pill'
 import { Link } from '@ui/components/Link'
+import { cn } from '@ui/core'
 import * as styles from './styles.css'
 
-export function Navbar() {
+type NativeProps = Omit<JSX.IntrinsicElements['nav'], 'ref'>
+
+export type NavbarProps = NativeProps & {
+  background?: string
+}
+
+export function Navbar(props: NavbarProps) {
+  const { background, className, style, ...restProps } = props
   const pathname = usePathname()
   const isHomeActive = pathname === '/'
   const isArticlesActive = pathname.startsWith('/articles')
   const isMeActive = pathname.startsWith('/me')
+  const customBackground = background
+    ? assignInlineVars({ [styles.navbarBackground]: background })
+    : null
 
   return (
-    <nav className={styles.navbar}>
+    <nav
+      {...restProps}
+      style={{ ...style, ...customBackground }}
+      className={cn(styles.navbar, className)}
+    >
       <div className={styles.content}>
         <Text
           as={Link}
