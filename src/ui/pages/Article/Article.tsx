@@ -96,7 +96,7 @@ export async function Article({ params }: PageProps) {
           </Link>
         ),
         strong: ({ children, ...props }: MarkdownElementProps) => (
-          <Text {...props} as="strong" size="base" weight="bold">
+          <Text {...props} as="strong" size="base" color="primary" weight="bold">
             {children}
           </Text>
         ),
