@@ -89,7 +89,7 @@ globalStyle(`${article} [data-remark-code-title]`, {
   fontSize: token('font-size.200'),
   lineHeight: 0,
   background: '#343746',
-  padding: token('padding.300'),
+  padding: `${token('padding.300')} ${token('padding.200')}`,
   borderWidth: '2px',
   borderColor: '#424559',
   borderStyle: 'solid',
@@ -99,7 +99,7 @@ globalStyle(`${article} [data-remark-code-title]`, {
 })
 
 globalStyle(`${article} pre`, {
-  padding: `${token('padding.200')} ${token('padding.300')}`,
+  padding: token('padding.200'),
   borderRadius: token('radius.125'),
   borderWidth: '2px',
   borderStyle: 'solid',
