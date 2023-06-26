@@ -60,7 +60,7 @@ export async function Article({ params }: PageProps) {
     .use(rehypeRaw)
     .use(rehypeSlug)
     .use(rehypeStringify)
-    // @ts-expect-error foo
+    // @ts-expect-error I have no idea what's going on here.
     .use(rehypeReact, {
       createElement: React.createElement,
       Fragment: React.Fragment,
