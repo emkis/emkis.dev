@@ -22,6 +22,7 @@ import {
 
 export const metadata: Metadata = {
   title: 'Articles',
+  description: 'My collection of articles related to the web ecosystem.',
 }
 
 export function Articles() {
@@ -58,9 +59,10 @@ export function Articles() {
             Articles
           </Heading>
           <Text size="large">
-            Relay streamlines design and development of custom components through Figma and Android
-            Studio. Relay streamlines design and development of custom components through Figma and
-            Android Studio.
+            This is my collection of articles related to the web ecosystem. Here you will find some
+            tips, learnings from me and everything else that I think might be valuable to share with
+            the world. I hope one of these articles finds you, and when it does, I hope you learn
+            something new or at least have fun reading it.
           </Text>
         </header>
 
