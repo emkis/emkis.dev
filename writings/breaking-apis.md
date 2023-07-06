@@ -3,6 +3,7 @@ Designing APIs for library interfaces is a pretty hard thing to do. You want you
 What's also hard is "getting it right" on the first try, because you cannot easily undo those decisions. Bugs can be fixed. APIs can be widened and features can be added if needed. Changing an existing API, or taking one away is a totally different beast. It needs a major version bump.
 
 ## Major changes
+
 No one likes breaking changes, and it's hard to get people excited about major version bumps. Unless there is a fundamental architectural change involved that enables us to ship new features in them (like the [networkMode](https://tanstack.com/query/v4/docs/react/guides/network-mode) in React Query v4), major versions aren't about new features.
 
 React shipped hooks in [v16.8](https://legacy.reactjs.org/blog/2019/02/06/react-v16.8.0.html). React Router shipped loaders in [v6.4](https://reactrouter.com/en/6.4.0). Those were all **minor** versions.
@@ -12,6 +13,7 @@ So if major versions aren't about new features, what are they about? [Will McGug
 Ouch, that hurts, but it's on point. More often than not, I've used major version bumps to revert design-decision that we've taken in the past, because they've turned out to be suboptimal. When designing an API, you can't always think everything through. Edge cases will pop up that you haven't even though about. Things might not work as expected, and you realize that changing the API is the best way forward.
 
 ## React Query v5
+
 So React Query is nearing its 5th API fail, and we've taken a quite controversial decision, which I announced yesterday: We're going to remove the callbacks on `useQuery`:
 
 This almost got me my first twitter 💩-storm, which was to be somewhat expected. Why would you take something away from me? Let me write code the way I want to, this is a terrible idea!
@@ -19,6 +21,7 @@ This almost got me my first twitter 💩-storm, which was to be somewhat expecte
 Before you jump on the bandwagon, please note that we're talking only about the callbacks of `useQuery`, NOT about the `useMutation` callbacks. Once I explained this and the drawbacks about those callbacks, most people tend to agree with that decision.
 
 ### A bad API
+
 Let's quickly recap which API we're actually talking about. `useQuery` has three callback functions: `onSuccess`, `onError` and `onSettled`, which will be called when the Query ran either successfully or had an error (or in both cases). You can (apparently) use them to execute side effects, like showing error notifications:
 
 ```js title="onError-callback.js"
@@ -63,13 +66,13 @@ The best way to address this problem is to use the global cache-level callbacks 
 ```jsx title="query-cache-callbacks.js"
 const queryClient = new QueryClient({
   queryCache: new QueryCache({
-    onError: (error) =>
-      toast.error(`Something went wrong: ${error.message}`),
+    onError: (error) => toast.error(`Something went wrong: ${error.message}`),
   }),
 })
 ```
 
 #### An additional render cycle
+
 `setTodoCount` introduces another render cycle. This will not only make your App render more often than necessary (which might or might not matter), but it also means that the intermediate render cycle will contain false values.
 
 As an example, suppose `fetchTodos` returns a list of length 5. With the above code, there will be three render cycles:
@@ -79,6 +82,7 @@ As an example, suppose `fetchTodos` returns a list of length 5. With the above c
 3. `todos` will be an Array of length 5 and `todoCount` will be 5. That is the final state and is correct again.
 
 ## In Summary
+
 The only good use-case that came out of the twitter discussion was scrolling a feed to the bottom when a new chat message arrived. That is a good example, similar to animating an item if a fetch failed, because you'd want that to be different on a per-component level. Still, those cases are the minority by far, and if that's what you want to do, you can achieve the same thing with `useEffect`. `data` and `error` returned from `useQuery` are referentially stable, so you can set up an effect pretty easily without having to worry about it running too often.
 
 APIs need to be simple, intuitive and consistent. The callbacks on `useQuery` look like they fit these criteria, but they are bug-producers in disguise. It's pretty bad because they will likely do what you want when you first implement them, but they have a toll when you refactor or extend your App as it grows. They also invite antipatterns because you can introduce error-prone state-syncing without feeling bad while doing so.

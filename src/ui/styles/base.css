@@ -273,7 +273,7 @@ textarea::placeholder {
  * Set the default cursor for buttons.
  */
 button,
-[role="button"] {
+[role='button'] {
   cursor: pointer;
 }
 
@@ -316,7 +316,7 @@ video {
  */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
 
   *,

@@ -7,6 +7,7 @@ The standard chunk of Lorem Ipsum **used since the 1500s** is reproduced below f
 Here you can see an [**bold link**](https://google.com), it can look nice. Now, this is [a normal link](https://google.com) to a regular website.
 
 ## Measure the contrast ratio
+
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 <img src="/architecture.jpg">
@@ -14,6 +15,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 That’s what happens when you do something like this, you discover a lot of amazing thing you haven’t imagined yet. This is the magic of software development, embrace it.
 
 ## Stay away from pure black
+
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 Now I want to ask you a question and I want you to think hard about it before moving forward. I'm going to make a change to this and I want you to tell me which will have the better performance characteristics.
@@ -21,16 +23,19 @@ Now I want to ask you a question and I want you to think hard about it before mo
 The only thing I'm going to change is wrap the `dispense` function inside `React.useCallback`:
 
 **A long and bold phrase with some `code`.**
+
 ```tsx
-const dispense = React.useCallback(candy => {
-  setCandies(allCandies => allCandies.filter(c => c !== candy))
+const dispense = React.useCallback((candy) => {
+  setCandies((allCandies) => allCandies.filter((c) => c !== candy))
 }, [])
 ```
 
 ## Re-evaluate your color palette
+
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 ### This is a sub section of the title above
+
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 ```css title="cool-styles.css"
@@ -46,6 +51,7 @@ article {
 ```
 
 #### Another great, but tiny section
+
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 Ordered
