@@ -18,5 +18,5 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ['prettier.config.js']
+  ignorePatterns: ['prettier.config.js'],
 }
