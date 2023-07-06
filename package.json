@@ -15,10 +15,10 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@vanilla-extract/dynamic": "^2.0.3",
     "clsx": "^1.2.1",
-    "next": "13.4.8",
+    "next": "13.4.9",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-wrap-balancer": "^0.4.1"
+    "react-wrap-balancer": "^1.0.0"
   },
   "devDependencies": {
     "@stefanprobst/remark-shiki": "^2.2.1",
