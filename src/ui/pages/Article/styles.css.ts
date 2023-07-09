@@ -2,7 +2,7 @@ import { style, globalStyle, createVar, fallbackVar } from '@vanilla-extract/css
 import { slateDark } from '@radix-ui/colors'
 import { token } from '@tokens'
 
-const articleBackground = createVar()
+export const articleBackground = createVar()
 const spacingX = createVar()
 
 export const header = style({
