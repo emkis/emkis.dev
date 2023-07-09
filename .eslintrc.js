@@ -18,5 +18,5 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ['prettier.config.js', 'next.config.cjs'],
+  ignorePatterns: ['prettier.config.mjs', 'next.config.js'],
 }
