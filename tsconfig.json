@@ -23,9 +23,16 @@
       "@shared/*": ["src/shared/*"],
       "@ui/*": ["src/ui/*"],
       "@tokens/*": ["src/tokens/*"],
-      "@tokens": ["src/tokens"]
+      "@tokens": ["src/tokens"],
+      "@content": ["./.contentlayer/generated"]
     }
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".contentlayer/generated"
+  ],
   "exclude": ["node_modules"]
 }
