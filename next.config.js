@@ -7,7 +7,7 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-const withVanillaExtract = createVanillaExtractPlugin({})
-const withContentlayer = createContentlayerPlugin({})
+const withVanillaExtract = createVanillaExtractPlugin()
+const withContentlayer = createContentlayerPlugin()
 
 module.exports = withContentlayer(withVanillaExtract(nextConfig))
