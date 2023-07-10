@@ -74,21 +74,16 @@ globalStyle(
   }
 )
 
-globalStyle(
-  `
-  ${article} code,
-  ${article} [data-remark-code-title]`,
-  {
-    fontFamily: token('font-family.monospaced'),
-  }
-)
+globalStyle(`${article} [data-rehype-pretty-code-fragment] *`, {
+  fontFamily: token('font-family.monospaced'),
+})
 
 globalStyle(`${article} code`, {
   fontSize: token('font-size.200'),
   lineHeight: '26px',
 })
 
-globalStyle(`${article} [data-remark-code-title]`, {
+globalStyle(`${article} [data-rehype-pretty-code-title]`, {
   color: '#ecedee',
   fontSize: token('font-size.200'),
   lineHeight: 0,
@@ -111,8 +106,7 @@ globalStyle(`${article} pre`, {
   overflowX: 'auto',
 })
 
-globalStyle(`${article} [data-remark-code-title] + pre`, {
-  marginTop: 0,
+globalStyle(`${article} [data-rehype-pretty-code-title] + pre`, {
   borderTop: 0,
   borderTopRightRadius: 0,
   borderTopLeftRadius: 0,
