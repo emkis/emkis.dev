@@ -1,4 +1,4 @@
-import { style, styleVariants, globalStyle } from '@vanilla-extract/css'
+import { style, styleVariants } from '@vanilla-extract/css'
 import { token } from '@tokens'
 
 export const pill = style({
@@ -19,10 +19,6 @@ export const pill = style({
   ':active': {
     background: token('color.interactive-active'),
   },
-})
-
-globalStyle(`${pill} > span`, {
-  verticalAlign: 'middle',
 })
 
 export const variant = styleVariants({
