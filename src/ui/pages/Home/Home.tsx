@@ -7,7 +7,7 @@ import { Link } from '@ui/components/Link'
 import { Navbar } from '@ui/components/Navbar'
 import { Pill } from '@ui/components/Pill'
 import { ArticlesGrid } from '@ui/components/ArticlesGrid'
-import profile from '@/public/profile.jpg'
+import profileImg from './profile.jpg'
 import Image from 'next/image'
 import * as styles from './styles.css'
 
@@ -21,7 +21,7 @@ export function Home() {
       <Navbar />
       <ContentContainer as="main">
         <header className={styles.greetingContainer}>
-          <Image alt="" src={profile} width={160} height={160} className={styles.profileImage} />
+          <Image alt="" src={profileImg} width={160} height={160} className={styles.profileImage} />
           <Heading as="h1" level={3}>
             <span className={styles.greetingHeadline}>
               Hey I&apos;m Nicolas, a frontend engineer.
