@@ -24,7 +24,9 @@
       "@ui/*": ["src/ui/*"],
       "@tokens/*": ["src/tokens/*"],
       "@tokens": ["src/tokens"],
-      "@content": ["./.contentlayer/generated"]
+      "@content": ["./.contentlayer/generated"],
+      "@article/*": ["src/article/*"],
+      "@article": ["src/article"]
     }
   },
   "include": [
