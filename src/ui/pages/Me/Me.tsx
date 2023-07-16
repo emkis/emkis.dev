@@ -17,10 +17,9 @@ export function Me() {
       <Navbar />
       <ContentContainer as="main">
         <header className={styles.header}>
-          <Heading as="h1" level={2}>
+          <Heading as="h1" level={1}>
             Hi, I&apos;m Nicolas Jardim 👋
           </Heading>
-
           <Text as="p" size="large">
             I&apos;m not really sure what to put on this page for now, so this will have more
             content in a few days.
