@@ -8,8 +8,6 @@ const spacingX = createVar()
 export const header = style({
   maxWidth: '1280px',
   margin: '0 auto',
-  display: 'flex',
-  alignItems: 'center',
   borderBottomLeftRadius: token('radius.400'),
   borderBottomRightRadius: token('radius.400'),
   background: fallbackVar(articleBackground, slateDark.slate5),
