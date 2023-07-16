@@ -44,6 +44,7 @@ const components: MDXComponents = {
   ),
   img: ({ children, ...props }) => (
     // @ts-expect-error src prop will be injected from markdown
+    // eslint-disable-next-line jsx-a11y/alt-text -- alt attr will be inject from markdown
     <Image {...props} ref={undefined} placeholder="blur" width={800} height={500}>
       {children}
     </Image>
