@@ -1,6 +1,7 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypeSlug from 'rehype-slug'
 import rehypePrettyCode, { type Options as RehypePrettyCodeOptions } from 'rehype-pretty-code'
+import aylinTheme from './aylin.json'
 
 export const Article = defineDocumentType(() => ({
   name: 'Article',
@@ -26,7 +27,12 @@ export default makeSource({
     remarkPlugins: [],
     rehypePlugins: [
       rehypeSlug,
-      [rehypePrettyCode, { theme: 'dracula' } as RehypePrettyCodeOptions],
+      [
+        rehypePrettyCode,
+        {
+          theme: { ...aylinTheme, bg: '', fg: '', settings: [] },
+        } as RehypePrettyCodeOptions,
+      ],
     ],
   },
 })
