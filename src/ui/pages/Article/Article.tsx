@@ -1,6 +1,6 @@
 import * as React from 'react'
 import type { Metadata } from 'next'
-import { getAllArticles, getArticleBySlug } from '@article'
+import { getAllArticles, getArticleBySlug, getReadingTime } from '@article'
 import { MDXToContent } from '@ui/core'
 import { Navbar } from '@ui/components/Navbar'
 import { ArticleHeader } from './ArticleHeader'
@@ -26,12 +26,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export function Article({ params }: PageProps) {
   const article = getArticleBySlug(params.slug)
+  const articleRawContent = article.body.raw
+  const articleReadTime = getReadingTime(articleRawContent)
 
   return (
     <React.Fragment>
       <Navbar background={article.color} />
       <main>
-        <ArticleHeader title={article.title} date={article.date} color={article.color} />
+        <ArticleHeader
+          title={article.title}
+          date={article.date}
+          readTime={articleReadTime}
+          color={article.color}
+        />
         <article className={styles.article}>
           <MDXToContent content={article.body.code} />
         </article>

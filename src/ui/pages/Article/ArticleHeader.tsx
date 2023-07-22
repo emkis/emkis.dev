@@ -13,10 +13,11 @@ export type ArticleHeaderProps = NativeProps & {
   title: string
   date: string
   color: string
+  readTime: number
 }
 
 export function ArticleHeader(props: ArticleHeaderProps) {
-  const { title, date, color } = props
+  const { title, date, color, readTime } = props
   const rootStyles = assignInlineVars({ [styles.articleBackground]: color })
 
   return (
@@ -26,8 +27,9 @@ export function ArticleHeader(props: ArticleHeaderProps) {
           <Heading as="h1" level={1}>
             {title}
           </Heading>
-          <Text as="time" size="large">
-            {formatDate(date)} — 15 min
+          <Text size="large">
+            <time dateTime={date}>{formatDate(date)}</time>
+            <span> — {readTime} min</span>
           </Text>
         </div>
       </div>
