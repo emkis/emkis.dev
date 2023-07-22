@@ -19,7 +19,8 @@
     "next-contentlayer": "^0.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-wrap-balancer": "^1.0.0"
+    "react-wrap-balancer": "^1.0.0",
+    "reading-time": "^1.5.0"
   },
   "devDependencies": {
     "@stefanprobst/remark-shiki": "^2.2.1",
