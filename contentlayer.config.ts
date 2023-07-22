@@ -11,6 +11,7 @@ export const Article = defineDocumentType(() => ({
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
     color: { type: 'string', required: true },
+    featured: { type: 'boolean', required: false },
   },
   computedFields: {
     url: {
