@@ -1,11 +1,22 @@
-import { style, styleVariants } from '@vanilla-extract/css'
+import { style, styleVariants, globalStyle } from '@vanilla-extract/css'
 import { token } from '@tokens'
 
 const base = style({
   display: 'block',
+  width: 'fit-content',
   fontFamily: token('font-family.heading'),
   fontWeight: token('font-weight.heading.medium'),
   color: token('color.text-primary'),
+})
+
+export const anchor = style({
+  color: token('color.text-secondary'),
+  opacity: 0,
+  transition: 'opacity 100ms ease-in',
+})
+
+globalStyle(`${base}[id]:hover ${anchor}`, {
+  opacity: 1,
 })
 
 const level1 = style({

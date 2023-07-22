@@ -1,5 +1,6 @@
 import type * as React from 'react'
 import TextWrapBalancer from 'react-wrap-balancer'
+import { Link } from '@ui/components/Link'
 import { cn, type ClassNameValue, type PolymorphicComponentPropWithoutRef } from '@ui/core'
 import * as styles from './styles.css'
 
@@ -16,13 +17,22 @@ export type HeadingProps<Component extends React.ElementType> = PolymorphicCompo
 export function Heading<Component extends React.ElementType = 'span'>(
   props: HeadingProps<Component>
 ) {
-  const { children, as, className, level, ...restProps } = props
+  const { children, as, className, level, id, ...restProps } = props
   const levelClassNames = styles.levelVariant[level]
   const Element = as ?? 'span'
 
   return (
-    <Element {...restProps} className={cn(levelClassNames, className)}>
-      <TextWrapBalancer>{children}</TextWrapBalancer>
+    <Element {...restProps} id={id} className={cn(levelClassNames, className)}>
+      {id ? (
+        <Link href={`#${id}`} unstyled>
+          <TextWrapBalancer>{children}</TextWrapBalancer>
+          <span className={styles.anchor} aria-hidden>
+            {' # '}
+          </span>
+        </Link>
+      ) : (
+        <TextWrapBalancer>{children}</TextWrapBalancer>
+      )}
     </Element>
   )
 }
