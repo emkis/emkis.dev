@@ -7,6 +7,7 @@ import { Link } from '@ui/components/Link'
 import { Navbar } from '@ui/components/Navbar'
 import { Pill } from '@ui/components/Pill'
 import { ArticlesGrid } from '@ui/components/ArticlesGrid'
+import { getAllArticles, getReadingTime } from '@article'
 import profileImg from './profile.jpg'
 import Image from 'next/image'
 import * as styles from './styles.css'
@@ -16,6 +17,9 @@ export const metadata: Metadata = {
 }
 
 export function Home() {
+  const articles = getAllArticles()
+  const featuredArticles = articles.filter((article) => article.featured)
+
   return (
     <React.Fragment>
       <Navbar />
@@ -44,13 +48,16 @@ export function Home() {
           </div>
 
           <ArticlesGrid as="section">
-            <ArticleCard.Root as="article" background="#5C3F3F">
-              <ArticleCard.Title as="h3" articleSlug="the-path-of-building-my-website-on-2023">
-                The path of building my website on 2023
-              </ArticleCard.Title>
-              <ArticleCard.Description>7min</ArticleCard.Description>
-            </ArticleCard.Root>
-
+            {featuredArticles.map((article) => (
+              <ArticleCard.Root key={article._id} as="article" background={article.color}>
+                <ArticleCard.Title as="h3" articleSlug={article._raw.flattenedPath}>
+                  {article.title}
+                </ArticleCard.Title>
+                <ArticleCard.Description>
+                  {getReadingTime(article.body.raw)} min
+                </ArticleCard.Description>
+              </ArticleCard.Root>
+            ))}
             <ArticleCard.Root as="article" background="#48482D">
               <ArticleCard.Title as="h3">Coming...</ArticleCard.Title>
             </ArticleCard.Root>
