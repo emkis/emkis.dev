@@ -26,7 +26,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       {...registerTheme('dark')}
       className={cn(font.body, font.heading, font.monospaced, styles.app)}
     >
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   )
 }
