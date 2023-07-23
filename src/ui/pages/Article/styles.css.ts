@@ -1,6 +1,6 @@
 import { style, globalStyle, createVar, fallbackVar } from '@vanilla-extract/css'
 import { slateDark } from '@radix-ui/colors'
-import { token } from '@tokens'
+import { token, breakpoint } from '@tokens'
 
 export const articleBackground = createVar()
 const spacingX = createVar()
@@ -31,7 +31,7 @@ export const article = style({
   maxWidth: '904px',
   padding: `${token('spacing.700')} ${spacingX}`,
   '@media': {
-    '(min-width: 768px)': {
+    [breakpoint('md')]: {
       vars: {
         [spacingX]: token('padding.300'),
       },

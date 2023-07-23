@@ -1,12 +1,12 @@
 import { style, createVar, fallbackVar } from '@vanilla-extract/css'
-import { token } from '@tokens'
+import { token, breakpoint } from '@tokens'
 
 export const navbarBackground = createVar()
 
 export const emkis = style({
   display: 'none',
   '@media': {
-    '(min-width: 768px)': {
+    [breakpoint('md')]: {
       display: 'block',
     },
   },
@@ -20,7 +20,7 @@ export const navbar = style({
   background: fallbackVar(navbarBackground, token('color.background-screen')),
   height: '68px',
   '@media': {
-    '(min-width: 768px)': {
+    [breakpoint('md')]: {
       padding: `0 ${token('padding.300')}`,
     },
   },
@@ -34,7 +34,7 @@ export const content = style({
   justifyContent: 'center',
   fontSize: token('font-size.250'),
   '@media': {
-    '(min-width: 768px)': {
+    [breakpoint('md')]: {
       justifyContent: 'space-between',
     },
   },

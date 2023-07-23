@@ -1,11 +1,11 @@
 import { style, styleVariants } from '@vanilla-extract/css'
-import { token } from '@tokens'
+import { token, breakpoint } from '@tokens'
 
 const sizeBase = style({
   fontSize: token('font-size.200'),
   lineHeight: 1.8,
   '@media': {
-    '(min-width: 1024px)': {
+    [breakpoint('lg')]: {
       fontSize: token('font-size.225'),
     },
   },
@@ -15,7 +15,7 @@ const sizeLarge = style({
   fontSize: token('font-size.225'),
   lineHeight: 1.7,
   '@media': {
-    '(min-width: 1024px)': {
+    [breakpoint('lg')]: {
       fontSize: token('font-size.250'),
     },
   },

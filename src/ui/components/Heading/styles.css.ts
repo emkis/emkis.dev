@@ -1,5 +1,5 @@
 import { style, styleVariants, globalStyle } from '@vanilla-extract/css'
-import { token } from '@tokens'
+import { token, breakpoint } from '@tokens'
 
 const base = style({
   display: 'block',
@@ -24,7 +24,7 @@ const level1 = style({
   lineHeight: 1.3,
   letterSpacing: token('letter-spacing.dense'),
   '@media': {
-    '(min-width: 1024px)': {
+    [breakpoint('md')]: {
       fontSize: token('font-size.600'),
     },
   },
@@ -35,7 +35,7 @@ const level2 = style({
   lineHeight: 1.38,
   letterSpacing: token('letter-spacing.dense'),
   '@media': {
-    '(min-width: 1024px)': {
+    [breakpoint('md')]: {
       fontSize: token('font-size.450'),
     },
   },
@@ -46,7 +46,7 @@ const level3 = style({
   lineHeight: 1.48,
   letterSpacing: token('letter-spacing.dense'),
   '@media': {
-    '(min-width: 1024px)': {
+    [breakpoint('md')]: {
       fontSize: token('font-size.375'),
     },
   },
@@ -57,7 +57,7 @@ const level4 = style({
   lineHeight: 1.58,
   letterSpacing: token('letter-spacing.regular'),
   '@media': {
-    '(min-width: 1024px)': {
+    [breakpoint('md')]: {
       fontSize: token('font-size.300'),
     },
   },

@@ -1,5 +1,5 @@
 import { style, createVar } from '@vanilla-extract/css'
-import { token } from '@tokens'
+import { token, breakpoint } from '@tokens'
 
 const profileSize = createVar()
 
@@ -18,7 +18,7 @@ export const profileImage = style({
   objectFit: 'cover',
 
   '@media': {
-    '(min-width: 1024px)': {
+    [breakpoint('lg')]: {
       vars: {
         [profileSize]: '160px',
       },
