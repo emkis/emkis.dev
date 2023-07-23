@@ -8,8 +8,11 @@
 import { createGlobalTheme } from '@vanilla-extract/css'
 import { themeTokens } from './contracts/theme.css'
 import { color } from '@tokens/definitions/color'
+import { registerTheme } from '@tokens/utilities/register-theme'
 
-createGlobalTheme('[data-theme="light"]', themeTokens, {
+const lightThemeSelector = registerTheme('light').selector
+
+createGlobalTheme(lightThemeSelector, themeTokens, {
   'color.text-primary': color.textPrimary.value.light,
   'color.text-secondary': color.textSecondary.value.light,
   'color.text-link': color.textLink.value.light,
