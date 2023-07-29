@@ -5,6 +5,7 @@ import { format, parseISO } from 'date-fns'
 import { Heading } from '@ui/components/Heading'
 import { Text } from '@ui/components/Text'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
+import { registerTheme } from '@tokens'
 import * as styles from './styles.css'
 
 type NativeProps = Omit<JSX.IntrinsicElements['header'], 'ref'>
@@ -21,7 +22,7 @@ export function ArticleHeader(props: ArticleHeaderProps) {
   const rootStyles = assignInlineVars({ [styles.articleBackground]: color })
 
   return (
-    <header style={rootStyles}>
+    <header {...registerTheme('dark').props} style={rootStyles}>
       <div className={styles.header}>
         <div className={styles.headerContent}>
           <Heading as="h1" level={1}>
