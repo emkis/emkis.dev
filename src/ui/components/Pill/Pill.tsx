@@ -16,7 +16,7 @@ export type PillProps<Component extends React.ElementType> = PolymorphicComponen
 
 export function Pill<Component extends React.ElementType = 'button'>(props: PillProps<Component>) {
   const { as, children, className, variant = 'default', ...restProps } = props
-  const themeAttribute = variant === 'active' ? registerTheme('light') : null
+  const themeAttribute = variant === 'active' ? registerTheme('light').props : null
   const textClassName = styles.variant[variant]
   const Element = as ?? 'button'
   const buttonProps: JSX.IntrinsicElements['button'] = { type: 'button' }
