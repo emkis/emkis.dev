@@ -2,6 +2,7 @@ import { style, createVar, fallbackVar } from '@vanilla-extract/css'
 import { token, breakpoint } from '@tokens'
 
 export const navbarBackground = createVar()
+export const navbarWidth = '1366px'
 
 export const emkis = style({
   display: 'none',
@@ -13,7 +14,7 @@ export const emkis = style({
 })
 
 export const navbar = style({
-  maxWidth: '1280px',
+  maxWidth: navbarWidth,
   display: 'flex',
   justifyContent: 'center',
   margin: '0 auto',

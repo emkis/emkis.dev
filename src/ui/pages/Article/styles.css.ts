@@ -1,12 +1,13 @@
 import { style, globalStyle, createVar, fallbackVar } from '@vanilla-extract/css'
 import { slateDark } from '@radix-ui/colors'
 import { token, breakpoint } from '@tokens'
+import { navbarWidth } from '@ui/components/Navbar/styles.css'
 
 export const articleBackground = createVar()
 const spacingX = createVar()
 
 export const header = style({
-  maxWidth: '1280px',
+  maxWidth: navbarWidth,
   margin: '0 auto',
   borderBottomLeftRadius: token('radius.400'),
   borderBottomRightRadius: token('radius.400'),
