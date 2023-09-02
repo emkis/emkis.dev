@@ -7,7 +7,7 @@ import { Text } from '@ui/components/Text'
 import { registerTheme } from '@tokens'
 import * as styles from './styles.css'
 
-type NativeProps = Omit<JSX.IntrinsicElements['header'], 'ref'>
+type NativeProps = React.ComponentPropsWithoutRef<'header'>
 
 export type ArticleHeaderProps = NativeProps & {
   title: string
@@ -16,10 +16,10 @@ export type ArticleHeaderProps = NativeProps & {
 }
 
 export function ArticleHeader(props: ArticleHeaderProps) {
-  const { title, date, readTime } = props
+  const { title, date, readTime, ...restProps } = props
 
   return (
-    <header {...registerTheme('dark').props}>
+    <header {...restProps} {...registerTheme('dark').props}>
       <div className={styles.header}>
         <div className={styles.headerContent}>
           <Heading as="h1" level={1}>
