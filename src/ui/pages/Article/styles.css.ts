@@ -49,10 +49,6 @@ globalStyle(`${article} > * + *`, {
   marginTop: token('spacing.500'),
 })
 
-globalStyle(`${article} :first-child`, {
-  marginTop: '0',
-})
-
 globalStyle(
   `
   ${article} > h2,
