@@ -25,10 +25,12 @@ export function Heading<Component extends React.ElementType = 'span'>(
     <Element {...restProps} id={id} className={cn(levelClassNames, className)}>
       {id ? (
         <Link href={`#${id}`} unstyled>
-          <TextWrapBalancer>{children}</TextWrapBalancer>
-          <span className={styles.anchor} aria-hidden>
-            {' # '}
-          </span>
+          <TextWrapBalancer>
+            {children}
+            <span className={styles.anchor} aria-hidden>
+              {' #'}
+            </span>
+          </TextWrapBalancer>
         </Link>
       ) : (
         <TextWrapBalancer>{children}</TextWrapBalancer>
