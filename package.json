@@ -26,30 +26,19 @@
   "devDependencies": {
     "@stefanprobst/remark-shiki": "^2.2.1",
     "@types/mdx": "^2.0.7",
-    "@types/node": "20.5.6",
+    "@types/node": "20.5.8",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
     "@vanilla-extract/css": "^1.13.0",
     "@vanilla-extract/next-plugin": "^2.3.0",
     "date-fns": "^2.30.0",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "eslint-config-prettier": "^9.0.0",
-    "prettier": "^3.0.2",
-    "rehype-pretty-code": "^0.10.0",
-    "rehype-slug": "^5.1.0",
+    "prettier": "^3.0.3",
+    "rehype-pretty-code": "^0.10.1",
+    "rehype-slug": "^6.0.0",
     "typescript": "5.2.2"
-  },
-  "pnpm": {
-    "overrides": {
-      "@opentelemetry/api": "1.4.1",
-      "@opentelemetry/core": "1.13.0",
-      "@opentelemetry/exporter-trace-otlp-grpc": "0.39.1",
-      "@opentelemetry/resources": "1.13.0",
-      "@opentelemetry/sdk-trace-base": "1.13.0",
-      "@opentelemetry/sdk-trace-node": "1.13.0",
-      "@opentelemetry/semantic-conventions": "1.13.0"
-    }
   }
 }
