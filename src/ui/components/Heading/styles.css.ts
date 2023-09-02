@@ -10,6 +10,9 @@ const base = style({
 })
 
 export const anchor = style({
+  fontSize: 'inherit',
+  fontFamily: 'inherit',
+  fontWeight: 'inherit',
   color: token('color.text-secondary'),
   opacity: 0,
   transition: 'opacity 100ms ease-in',
