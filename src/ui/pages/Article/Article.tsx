@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { getAllArticles, getArticleBySlug, getReadingTime } from '@article'
 import { MDXToContent } from '@ui/core'
 import { Navbar } from '@ui/components/Navbar'
+import { ArticleColor } from './ArticleColor'
 import { ArticleHeader } from './ArticleHeader'
 import * as styles from './styles.css'
 
@@ -32,17 +33,12 @@ export function Article({ params }: PageProps) {
   return (
     <React.Fragment>
       <Navbar background={article.color} />
-      <main>
-        <ArticleHeader
-          title={article.title}
-          date={article.date}
-          readTime={articleReadTime}
-          color={article.color}
-        />
+      <ArticleColor color={article.color}>
+        <ArticleHeader title={article.title} date={article.date} readTime={articleReadTime} />
         <article className={styles.article}>
           <MDXToContent content={article.body.code} />
         </article>
-      </main>
+      </ArticleColor>
     </React.Fragment>
   )
 }
