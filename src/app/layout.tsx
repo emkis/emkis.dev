@@ -1,14 +1,14 @@
-import '@ui/styles/base.css'
-import '@tokens/styles/base.css'
-import '@tokens/styles/theme-light.css'
-import '@tokens/styles/theme-dark.css'
-
 import type * as React from 'react'
 import type { Metadata } from 'next'
 import { registerTheme } from '@tokens'
 import { font } from '@tokens/font'
 import { cn } from '@ui/core'
 import * as styles from './app.css'
+import '@ui/styles/base.css'
+import '@ui/styles/global.css'
+import '@tokens/styles/base.css'
+import '@tokens/styles/theme-light.css'
+import '@tokens/styles/theme-dark.css'
 
 type RootLayoutProps = { children: React.ReactNode }
 
