@@ -17,6 +17,7 @@ createGlobalTheme(lightThemeSelector, themeTokens, {
   'color.text-secondary': color.textSecondary.value.light,
   'color.text-link': color.textLink.value.light,
   'color.text-link-visited': color.textLinkVisited.value.light,
+  'color.text-selection': color.textSelection.value.light,
   'color.background-screen': color.backgroundScreen.value.light,
   'color.background-neutral': color.backgroundNeutral.value.light,
   'color.background-elevated': color.backgroundElevated.value.light,

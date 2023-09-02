@@ -1,5 +1,5 @@
 import type { TokenContract } from '@tokens/types'
-import { slateDark, slate } from '@radix-ui/colors'
+import { slateDark, slate, grassDarkA, grassA } from '@radix-ui/colors'
 
 const baseDark = '#000'
 
@@ -30,6 +30,13 @@ export const color = {
     value: {
       dark: slateDark.slate12,
       light: slate.slate12,
+    },
+  },
+  textSelection: {
+    variable: 'color-text-selection',
+    value: {
+      light: grassA.grassA5,
+      dark: grassDarkA.grassA5,
     },
   },
   backgroundScreen: {

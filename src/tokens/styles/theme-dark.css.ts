@@ -17,6 +17,7 @@ createGlobalTheme(darkThemeSelector, themeTokens, {
   'color.text-secondary': color.textSecondary.value.dark,
   'color.text-link': color.textLink.value.dark,
   'color.text-link-visited': color.textLinkVisited.value.dark,
+  'color.text-selection': color.textSelection.value.dark,
   'color.background-screen': color.backgroundScreen.value.dark,
   'color.background-neutral': color.backgroundNeutral.value.dark,
   'color.background-elevated': color.backgroundElevated.value.dark,

@@ -15,6 +15,7 @@ export const themeTokens = createGlobalThemeContract({
   'color.text-secondary': color.textSecondary.variable,
   'color.text-link': color.textLink.variable,
   'color.text-link-visited': color.textLinkVisited.variable,
+  'color.text-selection': color.textSelection.variable,
   'color.background-screen': color.backgroundScreen.variable,
   'color.background-neutral': color.backgroundNeutral.variable,
   'color.background-elevated': color.backgroundElevated.variable,
