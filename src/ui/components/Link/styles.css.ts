@@ -13,3 +13,11 @@ export const link = style({
     },
   },
 })
+
+globalStyle(`${link} *`, {
+  color: token('color.text-link'),
+})
+
+globalStyle(`${link}:visited *`, {
+  color: token('color.text-link-visited'),
+})
