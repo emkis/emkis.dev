@@ -7,6 +7,7 @@ const base = style({
   fontFamily: token('font-family.heading'),
   fontWeight: token('font-weight.heading.medium'),
   color: token('color.text-primary'),
+  scrollMarginTop: token('spacing.300'),
 })
 
 export const anchor = style({
