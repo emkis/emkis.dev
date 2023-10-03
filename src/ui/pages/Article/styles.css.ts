@@ -29,7 +29,7 @@ export const article = style({
     [spacingX]: token('padding.200'),
   },
   margin: '0 auto',
-  maxWidth: '904px',
+  maxWidth: '768px',
   padding: `${token('spacing.700')} ${spacingX}`,
   '@media': {
     [breakpoint('md')]: {
