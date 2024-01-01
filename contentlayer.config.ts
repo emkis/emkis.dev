@@ -27,14 +27,15 @@ export default makeSource({
   mdx: {
     remarkPlugins: [],
     rehypePlugins: [
+      rehypeSlug,
       [
         // @ts-expect-error These types are incompatible, check issue: https://github.com/atomiks/rehype-pretty-code/issues/127
         rehypePrettyCode,
         {
-          theme: { ...aylinTheme, bg: '', fg: '', settings: [] },
-        } as RehypePrettyCodeOptions,
+          // @ts-expect-error The theme works fine, but for some reason the types are not compatible
+          theme: aylinTheme,
+        } satisfies RehypePrettyCodeOptions,
       ],
-      rehypeSlug,
     ],
   },
 })
