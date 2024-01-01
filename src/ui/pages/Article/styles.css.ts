@@ -69,7 +69,7 @@ globalStyle(
   }
 )
 
-globalStyle(`${article} [data-rehype-pretty-code-fragment] *`, {
+globalStyle(`${article} [data-rehype-pretty-code-figure] *`, {
   fontFamily: token('font-family.monospaced'),
 })
 

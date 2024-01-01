@@ -29,6 +29,7 @@ export default makeSource({
     rehypePlugins: [
       rehypeSlug,
       [
+        // @ts-expect-error These types are incompatible, check issue: https://github.com/atomiks/rehype-pretty-code/issues/127
         rehypePrettyCode,
         {
           theme: { ...aylinTheme, bg: '', fg: '', settings: [] },
