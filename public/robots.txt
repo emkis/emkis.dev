@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /me/
+Disallow: /_next/
+
+Sitemap: https://emkis.dev/sitemap.xml
