@@ -5,7 +5,7 @@
  * are generated and injected on the target selector.
  */
 
-import { createGlobalTheme } from '@vanilla-extract/css'
+import { createGlobalTheme, globalStyle } from '@vanilla-extract/css'
 import { themeTokens } from './contracts/theme.css'
 import { color } from '@tokens/definitions/color'
 import { registerTheme } from '@tokens/utilities/register-theme'
@@ -24,4 +24,8 @@ createGlobalTheme(darkThemeSelector, themeTokens, {
   'color.interactive': color.interactive.value.dark,
   'color.interactive-hover': color.interactiveHover.value.dark,
   'color.interactive-active': color.interactiveActive.value.dark,
+})
+
+globalStyle(darkThemeSelector, {
+  colorScheme: 'dark',
 })
