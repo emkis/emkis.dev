@@ -1,5 +1,5 @@
 'use client'
-
+import type * as React from 'react'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 import { usePathname } from 'next/navigation'
 import { Text } from '@ui/components/Text'
@@ -8,7 +8,7 @@ import { Link } from '@ui/components/Link'
 import { cn } from '@ui/core'
 import * as styles from './styles.css'
 
-type NativeProps = Omit<JSX.IntrinsicElements['nav'], 'ref'>
+type NativeProps = Omit<React.JSX.IntrinsicElements['nav'], 'ref'>
 
 export type NavbarProps = NativeProps & {
   background?: string

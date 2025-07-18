@@ -19,7 +19,7 @@ export function Pill<Component extends React.ElementType = 'button'>(props: Pill
   const themeAttribute = variant === 'active' ? registerTheme('light').props : null
   const textClassName = styles.variant[variant]
   const Element = as ?? 'button'
-  const buttonProps: JSX.IntrinsicElements['button'] = { type: 'button' }
+  const buttonProps: React.JSX.IntrinsicElements['button'] = { type: 'button' }
 
   return (
     <Element

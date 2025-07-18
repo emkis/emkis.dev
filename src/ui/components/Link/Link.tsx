@@ -1,8 +1,9 @@
+import * as React from 'react'
 import { type ClassNameValue, cn } from '@ui/core'
 import NextLink, { type LinkProps as NextLinkProps } from 'next/link'
 import * as styles from './styles.css'
 
-type NativeProps = Omit<JSX.IntrinsicElements['a'], 'ref'>
+type NativeProps = Omit<React.JSX.IntrinsicElements['a'], 'ref'>
 export type LinkProps = NativeProps &
   NextLinkProps & {
     className?: ClassNameValue
