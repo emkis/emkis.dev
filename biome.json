@@ -28,7 +28,14 @@
       "react": "recommended"
     },
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "complexity": "on",
+      "style": "on",
+      "a11y": "on",
+      "correctness": "on",
+      "performance": "on",
+      "security": "on",
+      "suspicious": "on"
     }
   },
   "javascript": {
@@ -44,5 +51,31 @@
         "organizeImports": "on"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["src/app/**/*", "next.config.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off",
+            "useComponentExportOnlyModules": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noReactSpecificProps": "off"
+          },
+          "complexity": {
+            "noExcessiveLinesPerFunction": "off"
+          }
+        }
+      }
+    }
+  ]
 }
