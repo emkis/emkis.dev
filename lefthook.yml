@@ -1,7 +1,10 @@
+# Biome doesn't support YAML files at this time.
+# See all language support here: https://biomejs.dev/internals/language-support
+
 pre-commit:
   parallel: true
   jobs:
-    - name: Lint and format
+    - name: Lint and Format
       run: pnpm lint {staged_files}
       stage_fixed: true
       exclude:
