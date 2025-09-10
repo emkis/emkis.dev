@@ -1,0 +1,129 @@
+/**
+ * https://baseline.is/tools/type-scale-generator
+ * Major third, starting at 18px
+ */
+.heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--slate-12);
+}
+
+.heading1 {
+  font-size: 54.932px;
+}
+
+.heading2 {
+  font-size: 43.945px;
+}
+
+.heading3 {
+  font-size: 35.156px;
+}
+
+.heading4 {
+  font-size: 28.125px;
+}
+
+.heading5 {
+  font-size: 22.5px;
+}
+
+.text-caption {
+  font-size: 14.4px;
+}
+
+.text-small {
+  font-size: 11.52px;
+}
+
+.page {
+  padding-block: 176px;
+  display: flex;
+  flex-direction: column;
+  gap: 176px;
+  font-family: var(--font-body);
+  max-width: 75ch;
+  margin: 0 auto;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  color: var(--slate-11);
+  font-weight: 400;
+  margin-top: 16px;
+}
+
+:global(h2 + p),
+:global(h2 + ol) {
+  margin-top: 24px;
+}
+
+:global(p) {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 160%;
+  color: var(--slate-12);
+  margin: 0;
+}
+
+.articles {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.article {
+  display: flex;
+  align-items: center;
+  justify-items: flex-start;
+}
+
+.articleColor {
+  display: inline-block;
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  margin-right: 16px;
+}
+
+.beliefs {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.belief {
+  position: relative;
+  padding-left: 36px;
+
+  & > blockquote {
+    margin: 0;
+  }
+
+  &::before {
+    content: "“";
+    position: absolute;
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 700;
+    top: 0;
+    left: 0;
+    height: 100%;
+    line-height: 1;
+    color: var(--slate-12);
+  }
+}
+
+:global(a) {
+  color: var(--slate-12);
+  text-decoration: underline;
+}
