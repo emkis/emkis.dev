@@ -1,4 +1,15 @@
 import type { Metadata } from 'next'
+import { Merriweather, Open_Sans } from 'next/font/google'
+
+const merriweather = Merriweather({
+  variable: '--font-heading',
+  subsets: ['latin'],
+})
+
+const openSans = Open_Sans({
+  variable: '--font-body',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -11,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" /* className="dark" */>
+    <html lang="en" className={`${merriweather.variable} ${openSans.variable}`}>
       <body>{children}</body>
     </html>
   )
