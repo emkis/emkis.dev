@@ -26,6 +26,7 @@ body {
   min-height: 100vh;
   min-height: 100svh;
   /* biome-ignore-end lint/suspicious/noDuplicateProperties: Graceful degradation */
+  margin: 0;
 }
 
 /* Make images easier to work with */
