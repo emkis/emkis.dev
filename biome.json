@@ -78,6 +78,9 @@
           },
           "complexity": {
             "noExcessiveLinesPerFunction": "off"
+          },
+          "correctness": {
+            "useImportExtensions": "off"
           }
         }
       }
