@@ -1,0 +1,31 @@
+/**
+ * Typography scale was created using: https://baseline.is/tools/type-scale-generator
+ * The chosen scale is "Major third", starting at 18px for the body text.
+ */
+.heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--slate-12);
+}
+
+.level-1 {
+  font-size: 54.932px;
+}
+
+.level-2 {
+  font-size: 43.945px;
+}
+
+.level-3 {
+  font-size: 35.156px;
+}
+
+.level-4 {
+  font-size: 28.125px;
+}
+
+.level-5 {
+  font-size: 22.5px;
+}
