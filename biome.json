@@ -76,6 +76,9 @@
           "suspicious": {
             "noReactSpecificProps": "off"
           },
+          "style": {
+            "useComponentExportOnlyModules": "off"
+          },
           "complexity": {
             "noExcessiveLinesPerFunction": "off"
           },
