@@ -1,0 +1,10 @@
+# See the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "npm" # Yes, this is weird but "npm" is the right option for "pnpm"
+    directory: "/" # Root directory to look for the package.json file
+    schedule:
+      interval: "weekly"
+ 
