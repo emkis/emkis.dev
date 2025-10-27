@@ -55,12 +55,12 @@
   margin-top: 16px;
 }
 
-:global(h2 + p),
-:global(h2 + ol) {
+.page :global(h2 + p),
+.page :global(h2 + ol) {
   margin-top: 24px;
 }
 
-:global(p) {
+.page :global(p) {
   font-family: var(--font-body);
   font-size: 18px;
   font-weight: 400;
@@ -123,7 +123,7 @@
   }
 }
 
-:global(a) {
+.page :global(a) {
   color: var(--slate-12);
   text-decoration: underline;
 }
