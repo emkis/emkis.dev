@@ -29,3 +29,11 @@
 .level-5 {
   font-size: 22.5px;
 }
+
+.color-primary {
+  color: var(--slate-12);
+}
+
+.color-secondary {
+  color: var(--slate-11);
+}
