@@ -15,8 +15,15 @@ type HeadingProps = {
 } & React.ComponentPropsWithRef<'h1'>
 
 function Heading(props: HeadingProps) {
-  const { level, ref, children, asChild, className, color, ...restProps } =
-    props
+  const {
+    level,
+    ref,
+    children,
+    asChild,
+    className,
+    color = 'primary',
+    ...restProps
+  } = props
   const headingLevel = clamp(Number(level), 1, 5)
   const Component = asChild ? Slot : `h${headingLevel}`
 

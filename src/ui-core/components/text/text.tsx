@@ -11,8 +11,15 @@ type TextProps = {
 } & React.ComponentPropsWithRef<'span'>
 
 function Text(props: TextProps) {
-  const { ref, children, asChild, className, color, underline, ...restProps } =
-    props
+  const {
+    ref,
+    children,
+    asChild,
+    className,
+    color = 'primary',
+    underline,
+    ...restProps
+  } = props
   const Component = asChild ? Slot : 'span'
 
   return (
