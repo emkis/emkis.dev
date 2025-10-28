@@ -3,4 +3,5 @@
 
 html {
   background-color: var(--slate-1);
+  color-scheme: light dark;
 }
