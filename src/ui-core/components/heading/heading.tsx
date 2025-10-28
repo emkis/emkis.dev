@@ -1,8 +1,8 @@
 /** biome-ignore-all lint/style/noMagicNumbers: Pretty obvious what heading levels are */
 
 import { Slot } from '@radix-ui/react-slot'
-import { clsx } from 'clsx'
 import { clamp } from 'es-toolkit/math'
+import { cn } from '../../utilities/classnames'
 import styles from './heading.module.css'
 
 type HeadingLevel = '1' | '2' | '3' | '4' | '5'
@@ -24,7 +24,7 @@ function Heading(props: HeadingProps) {
     <Component
       {...restProps}
       ref={ref}
-      className={clsx(
+      className={cn(
         styles.heading,
         styles[`level-${headingLevel}`],
         styles[`color-${color}`],
