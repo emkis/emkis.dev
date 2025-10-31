@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Merriweather, Open_Sans } from 'next/font/google'
+import './reset.css'
+import './globals.css'
 
 const merriweather = Merriweather({
   variable: '--font-heading',
