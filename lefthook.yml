@@ -5,7 +5,7 @@ pre-commit:
   parallel: true
   jobs:
     - name: Lint and Format
-      run: pnpm lint {staged_files}
+      run: pnpm lint --fix {staged_files}
       stage_fixed: true
       exclude:
         - "*.{yaml,yml}"
