@@ -1,4 +1,4 @@
-import styles from './Navbar.module.css'
+import styles from './navbar.module.css'
 
 function cn(...classes: (string | undefined)[]) {
   return classes.filter(Boolean).join(' ')

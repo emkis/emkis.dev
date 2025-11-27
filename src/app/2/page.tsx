@@ -1,4 +1,4 @@
-import { NavBar } from '../Navbar'
+import { NavBar } from '../../ui-core/components/navbar/navbar'
 import styles from './page.module.css'
 import '../globals.css'
 import '../reset.css'
