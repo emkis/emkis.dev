@@ -1,7 +1,0 @@
-@import "@radix-ui/colors/slate.css";
-@import "@radix-ui/colors/slate-dark.css";
-
-html {
-  background-color: var(--slate-1);
-  color-scheme: light dark;
-}
