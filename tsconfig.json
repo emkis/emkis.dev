@@ -1,15 +1,26 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "strictNullChecks": true,
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource ": "react",
+    "strict": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true, // Interesting one, check later
+    "include": [".astro/types.d.ts", "**/*"],
+    "exclude": ["dist"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }
