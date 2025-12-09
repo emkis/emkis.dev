@@ -3,3 +3,4 @@
 
 # Directory rules
 node_modules
+.astro/
