@@ -12,15 +12,15 @@
     "verbatimModuleSyntax": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "jsxImportSource ": "react",
+    "jsxImportSource": "react",
     "strict": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true, // Interesting one, check later
-    "include": [".astro/types.d.ts", "**/*"],
-    "exclude": ["dist"],
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }
