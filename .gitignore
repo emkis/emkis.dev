@@ -2,6 +2,6 @@
 .DS_Store
 
 # Directory rules
-node_modules
+node_modules/
 .astro/
 dist/
