@@ -1,0 +1,39 @@
+---
+/** biome-ignore-all lint/style/noMagicNumbers: Pretty obvious what heading levels are */
+
+import type { HTMLTag, Polymorphic } from 'astro/types'
+import { clamp } from 'es-toolkit/math'
+import styles from './heading.module.css'
+
+type HeadingLevel = '1' | '2' | '3' | '4' | '5'
+type HeadingColor = 'primary' | 'secondary'
+
+type Props<Tag extends HTMLTag = 'h1'> = Polymorphic<{ as: Tag }> & {
+  level: HeadingLevel
+  color?: HeadingColor
+}
+
+const {
+  level,
+  color = 'primary',
+  class: className,
+  as,
+  ...restProps
+} = Astro.props
+
+const headingLevel = clamp(Number(level), 1, 5)
+const headingLevelTag = `h${headingLevel}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
+const Component = as || headingLevelTag
+---
+
+<Component
+  {...restProps}
+  class:list={[
+    styles.heading,
+    styles[`level-${headingLevel}`],
+    styles[`color-${color}`],
+    className,
+  ]}
+>
+  <slot />
+</Component>
