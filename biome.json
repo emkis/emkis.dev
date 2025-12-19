@@ -60,12 +60,11 @@
   },
   "overrides": [
     {
-      "includes": ["src/app/**/*", "next.config.ts"],
+      "includes": ["astro.config.mjs"],
       "linter": {
         "rules": {
           "style": {
-            "noDefaultExport": "off",
-            "useComponentExportOnlyModules": "off"
+            "noDefaultExport": "off"
           }
         }
       }
