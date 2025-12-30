@@ -11,6 +11,7 @@ const blog = defineCollection({
       published_at: z.string().date(),
       updated_at: z.string().date(),
       featured: z.boolean().optional(),
+      color: z.string(),
     }),
 })
 
