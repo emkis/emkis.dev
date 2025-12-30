@@ -23,4 +23,5 @@
 
 .decoration-underline {
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
