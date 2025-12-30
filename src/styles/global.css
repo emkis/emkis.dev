@@ -1,7 +1,13 @@
 @import "@radix-ui/colors/slate.css";
 @import "@radix-ui/colors/slate-dark.css";
+@import "@radix-ui/colors/brown.css";
 
 html {
   background-color: var(--slate-1);
   color-scheme: light dark;
+}
+
+::selection {
+  color: var(--brown-2);
+  background-color: var(--brown-11);
 }
