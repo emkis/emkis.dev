@@ -1,9 +1,11 @@
 ---
 import '@/styles/reset.css'
 import '@/styles/global.css'
-import TypographyLoader from '../components/head/typography-loader.astro'
-import Heading from '../components/heading/heading.astro'
-import Text from '../components/text/text.astro'
+import TypographyLoader from '@/components/head/typography-loader.astro'
+import Heading from '@/components/heading/heading.astro'
+import NavBar from '@/components/navbar/navbar.astro'
+import Text from '@/components/text/text.astro'
+import ContainContent from '@/layouts/contain-content.astro'
 import styles from './page.module.css'
 ---
 
@@ -14,117 +16,120 @@ import styles from './page.module.css'
 	  <title>Nicolas Jardim</title>
 	</head>
 	<body>
-		<main class={styles.page}>
-      <section>
-        <Heading level="1">Nicolas Jardim</Heading>
-        <Text color="secondary" as="h2">
-          Frontend engineer based in Lisbon
-        </Text>
-      </section>
+	  <ContainContent>
+  	  <NavBar />
+  		<main class={styles.page}>
+        <section>
+          <Heading level="1">Nicolas Jardim</Heading>
+          <Text color="secondary" as="h2">
+            Frontend engineer based in Lisbon
+          </Text>
+        </section>
 
-      <section>
-        <Heading level="4" as="h2">
-          About me
-        </Heading>
-        <Text as="p">
-          I have a strong background on building Web applications, internal
-          tooling and design systems that enable teams to move faster and
-          deliver consistent experiences. Recently, I've been focusing on
-          Mobile engineering, a space I'm excited about because of the
-          opportunity to build applications that people carry with them
-          everywhere.
-          <br><br>
-          I believe the difference between good and great is in
-          the details. To me, software should feel like an experience, not
-          just a tool. Which is why I care deeply about creating products that
-          leave a positive impact on the people who use them.
-        </Text>
-      </section>
+        <section>
+          <Heading level="4" as="h2">
+            About me
+          </Heading>
+          <Text as="p">
+            I have a strong background on building Web applications, internal
+            tooling and design systems that enable teams to move faster and
+            deliver consistent experiences. Recently, I've been focusing on
+            Mobile engineering, a space I'm excited about because of the
+            opportunity to build applications that people carry with them
+            everywhere.
+            <br><br>
+            I believe the difference between good and great is in
+            the details. To me, software should feel like an experience, not
+            just a tool. Which is why I care deeply about creating products that
+            leave a positive impact on the people who use them.
+          </Text>
+        </section>
 
-      <section>
-        <Heading level="4" as="h2">
-          Latest writing
-        </Heading>
-        <ol class={styles.articles}>
-          <li class={styles.article}>
-            <span
-              class={styles.articleColor}
-              aria-hidden={true}
-              style={{ backgroundColor: '#8A9A8A' }}
-            />
-            <Text>How I help you build better websites</Text>
-          </li>
-          <li class={styles.article}>
-            <span
-              class={styles.articleColor}
-              aria-hidden={true}
-              style={{ backgroundColor: '#7BAAC9' }}
-            />
-            <Text>Moving state outside React</Text>
-          </li>
-          <li class={styles.article}>
-            <span
-              class={styles.articleColor}
-              aria-hidden={true}
-              style={{ backgroundColor: '#D2B48C' }}
-            />
-            <Text>Planning for change with RFCs</Text>
-          </li>
-        </ol>
-      </section>
+        <section>
+          <Heading level="4" as="h2">
+            Latest writing
+          </Heading>
+          <ol class={styles.articles}>
+            <li class={styles.article}>
+              <span
+                class={styles.articleColor}
+                aria-hidden={true}
+                style={{ backgroundColor: '#8A9A8A' }}
+              />
+              <Text>How I help you build better websites</Text>
+            </li>
+            <li class={styles.article}>
+              <span
+                class={styles.articleColor}
+                aria-hidden={true}
+                style={{ backgroundColor: '#7BAAC9' }}
+              />
+              <Text>Moving state outside React</Text>
+            </li>
+            <li class={styles.article}>
+              <span
+                class={styles.articleColor}
+                aria-hidden={true}
+                style={{ backgroundColor: '#D2B48C' }}
+              />
+              <Text>Planning for change with RFCs</Text>
+            </li>
+          </ol>
+        </section>
 
-      <section>
-        <Heading level="4" as="h2">
-          Things I believe
-        </Heading>
-        <ol class={styles.beliefs}>
-          <li class={styles.belief}>
-            <blockquote>
-              <Text>The magic is in the details</Text>
-            </blockquote>
-          </li>
-          <li class={styles.belief}>
-            <blockquote>
-              <Text>
-                Small improvements add up over time to massive results
-              </Text>
-            </blockquote>
-          </li>
-          <li class={styles.belief}>
-            <blockquote>
-              <Text>
-                The fastest way to keep moving fast is to never slow down
-              </Text>
-            </blockquote>
-          </li>
-          <li class={styles.belief}>
-            <blockquote>
-              <Text>Make things great today not tomorrow</Text>
-            </blockquote>
-          </li>
-          <li class={styles.belief}>
-            <blockquote>
-              <Text>
-                Quality is contagious, don't tolerate <Text as="a" decoration="underline" href="https://en.wikipedia.org/wiki/Broken_windows_theory" target="_blank" rel="noopener">broken windows</Text>
-              </Text>
-            </blockquote>
-          </li>
-          <li class={styles.belief}>
-            <blockquote>
-              <Text>Small teams ship faster</Text>
-            </blockquote>
-          </li>
-        </ol>
-      </section>
+        <section>
+          <Heading level="4" as="h2">
+            Things I believe
+          </Heading>
+          <ol class={styles.beliefs}>
+            <li class={styles.belief}>
+              <blockquote>
+                <Text>The magic is in the details</Text>
+              </blockquote>
+            </li>
+            <li class={styles.belief}>
+              <blockquote>
+                <Text>
+                  Small improvements add up over time to massive results
+                </Text>
+              </blockquote>
+            </li>
+            <li class={styles.belief}>
+              <blockquote>
+                <Text>
+                  The fastest way to keep moving fast is to never slow down
+                </Text>
+              </blockquote>
+            </li>
+            <li class={styles.belief}>
+              <blockquote>
+                <Text>Make things great today not tomorrow</Text>
+              </blockquote>
+            </li>
+            <li class={styles.belief}>
+              <blockquote>
+                <Text>
+                  Quality is contagious, don't tolerate <Text as="a" decoration="underline" href="https://en.wikipedia.org/wiki/Broken_windows_theory" target="_blank" rel="noopener">broken windows</Text>
+                </Text>
+              </blockquote>
+            </li>
+            <li class={styles.belief}>
+              <blockquote>
+                <Text>Small teams ship faster</Text>
+              </blockquote>
+            </li>
+          </ol>
+        </section>
 
-      <footer>
-        <Heading level="4" as="h2">
-          Want to reach out?
-        </Heading>
-        <Text>
-          Connect with me on <Text as="a" decoration="underline" href="https://www.linkedin.com/in/nicolas-jardim" target="_blank" rel="noopener">LinkedIn</Text>, <Text as="a" decoration="underline" href="https://github.com/emkis" target="_blank" rel="noopener">Github</Text>, or just send me an email at <Text as="a" decoration="underline" href="mailto:nicolasemkis@gmail.com">nicolasemkis@gmail.com</Text>.
-        </Text>
-      </footer>
-    </main>
+        <footer>
+          <Heading level="4" as="h2">
+            Want to reach out?
+          </Heading>
+          <Text>
+            Connect with me on <Text as="a" decoration="underline" href="https://www.linkedin.com/in/nicolas-jardim" target="_blank" rel="noopener">LinkedIn</Text>, <Text as="a" decoration="underline" href="https://github.com/emkis" target="_blank" rel="noopener">Github</Text>, or just send me an email at <Text as="a" decoration="underline" href="mailto:nicolasemkis@gmail.com">nicolasemkis@gmail.com</Text>.
+          </Text>
+        </footer>
+      </main>
+		</ContainContent>
 	</body>
 </html>
