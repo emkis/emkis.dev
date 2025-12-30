@@ -9,4 +9,5 @@ pre-commit:
       stage_fixed: true
       exclude:
         - "*.{yaml,yml}"
+        - "*.{md,mdx}"
         - "*.gitignore"
