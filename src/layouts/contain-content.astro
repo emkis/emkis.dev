@@ -10,5 +10,11 @@
   font-family: "Inter", sans-serif;
   max-width: 75ch;
   margin: 0 auto;
+
+  /* Formula: (75ch + padding * 2) but in pixels */
+  @media (max-width: 786.69px) {
+    padding: 16px;
+    max-width: 100%;
+  }
 }
 </style>

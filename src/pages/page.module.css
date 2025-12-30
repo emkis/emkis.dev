@@ -66,9 +66,3 @@
     color: var(--slate-12);
   }
 }
-
-@media (max-width: 718px) {
-  .page {
-    padding-inline: 16px;
-  }
-}
