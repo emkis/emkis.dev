@@ -1,0 +1,62 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import Text from '../text/text.astro'
+
+type Props = HTMLAttributes<'li'> & {
+  publishedAt: Date
+  color: string
+  pathname: string
+}
+
+const { color, publishedAt, pathname, ...restProps } = Astro.props
+const formatDate = new Intl.DateTimeFormat('en', {
+  day: 'numeric',
+  month: 'long',
+})
+---
+
+<li {...restProps} class="article-listitem">
+  <a class="hidden-link" aria-hidden="true" href={pathname} />
+  <span
+    class="article-color-block"
+    aria-hidden={true}
+    style={{ backgroundColor: color }}
+  />
+  <div class="article-info">
+    <Text as="a" href={pathname} tabindex={-1}><slot /></Text>
+    <Text as="time" datetime={publishedAt.toISOString()} color="secondary">{formatDate.format(publishedAt)}</Text>
+  </div>
+</li>
+
+<style>
+.article-listitem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-items: flex-start;
+}
+
+.article-color-block {
+  --block-size: 70px;
+  display: inline-block;
+  width: var(--block-size);
+  height: var(--block-size);
+  border-radius: 8px;
+  margin-right: 16px;
+}
+
+.article-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+</style>
