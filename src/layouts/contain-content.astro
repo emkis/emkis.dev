@@ -1,9 +1,15 @@
 ---
+import type { HTMLTag, Polymorphic } from 'astro/types'
+
+type Props<Tag extends HTMLTag = 'div'> = Polymorphic<{ as: Tag }>
+
+const { as, class: className, ...restProps } = Astro.props
+const Element = as || 'div'
 ---
 
-<div class="contain-content">
+<Element {...restProps} class:list={["contain-content", className]}>
   <slot />
-</div>
+</Element>
 
 <style>
 .contain-content {
