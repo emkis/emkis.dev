@@ -12,7 +12,7 @@ type Props<Tag extends HTMLTag = 'span'> = Polymorphic<{ as: Tag }> & {
 const {
   color = 'primary',
   class: className,
-  decoration,
+  decoration = 'none',
   as,
   ...restProps
 } = Astro.props
