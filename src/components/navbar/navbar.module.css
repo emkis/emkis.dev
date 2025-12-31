@@ -1,0 +1,30 @@
+.logo {
+  --logo-size: 26px;
+  width: var(--logo-size);
+  height: var(--logo-size);
+  text-decoration: none;
+
+  svg {
+    width: inherit;
+    height: inherit;
+  }
+}
+
+.links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 80px;
+}
+
+.links > li {
+  display: grid;
+  place-content: center;
+}
+
+.links > *:nth-child(1) {
+  margin-right: auto;
+}
