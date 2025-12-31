@@ -1,0 +1,50 @@
+---
+import ArticleList from '@/components/article-list/article-list.astro'
+import ArticleListItem from '@/components/article-list/article-listitem.astro'
+import StylesLoader from '@/components/head/styles-loader.astro'
+import TypographyLoader from '@/components/head/typography-loader.astro'
+import Heading from '@/components/heading/heading.astro'
+import Navbar from '@/components/navbar/navbar.astro'
+import Stack from '@/components/stack/stack.astro'
+import Text from '@/components/text/text.astro'
+import { getOrderedArticles } from '@/content/get-ordered-articles'
+import ContainContent from '@/layouts/contain-content.astro'
+import DefaultLayout from '@/layouts/default-layout.astro'
+
+const articles = await getOrderedArticles()
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<StylesLoader />
+		<TypographyLoader />
+	  <title>Writings - Nicolas Jardim</title>
+	</head>
+	<body>
+		<ContainContent>
+		  <Navbar />
+			<DefaultLayout as="main">
+	      <section>
+					<Heading level="1">Writing</Heading>
+					<Text as="p" color="secondary">Thoughts, ideas, and notes on building software.</Text>
+				</section>
+
+				<Stack as="section" spacing="24px">
+				  <Heading level="4">2025</Heading>
+          <ArticleList>
+            {articles.map((post) => (
+     					<ArticleListItem
+    						publishedAt={new Date(post.data.published_at)}
+    						color={post.data.color}
+    						pathname={`/writing/${post.id}`}
+     					>
+                {post.data.title}
+              </ArticleListItem>
+            ))}
+          </ArticleList>
+        </section>
+			</DefaultLayout>
+		</ContainContent>
+	</body>
+</html>

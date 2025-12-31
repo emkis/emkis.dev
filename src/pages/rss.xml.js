@@ -1,16 +1,15 @@
-import { getCollection } from 'astro:content'
 import rss from '@astrojs/rss'
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts'
+import { getOrderedArticles } from '@/content/get-ordered-articles'
 
 export async function GET(context) {
-  const posts = await getCollection('blog')
+  const articles = await getOrderedArticles()
   return rss({
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    title: 'TODO__DEFINE_WEBSITE_NAME',
+    description: 'TODO__DEFINE_WEBSITE_DESCRIPTION',
     site: context.site,
-    items: posts.map((post) => ({
+    items: articles.map((post) => ({
       ...post.data,
-      link: `/blog/${post.id}/`,
+      link: `/writing/${post.id}/`,
     })),
   })
 }

@@ -1,24 +1,30 @@
 ---
-import '@/styles/reset.css'
-import '@/styles/global.css'
+import ArticleList from '@/components/article-list/article-list.astro'
+import ArticleListItem from '@/components/article-list/article-listitem.astro'
+import StylesLoader from '@/components/head/styles-loader.astro'
 import TypographyLoader from '@/components/head/typography-loader.astro'
 import Heading from '@/components/heading/heading.astro'
 import NavBar from '@/components/navbar/navbar.astro'
+import Stack from '@/components/stack/stack.astro'
 import Text from '@/components/text/text.astro'
+import { getOrderedArticles } from '@/content/get-ordered-articles'
 import ContainContent from '@/layouts/contain-content.astro'
-import styles from './page.module.css'
+import DefaultLayout from '@/layouts/default-layout.astro'
+
+const articles = await getOrderedArticles()
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
+		<StylesLoader />
 		<TypographyLoader />
 	  <title>Nicolas Jardim</title>
 	</head>
 	<body>
 	  <ContainContent>
   	  <NavBar />
-  		<main class={styles.page}>
+  		<DefaultLayout as="main">
         <section>
           <Heading level="1">Nicolas Jardim</Heading>
           <Text color="secondary" as="h2">
@@ -26,7 +32,7 @@ import styles from './page.module.css'
           </Text>
         </section>
 
-        <section>
+        <Stack as="section" spacing="24px">
           <Heading level="4" as="h2">
             About me
           </Heading>
@@ -43,93 +49,111 @@ import styles from './page.module.css'
             just a tool. Which is why I care deeply about creating products that
             leave a positive impact on the people who use them.
           </Text>
-        </section>
+        </Stack>
 
-        <section>
+        <Stack as="section" spacing="24px">
           <Heading level="4" as="h2">
             Latest writing
           </Heading>
-          <ol class={styles.articles}>
-            <li class={styles.article}>
-              <span
-                class={styles.articleColor}
-                aria-hidden={true}
-                style={{ backgroundColor: '#8A9A8A' }}
-              />
-              <Text>How I help you build better websites</Text>
-            </li>
-            <li class={styles.article}>
-              <span
-                class={styles.articleColor}
-                aria-hidden={true}
-                style={{ backgroundColor: '#7BAAC9' }}
-              />
-              <Text>Moving state outside React</Text>
-            </li>
-            <li class={styles.article}>
-              <span
-                class={styles.articleColor}
-                aria-hidden={true}
-                style={{ backgroundColor: '#D2B48C' }}
-              />
-              <Text>Planning for change with RFCs</Text>
-            </li>
-          </ol>
-        </section>
+          <ArticleList>
+            {articles.map((post) => (
+              <ArticleListItem
+                publishedAt={new Date(post.data.published_at)}
+                color={post.data.color}
+                pathname={`/writing/${post.id}`}
+              >
+                {post.data.title}
+              </ArticleListItem>
+            ))}
+          </ArticleList>
+        </Stack>
 
-        <section>
+        <Stack as="section" spacing="24px">
           <Heading level="4" as="h2">
             Things I believe
           </Heading>
-          <ol class={styles.beliefs}>
-            <li class={styles.belief}>
+          <ol class="beliefs">
+            <li class="belief">
               <blockquote>
                 <Text>The magic is in the details</Text>
               </blockquote>
             </li>
-            <li class={styles.belief}>
+            <li class="belief">
               <blockquote>
                 <Text>
                   Small improvements add up over time to massive results
                 </Text>
               </blockquote>
             </li>
-            <li class={styles.belief}>
+            <li class="belief">
               <blockquote>
                 <Text>
                   The fastest way to keep moving fast is to never slow down
                 </Text>
               </blockquote>
             </li>
-            <li class={styles.belief}>
+            <li class="belief">
               <blockquote>
                 <Text>Make things great today not tomorrow</Text>
               </blockquote>
             </li>
-            <li class={styles.belief}>
+            <li class="belief">
               <blockquote>
                 <Text>
                   Quality is contagious, don't tolerate <Text as="a" decoration="underline" href="https://en.wikipedia.org/wiki/Broken_windows_theory" target="_blank" rel="noopener">broken windows</Text>
                 </Text>
               </blockquote>
             </li>
-            <li class={styles.belief}>
+            <li class="belief">
               <blockquote>
                 <Text>Small teams ship faster</Text>
               </blockquote>
             </li>
           </ol>
-        </section>
+        </Stack>
 
-        <footer>
+        <Stack as="footer" spacing="24px">
           <Heading level="4" as="h2">
             Want to reach out?
           </Heading>
           <Text>
             Connect with me on <Text as="a" decoration="underline" href="https://www.linkedin.com/in/nicolas-jardim" target="_blank" rel="noopener">LinkedIn</Text>, <Text as="a" decoration="underline" href="https://github.com/emkis" target="_blank" rel="noopener">Github</Text>, or just send me an email at <Text as="a" decoration="underline" href="mailto:nicolasemkis@gmail.com">nicolasemkis@gmail.com</Text>.
           </Text>
-        </footer>
-      </main>
+        </Stack>
+      </DefaultLayout>
 		</ContainContent>
 	</body>
 </html>
+
+<style>
+.beliefs {
+  list-style: none;
+  padding: 0;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.belief {
+  position: relative;
+  padding-left: 36px;
+
+  > blockquote {
+    margin: 0;
+  }
+
+  &::before {
+    content: "“";
+    position: absolute;
+    font-family: "Merriweather", serif;
+    font-size: 3rem; /* 48px */
+    font-weight: 700;
+    top: 0;
+    left: 0;
+    height: 100%;
+    line-height: 1;
+    color: var(--slate-12);
+  }
+}
+</style>
