@@ -1,5 +1,6 @@
 ---
 import { render } from 'astro:content'
+import BaseMetadata from '@/components/head/base-metadata.astro'
 import StylesLoader from '@/components/head/styles-loader.astro'
 import TypographyLoader from '@/components/head/typography-loader.astro'
 import NavBar from '@/components/navbar/navbar.astro'
@@ -30,8 +31,7 @@ const { Content } = await render(article)
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<BaseMetadata />
 		<StylesLoader />
 		<TypographyLoader />
 	  <title>{article.data.title} - Nicolas Jardim</title>

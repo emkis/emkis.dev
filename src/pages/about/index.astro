@@ -1,4 +1,5 @@
 ---
+import BaseMetadata from '@/components/head/base-metadata.astro'
 import StylesLoader from '@/components/head/styles-loader.astro'
 import TypographyLoader from '@/components/head/typography-loader.astro'
 import Heading from '@/components/heading/heading.astro'
@@ -11,8 +12,7 @@ import DefaultLayout from '@/layouts/default-layout.astro'
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<BaseMetadata />
 		<StylesLoader />
 		<TypographyLoader />
 	  <title>About - Nicolas Jardim</title>
