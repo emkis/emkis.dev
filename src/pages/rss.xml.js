@@ -4,8 +4,9 @@ import { getOrderedArticles } from '@/content/get-ordered-articles'
 export async function GET(context) {
   const articles = await getOrderedArticles()
   return rss({
-    title: 'TODO__DEFINE_WEBSITE_NAME',
-    description: 'TODO__DEFINE_WEBSITE_DESCRIPTION',
+    title: 'Nicolas Jardim',
+    description:
+      'Articles about web development, software engineering, and technology.',
     site: context.site,
     items: articles.map((post) => ({
       ...post.data,
