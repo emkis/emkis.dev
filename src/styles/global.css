@@ -1,6 +1,4 @@
-@import "@radix-ui/colors/slate.css";
-@import "@radix-ui/colors/slate-dark.css";
-@import "@radix-ui/colors/brown.css";
+@import "./colors.css";
 
 html {
   background-color: var(--slate-1);

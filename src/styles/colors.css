@@ -1,0 +1,117 @@
+/**
+ * Colors from Radix UI's Slate and Brown palettes
+ * Source: https://www.radix-ui.com/colors
+ */
+:root {
+  /* Slate - Light */
+  --slate-1: #fcfcfd;
+  --slate-2: #f9f9fb;
+  --slate-3: #f0f0f3;
+  --slate-4: #e8e8ec;
+  --slate-5: #e0e1e6;
+  --slate-6: #d9d9e0;
+  --slate-7: #cdced6;
+  --slate-8: #b9bbc6;
+  --slate-9: #8b8d98;
+  --slate-10: #80828d;
+  --slate-11: #60646c;
+  --slate-12: #1c2024;
+  /* Slate - Alpha */
+  --slate-a1: #00005503;
+  --slate-a2: #00005506;
+  --slate-a3: #0000330f;
+  --slate-a4: #00002d17;
+  --slate-a5: #0009321f;
+  --slate-a6: #00002f26;
+  --slate-a7: #00062e32;
+  --slate-a8: #00083046;
+  --slate-a9: #00051d74;
+  --slate-a10: #00071b7f;
+  --slate-a11: #0007149f;
+  --slate-a12: #000509e3;
+
+  /* Brown - Light */
+  --brown-1: #fefdfc;
+  --brown-2: #fcf9f6;
+  --brown-3: #f8f1ea;
+  --brown-4: #f4e9dd;
+  --brown-5: #efddcc;
+  --brown-6: #e8d0b8;
+  --brown-7: #ddc0a1;
+  --brown-8: #cead8e;
+  --brown-9: #ad7f58;
+  --brown-10: #a07550;
+  --brown-11: #815e3f;
+  --brown-12: #3e332e;
+  /* Brown - Alpha */
+  --brown-a1: #aa550003;
+  --brown-a2: #aa550009;
+  --brown-a3: #a0450015;
+  --brown-a4: #9b420022;
+  --brown-a5: #a0460033;
+  --brown-a6: #9f460047;
+  --brown-a7: #a046005e;
+  --brown-a8: #9a410071;
+  --brown-a9: #823a00a7;
+  --brown-a10: #723300af;
+  --brown-a11: #522100c0;
+  --brown-a12: #140600d1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Slate - Dark */
+    --slate-1: #111113;
+    --slate-2: #18191b;
+    --slate-3: #212225;
+    --slate-4: #272a2d;
+    --slate-5: #2e3135;
+    --slate-6: #363a3f;
+    --slate-7: #43484e;
+    --slate-8: #5a6169;
+    --slate-9: #696e77;
+    --slate-10: #777b84;
+    --slate-11: #b0b4ba;
+    --slate-12: #edeef0;
+    /* Slate - Alpha */
+    --slate-a1: #00000000;
+    --slate-a2: #d8f4f609;
+    --slate-a3: #ddeaf814;
+    --slate-a4: #d3edf81d;
+    --slate-a5: #d9edfe25;
+    --slate-a6: #d6ebfd30;
+    --slate-a7: #d9edff40;
+    --slate-a8: #d9edff5d;
+    --slate-a9: #dfebfd6d;
+    --slate-a10: #e5edfd7b;
+    --slate-a11: #f1f7feb5;
+    --slate-a12: #fcfdffef;
+
+    /* Brown - Dark */
+    --brown-1: #12110f;
+    --brown-2: #1c1816;
+    --brown-3: #28211d;
+    --brown-4: #322922;
+    --brown-5: #3e3128;
+    --brown-6: #4d3c2f;
+    --brown-7: #614a39;
+    --brown-8: #7c5f48;
+    --brown-9: #ad7f58;
+    --brown-10: #b88c67;
+    --brown-11: #dbb594;
+    --brown-12: #f2e1ca;
+    /* Brown - Alpha */
+    --brown-a1: #91110002;
+    --brown-a2: #fba67b0c;
+    --brown-a3: #fcb58c19;
+    --brown-a4: #fbbb8a24;
+    --brown-a5: #fcb88931;
+    --brown-a6: #fdba8741;
+    --brown-a7: #ffbb8856;
+    --brown-a8: #ffbe8773;
+    --brown-a9: #feb87da8;
+    --brown-a10: #ffc18cb3;
+    --brown-a11: #fed1aad9;
+    --brown-a12: #feecd4f2;
+  }
+}
