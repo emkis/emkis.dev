@@ -41,10 +41,22 @@ const formatDate = new Intl.DateTimeFormat('en', {
 
 <style>
 .article-listitem {
+  --color-radius: 8px;
+  --content-padding: 8px;
+  --outer-radius: calc(var(--color-radius) + var(--content-padding));
+
   position: relative;
   display: flex;
   align-items: center;
   justify-items: flex-start;
+  padding: var(--content-padding);
+  margin: 0 calc(var(--content-padding) * -1);
+  border-radius: var(--outer-radius);
+  transition: background-color 150ms ease;
+
+  &:hover {
+    background-color: var(--slate-4);
+  }
 }
 
 .article-color-block {
@@ -52,7 +64,7 @@ const formatDate = new Intl.DateTimeFormat('en', {
   display: inline-block;
   width: var(--block-size);
   height: var(--block-size);
-  border-radius: 8px;
+  border-radius: var(--color-radius);
   margin-right: 16px;
 }
 
@@ -69,5 +81,10 @@ const formatDate = new Intl.DateTimeFormat('en', {
   height: 100%;
   z-index: 1;
   cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--brown-12);
+    border-radius: var(--outer-radius);
+  }
 }
 </style>

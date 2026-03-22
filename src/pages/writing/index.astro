@@ -38,7 +38,7 @@ const articlesByYear = await getSortedArticlesByYear()
 				</Stack>
 
 				{Array.from(articlesByYear).map(([year, articles]) => (
-					<Stack as="section" spacing="24px">
+					<Stack as="section" spacing="16px">
 						<Heading level="4">{year}</Heading>
 						<ArticleList>
 							{articles.map((post) => (
