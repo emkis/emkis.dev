@@ -6,7 +6,7 @@ const collection = defineCollection({
   schema: (_context) =>
     z.object({
       title: z.string(),
-      description: z.string(),
+      description: z.string().max(160),
       published_at: z.string().date(),
       updated_at: z.string().date(),
       featured: z.boolean().optional(),
