@@ -11,12 +11,12 @@ import Heading from '@/components/heading/heading.astro'
 import NavBar from '@/components/navbar/navbar.astro'
 import Stack from '@/components/stack/stack.astro'
 import Text from '@/components/text/text.astro'
-import { getOrderedArticles } from '@/content/get-ordered-articles'
+import { getSortedArticles } from '@/content/articles'
 import ContainContent from '@/layouts/contain-content.astro'
 import DefaultLayout from '@/layouts/default-layout.astro'
 import { metadata } from '@/metadata'
 
-const articles = await getOrderedArticles()
+const articles = await getSortedArticles()
 ---
 
 <!doctype html>

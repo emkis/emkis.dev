@@ -1,8 +1,8 @@
 import { type CollectionEntry, getCollection } from 'astro:content'
 
-export type Article = CollectionEntry<'writing'>
+type Article = CollectionEntry<'writing'>
 
-export async function getOrderedArticles(): Promise<Article[]> {
+async function getSortedArticles(): Promise<Article[]> {
   const articles = await getCollection('writing')
   return articles.sort(
     (a, b) =>
@@ -10,3 +10,5 @@ export async function getOrderedArticles(): Promise<Article[]> {
       new Date(a.data.published_at).valueOf(),
   )
 }
+
+export { type Article, getSortedArticles }

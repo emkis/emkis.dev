@@ -7,16 +7,13 @@ import MetaTitle from '@/components/head/meta-title.astro'
 import StylesLoader from '@/components/head/styles-loader.astro'
 import TypographyLoader from '@/components/head/typography-loader.astro'
 import NavBar from '@/components/navbar/navbar.astro'
-import {
-  type Article,
-  getOrderedArticles,
-} from '@/content/get-ordered-articles'
+import { type Article, getSortedArticles } from '@/content/articles'
 import ContainContent from '@/layouts/contain-content.astro'
 import './article.css'
 
 // biome-ignore lint/style/useExportsLast: Astro requires this export
 export async function getStaticPaths() {
-  const articles = await getOrderedArticles()
+  const articles = await getSortedArticles()
   return articles.map((article) => ({
     props: article,
     params: {

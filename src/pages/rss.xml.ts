@@ -1,10 +1,10 @@
 import rss from '@astrojs/rss'
 import type { APIRoute } from 'astro'
-import { getOrderedArticles } from '@/content/get-ordered-articles'
+import { getSortedArticles } from '@/content/articles'
 import { metadata } from '@/metadata'
 
 const GET: APIRoute = async (context) => {
-  const articles = await getOrderedArticles()
+  const articles = await getSortedArticles()
   const rssUrl = new URL('/rss.xml', context.site)
 
   return rss({
