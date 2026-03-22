@@ -33,3 +33,9 @@ const updatedAt = isArticle ? props.updatedAt : undefined
 {isArticle && <meta property="article:published_time" content={publishedAt} />}
 {isArticle && <meta property="article:modified_time" content={updatedAt} />}
 <meta name="twitter:card" content="summary_large_image">
+
+<!-- Trying -->
+<meta property="twitter:domain" content={canonicalUrl.hostname}>
+<meta property="twitter:url" content={canonicalUrl}>
+<meta name="twitter:title" content={props.title}>
+<meta name="twitter:description" content={props.description}>
