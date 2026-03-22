@@ -2,16 +2,27 @@
 import type { HTMLAttributes } from 'astro/types'
 import Text from '../text/text.astro'
 
-type Props = HTMLAttributes<'li'> & {
+type ArticleListItemVariant = 'compact' | 'long'
+
+interface Props extends HTMLAttributes<'li'> {
   publishedAt: Date
   color: string
   pathname: string
+  variant?: ArticleListItemVariant
 }
 
-const { color, publishedAt, pathname, ...restProps } = Astro.props
+const {
+  color,
+  publishedAt,
+  pathname,
+  variant = 'long',
+  ...restProps
+} = Astro.props
+const isCompact = variant === 'compact'
 const formatDate = new Intl.DateTimeFormat('en', {
   day: 'numeric',
   month: 'long',
+  year: isCompact ? undefined : 'numeric',
 })
 ---
 

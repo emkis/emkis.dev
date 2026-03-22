@@ -66,6 +66,7 @@ const articles = await getOrderedArticles()
           <ArticleList>
             {articles.map((post) => (
               <ArticleListItem
+                variant="long"
                 publishedAt={new Date(post.data.published_at)}
                 color={post.data.color}
                 pathname={`/writing/${post.id}`}
