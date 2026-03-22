@@ -1,9 +1,12 @@
 ---
+import { metadata } from '@/metadata'
+
 interface Props {
-  title: string
+  title?: string
 }
 
 const { title } = Astro.props
+const formattedTitle = title ? `${title} - ${metadata.title}` : metadata.title
 ---
 
-<title>{title}</title>
+<title>{formattedTitle}</title>

@@ -37,7 +37,7 @@ const { Content } = await render(article)
 		<StylesLoader />
 		<TypographyLoader />
 		<MetaBase />
-		<MetaTitle title={`${article.data.title} - Nicolas Jardim`} />
+		<MetaTitle title={article.data.title} />
 		<MetaDescription description={article.data.description} />
 		<MetaOpenGraph
 		  type="article"
