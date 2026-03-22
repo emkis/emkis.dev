@@ -18,8 +18,8 @@ const navbarLinks = [
       </a>
     </li>
     {navbarLinks.map((link) => {
-      const curentPathname = Astro.url.pathname
-      const isLinkActive = curentPathname === link.pathname;
+      const currentPathname = Astro.url.pathname
+      const isLinkActive = currentPathname === link.pathname;
 
       return (
         <li>
