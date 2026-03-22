@@ -1,7 +1,10 @@
 ---
 import ArticleList from '@/components/article-list/article-list.astro'
 import ArticleListItem from '@/components/article-list/article-listitem.astro'
-import BaseMetadata from '@/components/head/base-metadata.astro'
+import MetaBase from '@/components/head/meta-base.astro'
+import MetaDescription from '@/components/head/meta-description.astro'
+import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
+import MetaTitle from '@/components/head/meta-title.astro'
 import StylesLoader from '@/components/head/styles-loader.astro'
 import TypographyLoader from '@/components/head/typography-loader.astro'
 import Heading from '@/components/heading/heading.astro'
@@ -18,10 +21,12 @@ const articles = await getOrderedArticles()
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseMetadata />
 		<StylesLoader />
 		<TypographyLoader />
-	  <title>Writings - Nicolas Jardim</title>
+		<MetaBase />
+		<MetaTitle title="Writings - Nicolas Jardim" />
+		<MetaDescription description="Thoughts, ideas, and notes on building software." />
+		<MetaOpenGraph type="website" title="Writings - Nicolas Jardim" description="Thoughts, ideas, and notes on building software." />
 	</head>
 	<body>
 		<ContainContent>

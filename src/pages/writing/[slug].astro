@@ -1,6 +1,9 @@
 ---
 import { render } from 'astro:content'
-import BaseMetadata from '@/components/head/base-metadata.astro'
+import MetaBase from '@/components/head/meta-base.astro'
+import MetaDescription from '@/components/head/meta-description.astro'
+import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
+import MetaTitle from '@/components/head/meta-title.astro'
 import StylesLoader from '@/components/head/styles-loader.astro'
 import TypographyLoader from '@/components/head/typography-loader.astro'
 import NavBar from '@/components/navbar/navbar.astro'
@@ -31,10 +34,18 @@ const { Content } = await render(article)
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseMetadata />
 		<StylesLoader />
 		<TypographyLoader />
-	  <title>{article.data.title} - Nicolas Jardim</title>
+		<MetaBase />
+		<MetaTitle title={`${article.data.title} - Nicolas Jardim`} />
+		<MetaDescription description={article.data.description} />
+		<MetaOpenGraph
+		  type="article"
+		  title={article.data.title}
+		  description={article.data.description}
+		  publishedAt={article.data.published_at}
+		  updatedAt={article.data.updated_at}
+		/>
 	</head>
 	<body>
 	  <ContainContent>

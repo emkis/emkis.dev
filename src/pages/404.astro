@@ -1,5 +1,8 @@
 ---
-import BaseMetadata from '@/components/head/base-metadata.astro'
+import MetaBase from '@/components/head/meta-base.astro'
+import MetaDescription from '@/components/head/meta-description.astro'
+import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
+import MetaTitle from '@/components/head/meta-title.astro'
 import StylesLoader from '@/components/head/styles-loader.astro'
 import TypographyLoader from '@/components/head/typography-loader.astro'
 import Heading from '@/components/heading/heading.astro'
@@ -12,10 +15,12 @@ import DefaultLayout from '@/layouts/default-layout.astro'
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseMetadata />
 		<StylesLoader />
 		<TypographyLoader />
-	  <title>Not found - Nicolas Jardim</title>
+		<MetaBase />
+		<MetaTitle title="Not found - Nicolas Jardim" />
+		<MetaDescription description="Sorry, the page you're looking for doesn't exist." />
+		<MetaOpenGraph type="website" title="Not found - Nicolas Jardim" description="Sorry, the page you're looking for doesn't exist." />
 	</head>
 	<body>
 	  <ContainContent>
