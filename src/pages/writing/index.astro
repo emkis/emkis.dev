@@ -32,10 +32,10 @@ const articles = await getOrderedArticles()
 		<ContainContent>
 		  <Navbar />
 			<DefaultLayout as="main">
-	      <section>
+	      <Stack as="section" spacing="8px">
 					<Heading level="1">Writing</Heading>
 					<Text as="p" color="secondary">Thoughts, ideas, and notes on building software.</Text>
-				</section>
+				</Stack>
 
 				<Stack as="section" spacing="24px">
 				  <Heading level="4">2025</Heading>
@@ -50,7 +50,7 @@ const articles = await getOrderedArticles()
               </ArticleListItem>
             ))}
           </ArticleList>
-        </section>
+        </Stack>
 			</DefaultLayout>
 		</ContainContent>
 	</body>

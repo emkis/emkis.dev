@@ -7,6 +7,7 @@ import StylesLoader from '@/components/head/styles-loader.astro'
 import TypographyLoader from '@/components/head/typography-loader.astro'
 import Heading from '@/components/heading/heading.astro'
 import NavBar from '@/components/navbar/navbar.astro'
+import Stack from '@/components/stack/stack.astro'
 import Text from '@/components/text/text.astro'
 import ContainContent from '@/layouts/contain-content.astro'
 import DefaultLayout from '@/layouts/default-layout.astro'
@@ -26,12 +27,12 @@ import DefaultLayout from '@/layouts/default-layout.astro'
 	  <ContainContent>
   	  <NavBar />
   		<DefaultLayout as="main">
-        <section>
+        <Stack as="section" spacing="8px">
           <Heading level="1">Not found</Heading>
           <Text color="secondary" as="h2">
 	          Sorry, the page you're looking for doesn't exist.
           </Text>
-        </section>
+        </Stack>
       </DefaultLayout>
 		</ContainContent>
 	</body>
