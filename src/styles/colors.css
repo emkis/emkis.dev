@@ -56,6 +56,33 @@
   --brown-a10: #723300af;
   --brown-a11: #522100c0;
   --brown-a12: #140600d1;
+
+  /* Uses the scale 8 of these Radix palettes */
+  --article-color-1: #e2a336; /* amber */
+  --article-color-2: #5eb1ef; /* blue */
+  --article-color-3: #c2a499; /* bronze */
+  --article-color-4: #cea37e; /* brown */
+  --article-color-5: #e093b2; /* crimson */
+  --article-color-6: #3db9cf; /* cyan */
+  --article-color-7: #b9a88d; /* gold */
+  --article-color-8: #65ba74; /* grass */
+  --article-color-9: #5bb98b; /* green */
+  --article-color-10: #8da4ef; /* indigo */
+  --article-color-11: #9b9ef0; /* iris */
+  --article-color-12: #56ba9f; /* jade */
+  --article-color-13: #8db654; /* lime */
+  --article-color-14: #4cbba5; /* mint */
+  --article-color-15: #ec9455; /* orange */
+  --article-color-16: #dd93c2; /* pink */
+  --article-color-17: #cf91d8; /* plum */
+  --article-color-18: #be93e4; /* purple */
+  --article-color-19: #eb8e90; /* red */
+  --article-color-20: #e592a3; /* ruby */
+  --article-color-21: #60b3d7; /* sky */
+  --article-color-22: #53b9ab; /* teal */
+  --article-color-23: #ec8e7b; /* tomato */
+  --article-color-24: #aa99ec; /* violet */
+  --article-color-25: #d5ae39; /* yellow */
 }
 
 @media (prefers-color-scheme: dark) {
