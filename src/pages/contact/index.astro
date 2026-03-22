@@ -1,0 +1,57 @@
+---
+import MetaBase from '@/components/head/meta-base.astro'
+import MetaDescription from '@/components/head/meta-description.astro'
+import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
+import MetaTitle from '@/components/head/meta-title.astro'
+import StylesLoader from '@/components/head/styles-loader.astro'
+import TypographyLoader from '@/components/head/typography-loader.astro'
+import Heading from '@/components/heading/heading.astro'
+import NavBar from '@/components/navbar/navbar.astro'
+import Stack from '@/components/stack/stack.astro'
+import Text from '@/components/text/text.astro'
+import ContainContent from '@/layouts/contain-content.astro'
+import DefaultLayout from '@/layouts/default-layout.astro'
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <StylesLoader />
+    <TypographyLoader />
+    <MetaBase />
+    <MetaTitle title="Contact" />
+    <MetaDescription description="Get in touch with Nicolas Jardim." />
+    <MetaOpenGraph type="website" title="Contact - Nicolas Jardim" description="Get in touch with Nicolas Jardim." />
+  </head>
+  <body>
+    <ContainContent>
+      <NavBar />
+      <DefaultLayout as="main">
+        <section>
+          <Stack spacing="48px">
+            <Stack spacing="16px">
+              <Heading level="1">Contact</Heading>
+              <Text color="secondary">
+                If something I wrote resonated with you, I'd love to hear about it. Feel free to send me a message and tell me what caught your attention. If you want to go deeper, let's nerd out about it.
+              </Text>
+            </Stack>
+
+            <nav class="contact-links">
+              <Text as="a" color="secondary" decoration="underline" href="https://linkedin.com/in/nicolas-jardim" target="_blank" rel="noopener">LinkedIn</Text>
+              <Text as="a" color="secondary" decoration="underline" href="https://x.com/emkisn" target="_blank" rel="noopener">X</Text>
+              <Text as="a" color="secondary" decoration="underline" href="https://github.com/emkis" target="_blank" rel="noopener">GitHub</Text>
+              <Text as="a" color="secondary" decoration="underline" href="mailto:nicolasemkis@gmail.com">Email</Text>
+            </nav>
+          </Stack>
+        </section>
+      </DefaultLayout>
+    </ContainContent>
+  </body>
+</html>
+
+<style>
+.contact-links {
+  display: flex;
+  gap: 32px;
+}
+</style>
