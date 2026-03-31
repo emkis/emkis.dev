@@ -52,6 +52,14 @@ import DefaultLayout from '@/layouts/default-layout.astro'
 <style>
 .contact-links {
   display: flex;
+  flex-direction: column;
   gap: 32px;
+}
+
+/* Formula: (75ch + padding * 2) but in pixels */
+@media (min-width: 786.69px) {
+  .contact-links {
+    flex-direction: row;
+  }
 }
 </style>
