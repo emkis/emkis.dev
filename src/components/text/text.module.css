@@ -1,0 +1,27 @@
+.text {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.125rem; /* 18px */
+  font-weight: 400;
+  line-height: 160%;
+  display: inline-block;
+  margin: 0;
+}
+
+.color-primary {
+  color: var(--slate-12);
+}
+
+.color-secondary {
+  color: var(--slate-11);
+}
+
+.decoration-none {
+  text-decoration: none;
+}
+
+.decoration-underline {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

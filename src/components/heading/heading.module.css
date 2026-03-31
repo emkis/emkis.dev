@@ -1,0 +1,41 @@
+/**
+ * Typography scale was created using: https://baseline.is/tools/type-scale-generator
+ * The chosen scale is "Major third", starting at 18px for the body text.
+ */
+.heading {
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.level-1 {
+  font-size: 3.43325rem; /* 54.932px */
+}
+
+.level-2 {
+  font-size: 2.7465625rem; /* 43.945px */
+}
+
+.level-3 {
+  font-size: 2.19725rem; /* 35.156px */
+}
+
+.level-4 {
+  font-size: 1.7578125rem; /* 28.125px */
+}
+
+.level-5 {
+  font-size: 1.40625rem; /* 22.5px */
+}
+
+.color-primary {
+  color: var(--slate-12);
+}
+
+.color-secondary {
+  color: var(--slate-11);
+}

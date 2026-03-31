@@ -1,0 +1,33 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types'
+import styles from './text.module.css'
+
+type TextColor = 'primary' | 'secondary'
+
+type Props<Tag extends HTMLTag = 'span'> = Polymorphic<{ as: Tag }> & {
+  color?: TextColor
+  decoration?: 'none' | 'underline'
+}
+
+const {
+  color = 'primary',
+  class: className,
+  decoration = 'none',
+  as,
+  ...restProps
+} = Astro.props
+
+const Component = as || 'span'
+---
+
+<Component
+  {...restProps}
+  class:list={[
+    styles.text,
+    styles[`color-${color}`],
+    styles[`decoration-${decoration}`],
+    className,
+  ]}
+>
+  <slot />
+</Component>

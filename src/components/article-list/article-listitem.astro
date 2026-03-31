@@ -1,0 +1,90 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import Text from '../text/text.astro'
+
+type ArticleListItemVariant = 'compact' | 'long'
+
+interface Props extends HTMLAttributes<'li'> {
+  publishedAt: Date
+  color: string
+  pathname: string
+  variant?: ArticleListItemVariant
+}
+
+const {
+  color,
+  publishedAt,
+  pathname,
+  variant = 'long',
+  ...restProps
+} = Astro.props
+const isCompact = variant === 'compact'
+const formatDate = new Intl.DateTimeFormat('en', {
+  day: 'numeric',
+  month: 'long',
+  year: isCompact ? undefined : 'numeric',
+})
+---
+
+<li {...restProps} class="article-listitem">
+  <a class="hidden-link" aria-hidden="true" href={pathname} />
+  <span
+    class="article-color-block"
+    aria-hidden={true}
+    style={{ backgroundColor: color }}
+  />
+  <div class="article-info">
+    <Text as="a" href={pathname} tabindex={-1}><slot /></Text>
+    <Text as="time" datetime={publishedAt.toISOString()} color="secondary">{formatDate.format(publishedAt)}</Text>
+  </div>
+</li>
+
+<style>
+.article-listitem {
+  --color-radius: 8px;
+  --content-padding: 8px;
+  --outer-radius: calc(var(--color-radius) + var(--content-padding));
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-items: flex-start;
+  padding: var(--content-padding);
+  margin: 0 calc(var(--content-padding) * -1);
+  border-radius: var(--outer-radius);
+  transition: background-color 150ms ease;
+
+  &:hover {
+    background-color: var(--slate-4);
+  }
+}
+
+.article-color-block {
+  --block-size: 70px;
+  display: inline-block;
+  width: var(--block-size);
+  height: var(--block-size);
+  border-radius: var(--color-radius);
+  margin-right: 16px;
+}
+
+.article-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--brown-12);
+    border-radius: var(--outer-radius);
+  }
+}
+</style>

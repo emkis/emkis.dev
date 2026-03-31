@@ -1,0 +1,60 @@
+---
+import ArticleList from '@/components/article-list/article-list.astro'
+import ArticleListItem from '@/components/article-list/article-listitem.astro'
+import MetaBase from '@/components/head/meta-base.astro'
+import MetaDescription from '@/components/head/meta-description.astro'
+import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
+import MetaTitle from '@/components/head/meta-title.astro'
+import StylesLoader from '@/components/head/styles-loader.astro'
+import TypographyLoader from '@/components/head/typography-loader.astro'
+import Heading from '@/components/heading/heading.astro'
+import Navbar from '@/components/navbar/navbar.astro'
+import Stack from '@/components/stack/stack.astro'
+import Text from '@/components/text/text.astro'
+import { getSortedArticlesByYear } from '@/content/articles'
+import ContainContent from '@/layouts/contain-content.astro'
+import DefaultLayout from '@/layouts/default-layout.astro'
+
+const articlesByYear = await getSortedArticlesByYear()
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<StylesLoader />
+		<TypographyLoader />
+		<MetaBase />
+		<MetaTitle title="Writing" />
+		<MetaDescription description="Thoughts, ideas, and notes on building software." />
+		<MetaOpenGraph type="website" title="Writing - Nicolas Jardim" description="Thoughts, ideas, and notes on building software." />
+	</head>
+	<body>
+		<ContainContent>
+		  <Navbar />
+			<DefaultLayout as="main">
+	      <Stack as="section" spacing="8px">
+					<Heading level="1">Writing</Heading>
+					<Text as="p" color="secondary">Thoughts, ideas, and notes on building software.</Text>
+				</Stack>
+
+				{Array.from(articlesByYear).map(([year, articles]) => (
+					<Stack as="section" spacing="16px">
+						<Heading level="4">{year}</Heading>
+						<ArticleList>
+							{articles.map((post) => (
+								<ArticleListItem
+									variant="compact"
+									publishedAt={new Date(post.data.published_at)}
+									color={post.data.color}
+									pathname={`/writing/${post.id}`}
+								>
+									{post.data.title}
+								</ArticleListItem>
+							))}
+						</ArticleList>
+					</Stack>
+				))}
+			</DefaultLayout>
+		</ContainContent>
+	</body>
+</html>

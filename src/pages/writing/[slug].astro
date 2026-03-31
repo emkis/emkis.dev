@@ -1,0 +1,55 @@
+---
+import { render } from 'astro:content'
+import MetaBase from '@/components/head/meta-base.astro'
+import MetaDescription from '@/components/head/meta-description.astro'
+import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
+import MetaTitle from '@/components/head/meta-title.astro'
+import StylesLoader from '@/components/head/styles-loader.astro'
+import TypographyLoader from '@/components/head/typography-loader.astro'
+import NavBar from '@/components/navbar/navbar.astro'
+import { type Article, getSortedArticles } from '@/content/articles'
+import ContainContent from '@/layouts/contain-content.astro'
+import './article.css'
+
+// biome-ignore lint/style/useExportsLast: Astro requires this export
+export async function getStaticPaths() {
+  const articles = await getSortedArticles()
+  return articles.map((article) => ({
+    props: article,
+    params: {
+      slug: article.id,
+    },
+  }))
+}
+
+type Props = Article
+
+const article = Astro.props
+const { Content } = await render(article)
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<StylesLoader />
+		<TypographyLoader />
+		<MetaBase />
+		<MetaTitle title={article.data.title} />
+		<MetaDescription description={article.data.description} />
+		<MetaOpenGraph
+		  type="article"
+		  title={article.data.title}
+		  description={article.data.description}
+		  publishedAt={article.data.published_at}
+		  updatedAt={article.data.updated_at}
+		/>
+	</head>
+	<body>
+	  <ContainContent>
+  	  <NavBar />
+  		<main>
+        <Content />
+      </main>
+		</ContainContent>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+@import "./colors.css";
+
+html {
+  background-color: var(--slate-1);
+  color-scheme: light dark;
+}
+
+::selection {
+  color: var(--brown-2);
+  background-color: var(--brown-11);
+}

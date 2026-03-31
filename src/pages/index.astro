@@ -1,0 +1,144 @@
+---
+import ArticleList from '@/components/article-list/article-list.astro'
+import ArticleListItem from '@/components/article-list/article-listitem.astro'
+import MetaBase from '@/components/head/meta-base.astro'
+import MetaDescription from '@/components/head/meta-description.astro'
+import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
+import MetaTitle from '@/components/head/meta-title.astro'
+import StylesLoader from '@/components/head/styles-loader.astro'
+import TypographyLoader from '@/components/head/typography-loader.astro'
+import Heading from '@/components/heading/heading.astro'
+import NavBar from '@/components/navbar/navbar.astro'
+import Stack from '@/components/stack/stack.astro'
+import Text from '@/components/text/text.astro'
+import { getSortedArticles } from '@/content/articles'
+import ContainContent from '@/layouts/contain-content.astro'
+import DefaultLayout from '@/layouts/default-layout.astro'
+import { metadata } from '@/metadata'
+
+const articles = await getSortedArticles()
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+    <StylesLoader />
+		<TypographyLoader />
+		<MetaBase />
+		<MetaTitle />
+		<MetaDescription description={metadata.description} />
+		<MetaOpenGraph type="website" title={metadata.title} description={metadata.description} />
+	</head>
+	<body>
+	  <ContainContent>
+  	  <NavBar />
+  		<DefaultLayout as="main">
+        <Stack as="section" spacing="8px">
+          <Heading level="1">Nicolas Jardim</Heading>
+          <Text color="secondary" as="h2">
+            Frontend engineer based in Lisbon
+          </Text>
+        </Stack>
+
+        <Stack as="section" spacing="24px">
+          <Heading level="4" as="h2">
+            About me
+          </Heading>
+          <Text as="p">
+            I build stable Frontend applications that last.
+            <br>
+            My background is crafting user-facing UIs for web and mobile, with a strong focus on quality and detail. I care as much about how things look, as how they are built to scale over time. By thinking deeply about API design, trade-offs, and architecture, I help products to move fast, maintain quality, and evolve with confidence.
+          </Text>
+        </Stack>
+
+        <Stack as="section" spacing="16px">
+          <Heading level="4" as="h2">
+            Latest writing
+          </Heading>
+          <ArticleList>
+            {articles.map((post) => (
+              <ArticleListItem
+                variant="long"
+                publishedAt={new Date(post.data.published_at)}
+                color={post.data.color}
+                pathname={`/writing/${post.id}`}
+              >
+                {post.data.title}
+              </ArticleListItem>
+            ))}
+          </ArticleList>
+        </Stack>
+
+        <Stack as="section" spacing="24px">
+          <Heading level="4" as="h2">
+            Things I believe
+          </Heading>
+          <ol class="beliefs">
+            <li class="belief">
+              <blockquote>
+                <Text>The magic is in the details</Text>
+              </blockquote>
+            </li>
+            <li class="belief">
+              <blockquote>
+                <Text>Make things great today not tomorrow</Text>
+              </blockquote>
+            </li>
+            <li class="belief">
+              <blockquote>
+                <Text>
+                  Small improvements add up over time to massive results
+                </Text>
+              </blockquote>
+            </li>
+            <li class="belief">
+              <blockquote>
+                <Text>
+                  Quality is contagious, don't tolerate <Text as="a" decoration="underline" href="https://en.wikipedia.org/wiki/Broken_windows_theory" target="_blank" rel="noopener">broken windows</Text>
+                </Text>
+              </blockquote>
+            </li>
+            <li class="belief">
+              <blockquote>
+                <Text>Small teams ship faster</Text>
+              </blockquote>
+            </li>
+          </ol>
+        </Stack>
+      </DefaultLayout>
+		</ContainContent>
+	</body>
+</html>
+
+<style>
+.beliefs {
+  list-style: none;
+  padding: 0;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.belief {
+  position: relative;
+  padding-left: 36px;
+
+  > blockquote {
+    margin: 0;
+  }
+
+  &::before {
+    content: "“";
+    position: absolute;
+    font-family: "Merriweather", serif;
+    font-size: 3rem; /* 48px */
+    font-weight: 700;
+    top: 0;
+    left: 0;
+    height: 100%;
+    line-height: 1;
+    color: var(--slate-12);
+  }
+}
+</style>

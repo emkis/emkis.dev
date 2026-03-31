@@ -1,0 +1,395 @@
+/**
+ * Base text styles - matching text.module.css
+ */
+:is(p, li, td, th) {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.125rem; /* 18px */
+  font-weight: 400;
+  line-height: 160%;
+  margin: 0;
+  color: var(--slate-12);
+}
+
+/**
+ * Heading styles - matching heading.module.css
+ */
+:is(h1, h2, h3, h4, h5) {
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--slate-12);
+}
+
+h1 {
+  font-size: 3.43325rem; /* 54.932px */
+}
+
+h2 {
+  font-size: 2.7465625rem; /* 43.945px */
+}
+
+h3 {
+  font-size: 2.19725rem; /* 35.156px */
+}
+
+h4 {
+  font-size: 1.7578125rem; /* 28.125px */
+}
+
+h5 {
+  font-size: 1.40625rem; /* 22.5px */
+}
+
+/**
+ * Main container
+ */
+main {
+  padding-block: 176px;
+  color: var(--slate-12);
+}
+
+/**
+ * Strong and emphasis
+ */
+:is(strong, b) {
+  font-weight: 600;
+  color: var(--slate-12);
+}
+
+:is(em, i) {
+  font-style: italic;
+}
+
+/**
+ * Links
+ */
+a {
+  color: var(--slate-12);
+  text-decoration: underline;
+  text-decoration-color: var(--slate-8);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
+}
+
+a:hover {
+  color: var(--slate-11);
+  text-decoration-color: var(--slate-11);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--slate-8);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/**
+ * Lists
+ */
+:is(ul, ol) {
+  margin: 0;
+  padding-left: 1.5rem; /* 24px */
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-top: 0.5rem;
+}
+
+li:first-child {
+  margin-top: 0;
+}
+
+li::marker {
+  color: var(--slate-9);
+}
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  margin: 0;
+  padding: 0 0 0 1.5rem;
+  border-left: 3px solid var(--slate-6);
+  font-style: italic;
+}
+
+blockquote p {
+  color: var(--slate-11);
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  font-style: normal;
+  color: var(--slate-10);
+}
+
+blockquote cite::before {
+  content: "— ";
+}
+
+/**
+ * Code blocks and inline code
+ */
+pre {
+  border-radius: 8px;
+  padding: 1.5rem; /* 24px */
+  border: 1px solid var(--slate-4);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+code {
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+  font-size: 0.875em;
+}
+
+:not(pre) > code {
+  padding: 0.2em 0.4em;
+  background-color: var(--slate-3);
+  border-radius: 4px;
+  color: var(--slate-12);
+  font-weight: 500;
+}
+
+/**
+ * Tables
+ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 1rem;
+  text-align: left;
+}
+
+thead {
+  border-bottom: 2px solid var(--slate-6);
+}
+
+th {
+  font-weight: 600;
+  padding: 1rem;
+  color: var(--slate-12);
+  background-color: var(--slate-2);
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--slate-4);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: var(--slate-2);
+}
+
+/**
+ * Images and figures
+ */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  border-radius: 8px;
+}
+
+figure {
+  margin: 0;
+}
+
+figure img {
+  margin: 0 auto;
+}
+
+figcaption {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--slate-10);
+  text-align: center;
+  font-style: italic;
+}
+
+/**
+ * Horizontal rule
+ */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--slate-6) 20%,
+    var(--slate-6) 80%,
+    transparent
+  );
+  margin: 3rem 0;
+}
+
+/**
+ * Mark / Highlight
+ */
+mark {
+  background-color: hsla(50, 100%, 50%, 0.3);
+  padding: 0 0.5rem;
+  border-radius: 2px;
+  color: inherit;
+}
+
+/**
+ * Abbreviations
+ */
+abbr[title] {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+/**
+ * Keyboard input
+ */
+kbd {
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+  font-size: 0.875em;
+  padding: 0.5rem;
+  background-color: var(--slate-3);
+  border: 1px solid var(--slate-6);
+  border-radius: 4px;
+  box-shadow: 0 1px 0 var(--slate-6);
+}
+
+/**
+ * Small text
+ */
+small {
+  font-size: 0.875rem;
+  color: var(--slate-11);
+}
+
+/**
+ * Subscript and superscript
+ */
+sub,
+sup {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/**
+ * Definition lists
+ */
+dl {
+  margin: 0;
+}
+
+dt {
+  font-weight: 600;
+  color: var(--slate-12);
+  margin-top: 1rem;
+}
+
+dt:first-child {
+  margin-top: 0;
+}
+
+dd {
+  margin: 0.5rem 0 0 1.5rem;
+  color: var(--slate-11);
+}
+
+/**
+ * Details/Summary
+ */
+details {
+  margin: 0;
+  padding: 1rem;
+  background-color: var(--slate-2);
+  border-radius: 8px;
+  border: 1px solid var(--slate-4);
+}
+
+summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--slate-12);
+}
+
+summary:hover {
+  color: var(--slate-11);
+}
+
+details[open] summary {
+  margin-bottom: 1rem;
+}
+
+/**
+ * Video and iframe embeds
+ */
+video,
+iframe {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/**
+ * Spacing between elements
+ */
+* + :is(p, pre, ul, ol, blockquote, figure, table) {
+  margin-top: 1.5rem; /* 24px */
+}
+
+:is(h1, h2, h3, h4, h5) + * {
+  margin-top: 1.5rem; /* 24px */
+}
+
+* + :is(h1, h2, h3, h4, h5) {
+  margin-top: 3rem; /* 48px */
+}
+
+/**
+ * Selection
+ */
+::selection {
+  background-color: var(--slate-5);
+  color: var(--slate-12);
+}

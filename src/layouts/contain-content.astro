@@ -1,0 +1,26 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types'
+
+type Props<Tag extends HTMLTag = 'div'> = Polymorphic<{ as: Tag }>
+
+const { as, class: className, ...restProps } = Astro.props
+const Element = as || 'div'
+---
+
+<Element {...restProps} class:list={["contain-content", className]}>
+  <slot />
+</Element>
+
+<style>
+.contain-content {
+  font-family: "Inter", sans-serif;
+  max-width: 75ch;
+  margin: 0 auto;
+
+  /* Formula: (75ch + padding * 2) but in pixels */
+  @media (max-width: 786.69px) {
+    padding: 16px;
+    max-width: 100%;
+  }
+}
+</style>
