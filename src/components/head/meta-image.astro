@@ -1,10 +1,10 @@
 ---
-type MimeTypes = 'image/jpeg' | 'image/webp'
+type MimeType = 'image/jpeg'
 
 interface Props {
   url: string
   alt: string
-  type: MimeTypes
+  type: MimeType
 }
 
 const { url, alt, type } = Astro.props
