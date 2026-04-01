@@ -1,6 +1,7 @@
 ---
 import ArticleList from '@/components/article-list/article-list.astro'
 import ArticleListItem from '@/components/article-list/article-listitem.astro'
+import IconLoader from '@/components/head/icon-loader.astro'
 import MetaBase from '@/components/head/meta-base.astro'
 import MetaDescription from '@/components/head/meta-description.astro'
 import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
@@ -24,6 +25,7 @@ const articles = await getSortedArticles()
 	<head>
     <StylesLoader />
 		<TypographyLoader />
+    <IconLoader />
 		<MetaBase />
 		<MetaTitle />
 		<MetaDescription description={metadata.description} />
