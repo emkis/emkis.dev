@@ -6,4 +6,4 @@ function cn(...classes: ClassValue[]) {
   return clsx(classes)
 }
 
-export { cn, type ClassNameValue }
+export { type ClassNameValue, cn }
