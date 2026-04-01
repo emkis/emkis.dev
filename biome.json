@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.3.10/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.4.10/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -76,6 +76,9 @@
           "correctness": {
             "noUnusedImports": "off",
             "noUnusedVariables": "off"
+          },
+          "suspicious": {
+            "noEmptySource": "off"
           }
         }
       }
@@ -94,7 +97,9 @@
             "noExcessiveLinesPerFunction": "off"
           },
           "correctness": {
-            "useImportExtensions": "off"
+            "useImportExtensions": "off",
+            "noUnresolvedImports": "off",
+            "useQwikValidLexicalScope": "off"
           }
         }
       }
