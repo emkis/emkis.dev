@@ -16,7 +16,7 @@
     "@astrojs/sitemap": "^3.6.0",
     "@radix-ui/colors": "3.0.0",
     "@radix-ui/react-slot": "1.2.4",
-    "astro": "^5.16.4",
+    "astro": "^5.18.1",
     "clsx": "2.1.1",
     "es-toolkit": "1.42.0",
     "react": "19.2.1",
