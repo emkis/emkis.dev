@@ -16,8 +16,8 @@ const collection = defineCollection({
     z.object({
       title: z.string(),
       description: z.string().max(maxDescriptionLength),
-      published_at: z.string().date(),
-      updated_at: z.string().date(),
+      published_at: z.iso.date(),
+      updated_at: z.iso.date(),
       featured: z.boolean().optional(),
       color: z.string(),
     }),
