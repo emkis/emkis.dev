@@ -2,6 +2,7 @@
 import { render } from 'astro:content'
 import MetaBase from '@/components/head/meta-base.astro'
 import MetaDescription from '@/components/head/meta-description.astro'
+import MetaImage from '@/components/head/meta-image.astro'
 import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
 import MetaTitle from '@/components/head/meta-title.astro'
 import StylesLoader from '@/components/head/styles-loader.astro'
@@ -25,6 +26,7 @@ export async function getStaticPaths() {
 type Props = Article
 
 const article = Astro.props
+const articleOgImageUrl = new URL(`/og/${article.id}.jpg`, Astro.site)
 const { Content } = await render(article)
 ---
 
@@ -36,6 +38,11 @@ const { Content } = await render(article)
 		<MetaBase />
 		<MetaTitle title={article.data.title} />
 		<MetaDescription description={article.data.description} />
+		<MetaImage
+		  url={articleOgImageUrl}
+		  alt={article.data.title}
+		  type="image/jpeg"
+		/>
 		<MetaOpenGraph
 		  type="article"
 		  title={article.data.title}
