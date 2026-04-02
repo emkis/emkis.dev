@@ -3,7 +3,7 @@
  */
 const metadata = {
   title: 'Nicolas Jardim',
-  description: 'The place I write stuff',
+  description: 'The place I write stuff.',
 }
 
 export { metadata }
