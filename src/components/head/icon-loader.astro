@@ -1,11 +1,14 @@
 ---
+/**
+ * Why soo many icons?
+ * 1. The SVG icon is used for modern browsers. It scales automatically and is an adaptive icon based on the user's light/dark mode.
+ * 2. The PNG icon is a fallback for browsers that still don't support the SVG icons.
+ * 3. The ICO icon is a fallback for older browsers or tools that only support ICO files.
+ * 4. The Apple touch icon is used when the page is added as a shortcut to the home screen on an iPhone or iPad.
+ */
 ---
 
-<!-- Supports adaptive icons based on device theme, modern browsers will use it -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<!-- Fallback for browsers that do not support SVG icons -->
 <link rel="icon" type="image/png" href="/favicon.png">
-<!-- Fallback for older browsers or tools that only support .ico files -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<!-- Apple devices will use it, when this page is added as a shortcut to the home screen on an iPhone or iPad. -->
 <link rel="apple-touch-icon" href="/icon-180.png">
