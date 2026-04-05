@@ -1,5 +1,5 @@
 .logo {
-  --logo-size: 26px;
+  --logo-size: 48px;
   width: var(--logo-size);
   height: var(--logo-size);
   text-decoration: none;
@@ -7,6 +7,10 @@
   svg {
     width: inherit;
     height: inherit;
+  }
+
+  svg path {
+    fill: var(--slate-12);
   }
 }
 
