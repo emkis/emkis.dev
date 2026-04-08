@@ -1,5 +1,6 @@
 ---
 import { render } from 'astro:content'
+import AnalyticsLoader from '@/components/head/analytics-loader.astro'
 import IconLoader from '@/components/head/icon-loader.astro'
 import MetaBase from '@/components/head/meta-base.astro'
 import MetaDescription from '@/components/head/meta-description.astro'
@@ -32,6 +33,7 @@ const { Content } = await render(article)
 <!doctype html>
 <html lang="en">
 	<head>
+		<AnalyticsLoader />
 		<StylesLoader />
 		<TypographyLoader />
 		<IconLoader />
