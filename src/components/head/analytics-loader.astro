@@ -1,16 +1,14 @@
 ---
-const plausibleDomain = new URL(Astro.url.hostname, Astro.site).hostname
-const isProduction = import.meta.env.PROD
 ---
 
-{isProduction && (
-  <script
-    is:inline
-    async
-    data-domain={plausibleDomain}
-    data-api="/api/event"
-    src="/js/script.js"
-  />
-)}
-
+<script
+  is:inline
+  async
+  src="/js/script.js"></script>
+<script is:inline>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init({
+    endpoint: '/api/event',
+  })
+</script>
   
