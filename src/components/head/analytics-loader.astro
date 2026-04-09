@@ -6,7 +6,7 @@ const isProduction = import.meta.env.PROD
   <Fragment>
     <script
       is:inline
-      async
+      defer
       src="/js/script.js"></script>
     <script is:inline>
       window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
