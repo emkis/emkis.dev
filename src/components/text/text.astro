@@ -3,16 +3,19 @@ import type { HTMLTag, Polymorphic } from 'astro/types'
 import styles from './text.module.css'
 
 type TextColor = 'primary' | 'secondary'
+type TextSize = 'medium' | 'small'
 
 type Props<Tag extends HTMLTag = 'span'> = Polymorphic<{ as: Tag }> & {
   color?: TextColor
   decoration?: 'none' | 'underline'
+  size?: TextSize
 }
 
 const {
   color = 'primary',
   class: className,
   decoration = 'none',
+  size = 'medium',
   as,
   ...restProps
 } = Astro.props
@@ -26,6 +29,7 @@ const Component = as || 'span'
     styles.text,
     styles[`color-${color}`],
     styles[`decoration-${decoration}`],
+    styles[`size-${size}`],
     className,
   ]}
 >

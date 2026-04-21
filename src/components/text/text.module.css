@@ -2,7 +2,6 @@
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-size: 1.125rem; /* 18px */
   font-weight: 400;
   line-height: 160%;
   display: inline-block;
@@ -24,4 +23,12 @@
 .decoration-underline {
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.size-medium {
+  font-size: 1.125rem; /* 18px */
+}
+
+.size-small {
+  font-size: 0.9rem; /* 14.4px */
 }
