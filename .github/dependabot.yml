@@ -6,5 +6,4 @@ updates:
   - package-ecosystem: "npm" # Yes, this is weird but "npm" is the right option for "pnpm"
     directory: "/" # Root directory to look for the package.json file
     schedule:
-      interval: "weekly"
- 
+      interval: "monthly"
