@@ -9,3 +9,9 @@ html {
   color: var(--brown-2);
   background-color: var(--brown-11);
 }
+
+:focus-visible {
+  outline: 2px solid var(--brown-12);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
