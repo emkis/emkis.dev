@@ -50,7 +50,7 @@
  * Main container
  */
 .article-prose {
-  padding-block: 176px;
+  padding-block: 64px 176px;
   color: var(--slate-12);
 }
 

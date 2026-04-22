@@ -8,7 +8,9 @@ import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
 import MetaTitle from '@/components/head/meta-title.astro'
 import StylesLoader from '@/components/head/styles-loader.astro'
 import TypographyLoader from '@/components/head/typography-loader.astro'
+import Heading from '@/components/heading/heading.astro'
 import NavBar from '@/components/navbar/navbar.astro'
+import Text from '@/components/text/text.astro'
 import { type Article, getSortedArticles } from '@/content/articles'
 import ContainContent from '@/layouts/contain-content.astro'
 import './article.css'
@@ -27,7 +29,17 @@ export async function getStaticPaths() {
 type Props = Article
 
 const article = Astro.props
-const { Content } = await render(article)
+const { Content, remarkPluginFrontmatter } = await render(article)
+const publishedDate = new Date(article.data.published_at)
+const updatedDate = new Date(article.data.updated_at)
+const wasUpdated = article.data.updated_at !== article.data.published_at
+const articleReadingTime = remarkPluginFrontmatter.minutesToRead
+
+const formatDate = new Intl.DateTimeFormat('en', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+})
 ---
 
 <!doctype html>
@@ -52,10 +64,63 @@ const { Content } = await render(article)
 	  <ContainContent>
   	  <NavBar />
   		<main>
-        <div class="article-prose">
-          <Content />
-        </div>
+        <article>
+          <header class="article-header">
+            <Heading level="1">{article.data.title}</Heading>
+            <div class="article-meta">
+              <Text size="small" color="secondary">
+                Published <time datetime={publishedDate.toISOString()}>{formatDate.format(publishedDate)}</time>
+              </Text>
+              {wasUpdated && (
+                <Text size="small" color="secondary">
+                  Updated <time datetime={updatedDate.toISOString()}>{formatDate.format(updatedDate)}</time>
+                </Text>
+              )}
+              <Text size="small" color="secondary">{articleReadingTime}</Text>
+            </div>
+            <hr class="article-header-rule" aria-hidden="true" />
+          </header>
+          <div class="article-prose">
+            <Content />
+          </div>
+        </article>
       </main>
 		</ContainContent>
 	</body>
 </html>
+
+<style>
+  .article-header {
+    padding-top: 176px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .article-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .article-header-rule {
+    border: none;
+    height: 1px;
+    background-color: var(--slate-6);
+    margin: 8px 0 0;
+  }
+
+  @media (min-width: 786.69px) {
+    .article-meta {
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .article-meta > * + *::before {
+      content: "·";
+      margin-right: 6px;
+    }
+  }
+</style>
