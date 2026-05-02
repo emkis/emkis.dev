@@ -10,4 +10,5 @@ pre-commit:
       exclude:
         - "*.{yaml,yml}"
         - "*.{md,mdx}"
+        - "*.env.*"
         - "*.gitignore"
