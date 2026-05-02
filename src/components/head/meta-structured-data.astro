@@ -1,6 +1,4 @@
 ---
-import { metadata } from '@/metadata'
-
 interface Props {
   title: string
   description: string
@@ -15,12 +13,12 @@ const structuredData = {
   '@type': 'BlogPosting',
   headline: title,
   description,
-  datePublished: publishedAt,
-  dateModified: updatedAt,
+  datePublished: new Date(publishedAt).toISOString(),
+  dateModified: new Date(updatedAt).toISOString(),
   url: canonicalUrl.toString(),
   author: {
     '@type': 'Person',
-    name: metadata.title,
+    name: 'Nicolas Jardim',
   },
 }
 ---
