@@ -1,5 +1,6 @@
 ---
 import { render } from 'astro:content'
+import Footer from '@/components/footer/footer.astro'
 import AnalyticsLoader from '@/components/head/analytics-loader.astro'
 import IconLoader from '@/components/head/icon-loader.astro'
 import MetaBase from '@/components/head/meta-base.astro'
@@ -92,6 +93,7 @@ const formatDate = new Intl.DateTimeFormat('en', {
           </div>
         </article>
       </main>
+      <Footer />
 		</ContainContent>
 	</body>
 </html>

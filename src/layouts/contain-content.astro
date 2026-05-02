@@ -1,6 +1,5 @@
 ---
 import type { HTMLTag, Polymorphic } from 'astro/types'
-import Footer from '@/components/footer/footer.astro'
 
 type Props<Tag extends HTMLTag = 'div'> = Polymorphic<{ as: Tag }>
 
@@ -10,7 +9,6 @@ const Element = as || 'div'
 
 <Element {...restProps} class:list={["contain-content", className]}>
   <slot />
-  <Footer />
 </Element>
 
 <style>
@@ -18,11 +16,28 @@ const Element = as || 'div'
   font-family: "Inter", sans-serif;
   max-width: 75ch;
   margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "nav" "main" "footer";
+  min-height: 100svh;
+  min-height: 100vh;
 
   /* Formula: (75ch + padding * 2) but in pixels */
   @media (max-width: 786.69px) {
     padding: 16px;
     max-width: 100%;
   }
+}
+
+.contain-content > nav {
+  grid-area: nav;
+}
+
+.contain-content > main {
+  grid-area: main;
+}
+
+.contain-content > footer {
+  grid-area: footer;
 }
 </style>
