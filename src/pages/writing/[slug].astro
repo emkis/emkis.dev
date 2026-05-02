@@ -5,6 +5,7 @@ import IconLoader from '@/components/head/icon-loader.astro'
 import MetaBase from '@/components/head/meta-base.astro'
 import MetaDescription from '@/components/head/meta-description.astro'
 import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
+import MetaStructuredData from '@/components/head/meta-structured-data.astro'
 import MetaTitle from '@/components/head/meta-title.astro'
 import StylesLoader from '@/components/head/styles-loader.astro'
 import TypographyLoader from '@/components/head/typography-loader.astro'
@@ -54,6 +55,12 @@ const formatDate = new Intl.DateTimeFormat('en', {
 		<MetaDescription description={article.data.description} />
 		<MetaOpenGraph
 		  type="article"
+		  title={article.data.title}
+		  description={article.data.description}
+		  publishedAt={article.data.published_at}
+		  updatedAt={article.data.updated_at}
+		/>
+		<MetaStructuredData
 		  title={article.data.title}
 		  description={article.data.description}
 		  publishedAt={article.data.published_at}

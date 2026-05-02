@@ -1,0 +1,32 @@
+---
+import { metadata } from '@/metadata'
+
+interface Props {
+  title: string
+  description: string
+  publishedAt: string
+  updatedAt: string
+}
+
+const { title, description, publishedAt, updatedAt } = Astro.props
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: publishedAt,
+  dateModified: updatedAt,
+  url: canonicalUrl.toString(),
+  author: {
+    '@type': 'Person',
+    name: metadata.title,
+  },
+}
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(structuredData)}
+/>
