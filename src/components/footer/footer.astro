@@ -1,0 +1,64 @@
+---
+import Text from '@/components/text/text.astro'
+
+const year = new Date().getFullYear()
+---
+
+<footer class="footer">
+  <div class="copyright">
+    <Text color="secondary" size="small">© {year} Nicolas Jardim</Text>
+  </div>
+  <div>
+    <Text color="secondary" size="small">
+      Licensed under
+      <Text
+        as="a"
+        color="secondary"
+        size="small"
+        decoration="underline"
+        href="https://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        rel="noopener license"
+      >
+        CC BY 4.0
+      </Text>
+      &nbsp;·&nbsp;
+      <Text
+        as="a"
+        color="secondary"
+        size="small"
+        decoration="underline"
+        href="/rss.xml"
+      >
+        RSS
+      </Text>
+      &nbsp;·&nbsp;
+      <Text
+        as="a"
+        color="secondary"
+        size="small"
+        decoration="underline"
+        href="https://github.com/emkis/emkis.dev"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub
+      </Text>
+    </Text>
+  </div>
+</footer>
+
+<style>
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-block: 32px 64px;
+  border-top: 1px solid var(--slate-6);
+}
+
+.copyright {
+  margin-right: 32px;
+}
+</style>

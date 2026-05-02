@@ -1,5 +1,6 @@
 ---
 import type { HTMLTag, Polymorphic } from 'astro/types'
+import Footer from '@/components/footer/footer.astro'
 
 type Props<Tag extends HTMLTag = 'div'> = Polymorphic<{ as: Tag }>
 
@@ -9,6 +10,7 @@ const Element = as || 'div'
 
 <Element {...restProps} class:list={["contain-content", className]}>
   <slot />
+  <Footer />
 </Element>
 
 <style>
