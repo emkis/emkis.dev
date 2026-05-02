@@ -23,7 +23,7 @@ const navbarLinks = [
 
       return (
         <li>
-          <Text as="a" decoration={ isLinkActive ? "underline" : "none"} aria-current={isLinkActive ? "true" : "false"} href={link.pathname}>{link.name}</Text>
+          <Text as="a" decoration={ isLinkActive ? "underline" : "none"} aria-current={isLinkActive ? "page" : undefined} href={link.pathname}>{link.name}</Text>
         </li>
       )
     })}

@@ -6,7 +6,7 @@ type Props = HTMLAttributes<'ol'>
 const { class: className, ...restProps } = Astro.props
 ---
 
-<ol {...restProps} class:list={["article-list", className]}>
+<ol {...restProps} class:list={["article-list", className]} role="list">
   <slot />
 </ol>
 
