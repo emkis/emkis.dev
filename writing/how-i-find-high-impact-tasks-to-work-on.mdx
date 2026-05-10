@@ -6,6 +6,17 @@ updated_at: '2026-05-03'
 color: 'var(--article-color-2)'
 ---
 
+## Article structure
+1. What is a side task? — Introduction, definition, setting the scene
+2. Why work on them? — The skeptical question + your career impact as the answer
+3. What they look like — Concrete examples of friction across different areas
+4. How to identify them — The mindset: slow down, feel friction, take notes, research
+5. The hidden benefits — Becoming a reference, building trust, how others perceive you
+6. Where to start — Calendar blocks, the list, actionable first steps
+7. Final thoughts
+
+---
+
 # How I find high-impact tasks to work on
 
 Many times throught out the years I worked on what I call _"side tasks"_, tasks that might be completelly unrelated to my team's scope or priorities, and that would likely never make it into any team's backlog or get picked up during a cool-down period.
@@ -24,7 +35,7 @@ a confusing API in a shared component, a repetitive manual step in a deployment 
 
 Based on this description, you might be thinking:
 
-> "Are those side tasks relevant at all? If neither teams not the company are prioritising them, why would you invest time on it?"
+> "Are those side tasks relevant at all? If neither teams nor the company are prioritising them, why would you invest time on it?"
 
 I think these are natural questions that would come up, mainly because I had Engineering and Product Managers ask them to me as well.
 
@@ -40,11 +51,97 @@ completing those tasks were one of the most effective things I did in my carrear
 
 ---
 
+## How to identify opportunities
+
+The process for identifying these opportunities if improvements, which will later become side tasks you can work on is: **Look for moments of friction.**
+
+Friction for me could have multiple forms:
+- It could be an architectural problem.
+- An onwership problem.
+- A lack of process within a team or the company.
+- A poorly designed API for a highly used module.
+- Things that people often miss during a common process.
+
+There are essentially two different moment I find those opportunities, during code reviews and while working on a regular task.
+
+While working on a regular task that was assigned to me, I first go through and start analysing the modules where I need to introduce the changes to. While analysing and doing this initial exploration I might already see things that I don't like about that module or that could clearly be improved.
+
+Is really hard to me to just add more functionality or extend an existing module if it contains problems that will affect this new functionality or that will get in the way of my task working the best it can.
+
+A rule I try to follow is to always leave the module better than I first saw it, any small improvement compounds over time, you will also probably make mistakes and add things that might not be great, so is best to at least try to improve something there too.
+
+On the majority of changes we might be making things more complex, harder to maintain or worse than it was before. Even though we might thing we are doing "the right thing" you might be wrong, so in my opinion we should at least attempt to improve something that is clearly incorrect or needs improvement.
+
+Overtime those small details and improvements compounds and at the end you have a better software and products your users will use.
+
+Many times, it really botters me to just add more code into a module that is not well organised or that has clearly some impro these things 
+
+For code reviews, I try to look for common patterns, see if the engineer struggled to implement their feature or clearly missed something, if they did that's a point of attention to me. After I while reviewing code I start to notice common things that people miss while implementing a feature or any kind of changes they are introcuding.
+
+Those are signs of friction to me as well, things we could do with that is creating custom ESLint rules to automatically catch those mistakes and keep the feedback loop faster.
+
+We could also analyse the modules where those things are being missed and understand if there are different ways we could design the APIs of those modules to handle those things by defaulf or add guardrails around it.
+
+We could add documentation to those parts of the codebase so that is clear to everyone what are the things they need to pay attention at while working there.
+
+The pattern I see is to essentially slow down a bit in a few moments and really try to pay attention on what we are doing and what are the points of friction you notice, these are opportunities if you let them.
+
+From those things, you might need to research deeply about a specific part of the codebase and come up with a great plan to improve things and resolve all the gaps that people usually miss, make the setup of thing simpler, improve the testing coverage of those modules and so on.
+
+After that you will have more knowledge about that part of the codebase and once you make your proposals for improvements and merge those new changes, slowly people are going to start pointing others to you when the subject is related to those modules, you will start becoming a reference for those things.
+
+This will also push you to start talking with other engineers from other teams of the company and increase your cross-domain impact, which is a key point for you to grow as an engineer across the organisation.
+
+Example 1:
+Let's say you are working on a task where you need to bind analytics events to existing user interactions in your product. You start doing research to see how other engineers to it in different products/teams and you realise that setting up the events requires a lot of cerimony and boilerplate that is essentially the exact same in all other products, the API isn't great, requires a lot of cerimony, things aren't great but they work.
+
+Example 2:
+You're team often receives pull requests to review from other teams where they are updating logic they own but that exists within a module that your team maintains, your team becomes the bottleneck, even though you are not the owners of that piece of code, you need to review and approve it.
+
+The friction here to me is: Your team doesn't own that piece of code, you shouldn't need to be required that you approve it or get involved as a requirement of that piece of code being shipped.
+
+You are working on some improvements in a part of the codebase that your team owns and maintains, and you realised that actually there are some architecture problems with that module, there are some code that is not actually from the scope of your team but they were created there, whih
+
+Another example would be, you notice that your team often gets request to review pull requests from a specific part of the codebase that you actually don't really own, but that was assigned to you
+
+of code. You can see that the majority of the products are doing a lot of repetitive work that actually just creates more 
+
+As soon as you start this, you will probably research the codebase to find how usually other teams/engineers do this, and and setting the events up requires a lot of duplication of code or cerimony and you notice that 
+
+let's consider you need to add 10+ of them and the majority of them have common properties you want to share between them 
+
+
 I identified them myself while working on something else, while reviewing code and identifying bad patterns or while feeling friction while trying to accomplish my specific task.
 
 For example, let's say you need to implement multiple analytics events in a user journey in your product, and setting them up is really annoying, requires a lot of duplication of code, boilerplates and etc.
 
 To me this is what I call: Friction.
+
+---
+
+### The oppotunities list
+As we are going through our day, we can't spend all our time doing improvements that noone asked us to do, we can pick it up a few that are thighly related to your tasks of couse.
+
+But some of them are just too large to be picked it up right now and need more research, the path forward might not even be clear to you at this moment, but you definitely know that there is room to improve on this thing.
+
+What I do in these moments is to take note on this item in my personal notes, just a bullet point with the name of the task or a short description of what you notice and what's in your mind about it.
+
+Over time you will see that your list will contain multiple of those itens and you can start to see that some of them come back as you are working in different tasks, and those will get every time stronger in your list, because you can really feel the pain of those issues, and if you feel them, probably other engineers feel them too.
+
+Same thing for code reviews, if you notice you are giving the same advice and type of suggestions to other engineers, add them to your list as well, these are also things you can thing on how to improve.
+
+---
+
+## Taking action
+
+I allocate 15% of my week 4 hours of my week
+
+I've read in the Effective Engineer** book by **Edmond Lau** this idea of allocating 20% of your time to 
+
+I have scheduled in my calendar two blocks of 
+
+What I usually do is once a week pick 
+
 
 ---
 
