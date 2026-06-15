@@ -21,7 +21,7 @@
     "@types/mdast": "4.0.4",
     "astro": "6.4.3",
     "clsx": "2.1.1",
-    "es-toolkit": "1.46.1",
+    "es-toolkit": "1.47.0",
     "mdast-util-to-string": "4.0.0",
     "react": "19.2.5",
     "react-dom": "19.2.5",
