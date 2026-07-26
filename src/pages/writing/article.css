@@ -1,6 +1,7 @@
 /**
  * Base text styles - matching text.module.css
  */
+/* biome-ignore-all lint/style/noExcessiveLinesPerFile: prose stylesheet, naturally long */
 .article-prose :is(p, li, td, th) {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;

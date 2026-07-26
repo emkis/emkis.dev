@@ -18,6 +18,7 @@ interface ArticleProps extends BaseProps {
 
 type Props = WebsiteProps | ArticleProps
 
+// biome-ignore lint/style/useDestructuring: destructuring breaks discriminated-union narrowing
 const props = Astro.props
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
 const isArticle = props.type === 'article'

@@ -2,6 +2,7 @@
  * Colors from Radix UI's Slate and Brown palettes
  * Source: https://www.radix-ui.com/colors
  */
+/* biome-ignore-all lint/style/noHexColors: this file defines the raw color tokens */
 :root {
   /* Slate - Light */
   --slate-1: #fcfcfd;
