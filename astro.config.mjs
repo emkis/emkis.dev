@@ -1,3 +1,4 @@
+import { unified } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
@@ -9,12 +10,11 @@ import { remarkReadingTime } from './src/remark.ts'
 export default defineConfig({
   site: 'https://emkis.dev',
   trailingSlash: 'never',
-  integrations: [
-    mdx({
+  markdown: {
+    processor: unified({
       rehypePlugins: [rehypeDeleteH1s],
       remarkPlugins: [remarkReadingTime],
     }),
-    sitemap(),
-    react(),
-  ],
+  },
+  integrations: [mdx(), sitemap(), react()],
 })
