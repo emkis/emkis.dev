@@ -1,6 +1,6 @@
 ---
 title: 'How I find meaningful work nobody assigned me'
-description: 'Small problems that belong to no one turned out to be some of the most valuable work of my career. Here is how I find them.'
+description: 'Small problems that belong to no one turned out to be some of the best work of my career. This is how I find them.'
 published_at: '2026-09-25'
 updated_at: '2026-09-25'
 color: 'var(--article-color-2)'
@@ -8,15 +8,15 @@ color: 'var(--article-color-2)'
 
 # How I find meaningful work nobody assigned me
 
-Over the years, I kept working on things nobody asked me to. Not because I had too much free time, but because I kept running into problems that annoyed me, and probably annoyed everyone else too.
+Over the years, I kept working on things nobody asked me to do. I didn't have extra free time. I just kept running into problems that annoyed me, and I suspected they annoyed everyone else too.
 
-I call them _side tasks_. Tasks that are usually unrelated to my team's scope or priorities, and that would likely never make it into anyone's backlog or get picked up during a cool-down period.
+I call them _side tasks_. They're usually unrelated to my team's scope or priorities, and they would likely never make it into anyone's backlog or get picked up during a cool-down period.
 
 ## What is a side task?
 
 A side task usually starts with _friction_. A confusing API in a shared component, a repetitive manual step in a deployment process, a bad data structure that ripples across the codebase, or a deeper architectural problem that nobody has had the time or mandate to address.
 
-The size doesn't matter. A side task can be a one-hour fix or a refactor that takes weeks. What defines it is that it belongs to no one. Nobody owns it, nobody is coming to fix it, and precisely because of that, it stays broken, sometimes for years.
+Size doesn't matter much. A side task can be a one-hour fix or a refactor that takes weeks. What they have in common is that they belong to no one. Nobody owns them and nobody is coming to fix them, so they stay broken, sometimes for years.
 
 ## Why work on them?
 
@@ -24,9 +24,9 @@ Based on this description, you might be thinking:
 
 > "Are those side tasks relevant at all? If neither the teams nor the company are prioritizing them, why would you invest time in them?"
 
-Fair questions. I know they're natural because Engineering Managers and Product Managers have asked me exactly that.
+I know these questions come up naturally, because Engineering Managers and Product Managers have asked me exactly that.
 
-After working on many side tasks, I can confidently say they were one of the most effective things I did to grow as an engineer. They made my work more visible, they built trust with my peers, and more than once they ended up having more impact than the tasks I was actually assigned.
+After working on many side tasks, I can say with confidence that they were one of the most effective things I did to grow as an engineer. They made my work visible outside my team and built trust with my peers. More than once, a side task had more impact than the work I'd been assigned.
 
 ## What they look like
 
@@ -38,61 +38,59 @@ Friction can take many forms:
 - A missing process within a team or the company
 - Things people often miss during a common workflow
 
-Let me give you a couple of examples.
+Two examples make this more concrete.
 
 ### Analytics boilerplate
 
-Let's say you're working on a task where you need to bind analytics events to existing user interactions. You look around to see how other engineers do it in different products and teams, and you realize that setting up events requires a lot of ceremony and boilerplate that is basically the same everywhere. The API isn't great and every team repeats the same setup, but it works, so nobody touches it.
+Say you're working on a task where you need to bind analytics events to existing user interactions. You look around to see how other engineers do it in different products and teams, and you realize that setting up events takes a lot of ceremony and boilerplate that is basically the same everywhere. The API isn't great and every team repeats the same setup, but it works, so nobody touches it.
 
-That's a side task. You could build a small shared abstraction that takes care of the common setup and the properties every event needs, so adding a new event becomes a single line. Your task gets simpler, and so does every similar task that comes after it, in every team.
+You could build a small shared abstraction that takes care of the common setup and the properties every event needs, so adding a new event becomes a single line. Your task gets simpler, and so does every similar task after it, in every team.
 
 ### Reviewing code you don't own
 
-Your team often gets pull requests to review from other teams. They are changing logic they own, but that logic lives inside a module your team maintains, so your approval is required before anything ships.
+Your team often gets pull requests to review from other teams. They are changing logic they own, but that logic lives inside a module your team maintains, so nothing ships without your approval.
 
-Your team becomes the bottleneck for code it doesn't own. Your time goes into reviewing things outside your scope, and the other team is blocked waiting on you.
+That makes your team the bottleneck for code it doesn't own. You spend time reviewing things outside your scope while the other team waits on you.
 
-That's a side task too. Maybe the code should live closer to the team that owns it, maybe the module needs a clearer boundary, or maybe it's as simple as updating the `CODEOWNERS` file. Either way, nobody is going to plan for it, and it keeps costing everyone a little bit every week.
+Maybe the code should live closer to the team that owns it, or the module needs a clearer boundary. Sometimes updating the `CODEOWNERS` file is enough. Nobody is going to plan for any of these, and in the meantime the problem costs everyone a little bit every week.
 
 ## How to find them
 
-There are two moments where I usually find them: **while working on a regular task** and **during code reviews**.
+I usually find them in two moments: while working on a regular task and during code reviews.
 
 ### While working on a task
 
-When I pick up a task, I start by exploring the modules I need to change. During this exploration, I often find things I don't like or that could clearly be improved.
+When I pick up a task, I start by exploring the modules I need to change, and during that exploration I often find things I don't like or that could clearly be better.
 
-It really bothers me to add more code into a module that isn't well organized or that clearly has problems, especially when those problems will get in the way of what I'm building.
+It really bothers me to add more code to a module that isn't well organized or that clearly has problems, especially when those problems will get in the way of what I'm building.
 
-A rule I try to follow is to always leave a module better than I found it. I'll probably make mistakes and add things that aren't great too, so the least I can do is improve something while I'm there. Small improvements compound, and over time you end up with better software and a better product for your users.
+I try to always leave a module better than I found it. I'll probably make mistakes and add things that aren't great too, so the least I can do is fix something while I'm there. Small improvements add up, and over time you end up with better software and a better product for your users.
 
 ### During code reviews
 
-While reviewing code, I pay attention to where the author struggled or what they clearly missed. After reviewing enough code, you start noticing the same mistakes happening again and again, from different people.
+When I review code, I pay attention to where the author struggled or what they missed. After enough reviews, you start seeing the same mistakes again and again, from different people.
 
-That's friction too, and there are a few things you could do about it:
+When that happens, a few things can help:
 
-- Write custom lint rules to catch those mistakes automatically and keep the feedback loop fast
+- Write custom lint rules that catch those mistakes automatically and keep the feedback loop fast
 - Rethink the API of those modules so they handle the tricky parts by default, or add guardrails around them
-- Document those parts of the codebase so everyone knows what to pay attention to
+- Document those parts of the codebase so everyone knows what to watch out for
 
 ### Slowing down
 
-The pattern here is to slow down in a few key moments and actually pay attention to the friction you feel. It's easy to ignore it and move on. Edmond Lau puts it well in _The Effective Engineer_:
+In both cases, I have to slow down for a moment and pay attention to the friction I'm feeling, which is easy to ignore. Edmond Lau describes the feeling well in _The Effective Engineer_:
 
 > "When you're fully engaged with a bug you're testing or a new feature you're building, the last thing you want to do is to add more work."
 
-I've felt that many times. But those moments of friction are opportunities, if you let them be.
+I've felt that many times, and I still make myself stop and write the problem down.
 
 ## What you get out of it
 
-After you do the research and start making improvements, something else starts to happen.
+Once you've done the research and merged a few improvements, you know that part of the codebase better than most people. Slowly, people start pointing others to you when a question about it comes up, and you become a reference for it.
 
-You end up knowing that part of the codebase better than most people. Once your changes are merged, people slowly start pointing others to you whenever a question about it comes up. You become a reference.
+The work also gets you talking with engineers from other teams, so your impact grows beyond your team's scope. In my experience, that matters a lot for growing as an engineer in any organization.
 
-It also pushes you to talk with engineers from other teams, which grows your impact beyond your team's scope. That's a key factor for growing as an engineer in any organization.
-
-And it builds trust. People start seeing you as someone practical, someone who makes everyone's life a little easier. You'll often find out that other teams were independently feeling the same pain, which is a good sign you picked the right problems.
+It builds trust too. People start seeing you as practical, as someone who makes everyone's life a little easier. You'll often find out that other teams were independently feeling the same pain, which tells you that you picked the right problems.
 
 My favorite example of this was a hackathon. When it was announced, most teams were still figuring out what to build. I already had my list. My team picked items from it, we spent the hackathon fixing problems people had been living with for a long time, and we won.
 
@@ -100,33 +98,33 @@ My favorite example of this was a hackathon. When it was announced, most teams w
 
 ### Keep a list
 
-We can't spend all our time on improvements nobody asked for. Some are tightly related to the task we're working on, and we can pick those up right away. Others are too large or need more research, and the path forward might not even be clear yet. You just know there's room to improve.
+We can't spend all our time on improvements nobody asked for. Some are tightly related to the task at hand, and we can pick those up right away. Others are too large or need more research, and the path forward might not be clear yet, even though you know there's room to improve.
 
-What I do in these moments is write it down. Just a bullet point in my notes with a name or a short description of what I noticed and what I'm thinking about it.
+In those moments I write it down, just a bullet point in my notes with a name or a short description of what I noticed and what I'm thinking about it.
 
-Over time the list grows, and some items keep coming back as you work on different tasks. Those get stronger every time, because you really feel the pain, and if you feel it, other engineers probably feel it too.
+Over time the list grows, and some items keep coming back as you work on different tasks. Each time one comes back you feel the pain again, and if you feel it, other engineers probably do too.
 
-Same thing for code reviews. If you notice yourself giving the same suggestion over and over, add it to your list.
+The same goes for code reviews. If you catch yourself giving the same suggestion over and over, add it to the list.
 
 ### Make time for it
 
-A list is only useful if you actually work on it. So I block time in my calendar for it, two blocks a week, one on Monday and one on Friday, around 4 hours in total.
+A list only helps if you work on it, so I block time in my calendar: one block on Monday and one on Friday, around 4 hours a week in total.
 
-This idea isn't new. _The Effective Engineer_ also mentions Google's famous 20% time, where engineers could spend part of their week on projects outside their main responsibilities, which is how products like Gmail came to be. I'm not building the next Gmail, but the principle is the same: protected time for things nobody will ask you to do.
+_The Effective Engineer_ also mentions Google's 20% time, where engineers could spend part of their week on projects outside their main responsibilities, and Gmail came out of it. My side tasks are much smaller than Gmail, but they come from the same idea of protecting time for work nobody will ask you to do.
 
-During those blocks, I go through my list, pick a quick win or two to build momentum, and once in a while go deeper on a bigger problem. Some weeks it doesn't happen because other priorities win, and that's fine. The calendar block is there to create the intention and the space, not to be a strict rule.
+During those blocks, I go through my list, pick a quick win or two to build momentum, and once in a while go deeper on a bigger problem. Some weeks other priorities win and it doesn't happen, and that's fine. I treat the calendar block as a reminder of the intention, and I skip it when I have to.
 
 ### Share it with others
 
-Keeping the list private is where I started, but sharing it is where things got interesting.
+I started with a private list, and the more I shared it, the more useful it became.
 
-When I find friction in code another team owns, I reach out to them. Most of the time they already know about it, they just never had the time to prioritize it, and they're happy someone is looking into it.
+When I find friction in code another team owns, I reach out to them. Most of the time they already know about it and never had time to prioritize it, so they're happy someone is looking into it.
 
-For improvements that aren't owned by any team, I like to keep them on a shared board that the whole company can see. Not in my team's backlog, because these aren't sprint work, they run in parallel. A shared board also makes communication async: instead of explaining the same problem again, I can just send a link. Others can find those items, add context, or even pick them up themselves.
+For improvements no team owns, I like to keep them on a shared board the whole company can see. I keep them out of my team's backlog because they run in parallel with sprint work. The board also makes the conversation async: I can send a link instead of explaining the same problem again, and other people can find those items, add context, or pick them up themselves.
 
 ## Final thoughts
 
-None of this requires a special role or anyone's permission. It starts with slowing down, noticing the friction, and writing it down. The rest follows.
+You can start this in any role. Slow down when something feels harder than it should, and write it down.
 
 I'll leave you with another quote from _The Effective Engineer_ that stuck with me:
 
