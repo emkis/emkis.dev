@@ -1,4 +1,4 @@
-onlyBuiltDependencies:
-  - lefthook
-  - esbuild
-  - sharp
+allowBuilds:
+  esbuild: true
+  lefthook: true
+  sharp: true
