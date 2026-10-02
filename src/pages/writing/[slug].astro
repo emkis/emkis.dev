@@ -76,13 +76,9 @@ const formatDate = new Intl.DateTimeFormat('en', {
           <header class="article-header">
             <Heading level="1">{article.data.title}</Heading>
             <div class="article-meta">
-              <Text size="small" color="secondary">
-                Published <time datetime={publishedDate.toISOString()}>{formatDate.format(publishedDate)}</time>
-              </Text>
+              <Text size="small" color="secondary">Published <time datetime={publishedDate.toISOString()}>{formatDate.format(publishedDate)}</time></Text>
               {wasUpdated && (
-                <Text size="small" color="secondary">
-                  Updated <time datetime={updatedDate.toISOString()}>{formatDate.format(updatedDate)}</time>
-                </Text>
+                <Text size="small" color="secondary">Updated <time datetime={updatedDate.toISOString()}>{formatDate.format(updatedDate)}</time></Text>
               )}
               <Text size="small" color="secondary">{articleReadingTime}</Text>
             </div>
