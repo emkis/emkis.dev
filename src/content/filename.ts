@@ -1,25 +1,19 @@
 /**
- * Articles are named `YYYY-MM-DD-slug.mdx` so they show up in chronological
- * order in the file explorer. The date is the publish date and the rest of
- * the name is the slug used in the URL.
+ * Articles are named `NNN-slug.mdx` (e.g. `001-hello-world.mdx`) so they show
+ * up in writing order in the file explorer. The number is only for ordering
+ * files, the rest of the name is the slug used in the URL.
  */
-const datedFilenamePattern = /^(\d{4}-\d{2}-\d{2})-(.+)\.mdx?$/
+const numberedFilenamePattern = /^\d{3}-(.+)\.mdx?$/
 
-interface ParsedFilename {
-  publishedAt: string
-  slug: string
-}
-
-function parseFilename(filePath: string): ParsedFilename {
+function getSlugFromFilename(filePath: string): string {
   const basename = filePath.split('/').pop() ?? filePath
-  const match = basename.match(datedFilenamePattern)
+  const match = basename.match(numberedFilenamePattern)
   if (!match) {
     throw new Error(
-      `Article "${filePath}" must be named "YYYY-MM-DD-slug.mdx" (e.g. "2026-03-28-hello-world.mdx").`,
+      `Article "${filePath}" must be named "NNN-slug.mdx" (e.g. "001-hello-world.mdx").`,
     )
   }
-  const [, publishedAt, slug] = match
-  return { publishedAt, slug }
+  return match[1]
 }
 
-export { parseFilename }
+export { getSlugFromFilename }

@@ -33,9 +33,9 @@ type Props = Article
 const article = Astro.props
 const { Content, remarkPluginFrontmatter } = await render(article)
 const publishedDate = new Date(article.data.published_at)
-const updatedAt = article.data.updated_at ?? article.data.published_at
-const updatedDate = new Date(updatedAt)
-const wasUpdated = updatedAt !== article.data.published_at
+const updatedDate = article.data.updated_at
+  ? new Date(article.data.updated_at)
+  : undefined
 const articleReadingTime = remarkPluginFrontmatter.minutesToRead
 
 const formatDate = new Intl.DateTimeFormat('en', {
@@ -60,13 +60,13 @@ const formatDate = new Intl.DateTimeFormat('en', {
 		  title={article.data.title}
 		  description={article.data.description}
 		  publishedAt={article.data.published_at}
-		  updatedAt={updatedAt}
+		  updatedAt={article.data.updated_at}
 		/>
 		<MetaStructuredData
 		  title={article.data.title}
 		  description={article.data.description}
 		  publishedAt={article.data.published_at}
-		  updatedAt={updatedAt}
+		  updatedAt={article.data.updated_at}
 		/>
 	</head>
 	<body>
@@ -78,7 +78,7 @@ const formatDate = new Intl.DateTimeFormat('en', {
             <Heading level="1">{article.data.title}</Heading>
             <div class="article-meta">
               <Text size="small" color="secondary">Published <time datetime={publishedDate.toISOString()}>{formatDate.format(publishedDate)}</time></Text>
-              {wasUpdated && (
+              {updatedDate && (
                 <Text size="small" color="secondary">Updated <time datetime={updatedDate.toISOString()}>{formatDate.format(updatedDate)}</time></Text>
               )}
               <Text size="small" color="secondary">{articleReadingTime}</Text>
