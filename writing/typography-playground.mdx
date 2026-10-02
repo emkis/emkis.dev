@@ -8,7 +8,7 @@ color: 'var(--article-color-1)'
 
 # Typography Playground
 
-This is a demo article. It exists only to stress-test the article typography, so it has more headings, lists and odd combinations than a real article would. Use the switcher at the bottom of the page to compare the variants, or add `?prose=a` through `?prose=f` to the URL.
+This is a demo article. It exists only to stress-test the article typography, so it has more headings, lists and odd combinations than a real article would. Use the typography lab at the bottom of the page to compare heading and code fonts, or add `?heading=literata` or `?mono=plex` to the URL.
 
 Most articles start with a couple of paragraphs of introduction before the first heading shows up. This one does the same, so you can judge how a heading sits after a normal run of body text. Pay attention to how close the heading feels to the text that comes after it, compared to the text that comes before it.
 
@@ -73,6 +73,15 @@ The paragraph after a quote should feel connected to it, since it usually commen
 
 Inline code like `margin-block: 1lh` should sit comfortably inside a line without pushing the lines apart. Blocks of code are a different beast:
 
+```tsx
+function Greeting({ name }: { name: string }) {
+  const message = name ? `Hello, ${name}!` : 'Hello, stranger.'
+  return <p className="greeting">{message}</p> // => != === <= >=
+}
+```
+
+And some CSS for good measure:
+
 ```css
 .article-prose {
   --baseline: 1lh;
@@ -101,14 +110,11 @@ Which is rare, but it happens in longer technical writing.
 
 ## A table
 
-| Variant | Body size | Line height | Character |
-| ------- | --------- | ----------- | --------- |
-| A       | 17px      | 1.6         | Compact   |
-| B       | 17–18px   | 1.65        | Balanced  |
-| C       | 18–20px   | 1.7         | Editorial |
-| D       | 17–19px   | 1.65        | Book      |
-| E       | 19–21px   | 1.55        | Newspaper |
-| F       | 17–20px   | 1.6         | Cozy      |
+| Role     | Font           | Size    | Line height |
+| -------- | -------------- | ------- | ----------- |
+| Body     | Literata       | 17–19px | 1.65        |
+| Headings | Fraunces       | 18–48px | 1.15        |
+| Code     | JetBrains Mono | 0.875em | 1.7         |
 
 ## Wrapping up
 

@@ -137,9 +137,10 @@ const articles = await getSortedArticles()
   &::before {
     content: "“";
     position: absolute;
-    font-family: "Merriweather", serif;
+    font-family: var(--font-heading);
     font-size: 3rem; /* 48px */
-    font-weight: 700;
+    font-weight: var(--font-heading-weight);
+    font-variation-settings: var(--font-heading-variation);
     top: 0;
     left: 0;
     height: 100%;
