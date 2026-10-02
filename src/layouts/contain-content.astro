@@ -13,8 +13,16 @@ const Element = as || 'div'
 
 <style>
 .contain-content {
-  /* Same width as the previous 75ch of Inter, now that the base font changed */
-  max-width: 722.69px;
+  /*
+   * `ch` is the width of "0" in this element's font, so the container uses
+   * the body text font and size to make the width follow the text. "0" is
+   * wider than the average letter, so 68ch fits about 78 characters of
+   * Literata per line. On narrow screens the min() keeps a 16px gutter on
+   * each side.
+   */
+  font-family: var(--font-body);
+  font-size: var(--text-size);
+  width: min(68ch, 100% - 32px);
   margin: 0 auto;
   display: grid;
   /* minmax(0, 1fr) lets wide children (like code blocks) scroll instead of stretching the page */
@@ -24,10 +32,9 @@ const Element = as || 'div'
   min-height: 100svh;
   min-height: 100vh;
 
-  /* Formula: (75ch + padding * 2) but in pixels */
-  @media (max-width: 786.69px) {
-    padding: 16px;
-    max-width: 100%;
+  /* Below the desktop breakpoint, see `--text-leading` in global.css */
+  @media (max-width: 44.99rem) {
+    padding-block: 16px;
   }
 }
 

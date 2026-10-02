@@ -23,8 +23,12 @@
   --space-section: clamp(4rem, 2.5rem + 6vw, 7rem);
 }
 
-/* Formula: (75ch + padding * 2) but in pixels, same as the layout */
-@media (min-width: 786.69px) {
+/**
+ * Desktop breakpoint, roughly where the layout reaches its full 68ch width
+ * (68ch of 18px Literata + 16px gutters ≈ 712px). Media queries can't use the
+ * layout's `ch`, since they resolve against the browser's default font.
+ */
+@media (min-width: 45rem) {
   :root {
     --text-leading: 1.8;
   }
