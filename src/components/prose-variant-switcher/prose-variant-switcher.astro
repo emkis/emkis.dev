@@ -1,0 +1,123 @@
+---
+/**
+ * Demo-only control to compare prose typography variants.
+ * The choice is applied as `data-prose` on <html>, synced to the `?prose=`
+ * query param (so a variant can be linked) and remembered in localStorage.
+ */
+const variants = [
+  { value: 'current', label: 'Current' },
+  { value: 'a', label: 'A · Compact' },
+  { value: 'b', label: 'B · Balanced' },
+  { value: 'c', label: 'C · Editorial' },
+]
+---
+
+<script is:inline>
+  // Runs before first paint to avoid a flash of the default styles.
+  ;(() => {
+    const allowed = ['a', 'b', 'c']
+    let variant = new URLSearchParams(location.search).get('prose')
+    if (!variant) {
+      try {
+        variant = localStorage.getItem('prose-variant')
+      } catch {}
+    }
+    if (allowed.includes(variant)) {
+      document.documentElement.dataset.prose = variant
+    }
+  })()
+</script>
+
+<div class="switcher" role="group" aria-label="Prose typography variant">
+  {variants.map((variant) => (
+    <button type="button" class="option" data-variant={variant.value}>
+      {variant.label}
+    </button>
+  ))}
+</div>
+
+<script>
+  const root = document.documentElement
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    '.switcher [data-variant]',
+  )
+
+  function sync() {
+    const active = root.dataset.prose ?? 'current'
+    for (const button of buttons) {
+      button.setAttribute(
+        'aria-pressed',
+        String(button.dataset.variant === active),
+      )
+    }
+  }
+
+  function select(variant: string) {
+    const url = new URL(location.href)
+    if (variant === 'current') {
+      delete root.dataset.prose
+      url.searchParams.delete('prose')
+    } else {
+      root.dataset.prose = variant
+      url.searchParams.set('prose', variant)
+    }
+    try {
+      localStorage.setItem('prose-variant', variant)
+    } catch {
+      // Storage can be unavailable (private mode); the URL still works.
+    }
+    history.replaceState(null, '', url)
+    sync()
+  }
+
+  for (const button of buttons) {
+    button.addEventListener('click', () => {
+      select(button.dataset.variant ?? 'current')
+    })
+  }
+
+  sync()
+</script>
+
+<style>
+  .switcher {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 16px;
+    width: max-content;
+    max-width: calc(100% - 32px);
+    margin-inline: auto;
+    display: flex;
+    gap: 2px;
+    padding: 4px;
+    overflow-x: auto;
+    background-color: var(--slate-2);
+    border: 1px solid var(--slate-6);
+    border-radius: 999px;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.12);
+    z-index: 10;
+  }
+
+  .option {
+    font-family: "Inter", sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 999px;
+    background: none;
+    color: var(--slate-11);
+    cursor: pointer;
+  }
+
+  .option:hover {
+    color: var(--slate-12);
+    background-color: var(--slate-4);
+  }
+
+  .option[aria-pressed="true"] {
+    color: var(--slate-1);
+    background-color: var(--slate-12);
+  }
+</style>

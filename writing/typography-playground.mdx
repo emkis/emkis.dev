@@ -1,0 +1,116 @@
+---
+title: 'Typography Playground'
+description: 'A long demo article with lots of headings, lists, quotes and code, used to compare prose typography variants side by side.'
+published_at: '2026-01-01'
+updated_at: '2026-01-01'
+color: 'var(--article-color-1)'
+---
+
+# Typography Playground
+
+This is a demo article. It exists only to stress-test the article typography, so it has more headings, lists and odd combinations than a real article would. Use the switcher at the bottom of the page to compare the variants, or add `?prose=a`, `?prose=b` or `?prose=c` to the URL.
+
+Most articles start with a couple of paragraphs of introduction before the first heading shows up. This one does the same, so you can judge how a heading sits after a normal run of body text. Pay attention to how close the heading feels to the text that comes after it, compared to the text that comes before it.
+
+## Why spacing matters more than size
+
+A heading belongs to the content that follows it, not to the content before it. When the space above and below a heading is roughly the same, the heading floats in the middle and the reader has to work a little harder to understand where a section begins.
+
+The fix is usually boring: less space after the heading, a bit more space before it, and sizes that don't shout. Most of the hierarchy can come from position and weight instead of raw size.
+
+### Proximity
+
+Things that are close together are perceived as related. That's the whole principle. A heading with 32px below it and 64px above it is technically following the rule, but on a phone screen those numbers eat a large part of the viewport.
+
+### Rhythm
+
+When spacing is a multiple of the body line height, the page starts to feel calmer, even if nobody could tell you why. The new `lh` unit makes this easy: `1lh` is exactly one line of the current element.
+
+#### A smaller heading
+
+Level four headings are where things usually go wrong. They're often only slightly larger than body text, but they inherit the same huge margins as a level two heading, which makes them look lost.
+
+##### And an even smaller one
+
+Level five is almost a label. It should be close to the paragraph it introduces, and it should not need the same breathing room as a section title.
+
+## Lists and their spacing
+
+Lists are a good test because they mix short and long lines:
+
+- Short item.
+- A slightly longer item that still fits on one line on desktop.
+- A much longer item that will definitely wrap onto a second line on most screens, so you can see how the line height inside an item compares to the gap between items.
+- Another short one.
+
+Numbered lists behave the same way:
+
+1. Write the first draft without worrying about structure.
+2. Add headings where the reader would naturally pause.
+3. Read it on a phone, because that's where most people will.
+
+### Nested lists
+
+- Typography
+  - Font size
+  - Line height
+  - Measure
+- Spacing
+  - Between paragraphs
+  - Around headings
+
+## Quotes
+
+> "Typography exists to honor content." The best spacing is the one you don't notice while reading.
+
+The paragraph after a quote should feel connected to it, since it usually comments on what was just quoted.
+
+## Code
+
+Inline code like `margin-block: 1lh` should sit comfortably inside a line without pushing the lines apart. Blocks of code are a different beast:
+
+```css
+.article-prose {
+  --baseline: 1lh;
+}
+
+.article-prose * + p {
+  margin-top: var(--baseline);
+}
+```
+
+After a code block there is usually a short explanation, like this one.
+
+## Headings back to back
+
+Sometimes a section heading is immediately followed by a subsection heading, with no text in between. That combination needs its own spacing, otherwise the two headings drift apart.
+
+### Like this one
+
+And sometimes they're followed by a short paragraph.
+
+### Or this one
+
+#### Even three levels deep
+
+Which is rare, but it happens in longer technical writing.
+
+## A table
+
+| Variant | Body size | Line height | Character |
+| ------- | --------- | ----------- | --------- |
+| A       | 17px      | 1.6         | Compact   |
+| B       | 17–18px   | 1.65        | Balanced  |
+| C       | 18–20px   | 1.7         | Editorial |
+
+## Wrapping up
+
+That's it. Long headings are also worth testing, so here is one more section with a heading that will definitely wrap on smaller screens.
+
+## A deliberately long heading that wraps onto multiple lines on smaller screens
+
+The line height of a heading matters most when it wraps. Too loose and the two lines look like two separate headings, too tight and the descenders collide with the ascenders of the line below.
+
+---
+
+Thanks for reading this very artificial article.
