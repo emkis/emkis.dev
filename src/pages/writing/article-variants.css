@@ -113,9 +113,125 @@ html[data-prose="c"] .article-prose h5 {
 }
 
 /**
+ * Variants D, E and F swap the typefaces as well. They are all serif-first,
+ * aiming for a cozy, long-read feel, and each brings its own monospace font.
+ * Sizes are tuned per family since x-heights differ a lot between them.
+ */
+
+/**
+ * Variant D — Book (Literata + JetBrains Mono)
+ * Literata was commissioned by Google as the default typeface of Google Play
+ * Books. One family for headings and body, with optical sizes doing the work.
+ */
+html[data-prose="d"] {
+  --prose-body-font: "Literata", Georgia, serif;
+  --prose-heading-font: "Literata", Georgia, serif;
+  --prose-mono-font: "JetBrains Mono", ui-monospace, monospace;
+  --prose-heading-weight: 600;
+  --prose-strong-weight: 600;
+
+  --prose-body-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem); /* 17–19px */
+  --prose-body-leading: 1.65;
+  --prose-heading-leading: 1.2;
+  --prose-heading-tracking: -0.01em;
+
+  --prose-title-size: clamp(2.25rem, 1.6rem + 3vw, 3rem);
+  --prose-h2-size: clamp(1.625rem, 1.35rem + 1.3vw, 2.125rem);
+  --prose-h3-size: clamp(1.375rem, 1.25rem + 0.6vw, 1.625rem);
+  --prose-h4-size: 1.25rem;
+  --prose-h5-size: 1.125rem;
+
+  --prose-flow: 1;
+  --prose-list-gap: 0.3lh;
+  --prose-before-h2: 2.25;
+  --prose-before-h3: 1.75;
+  --prose-before-h4: 1.5;
+  --prose-before-h5: 1.25;
+  --prose-after-heading: 0.5;
+  --prose-heading-stack: 0.6;
+}
+
+/**
+ * Variant E — Newspaper (Newsreader + IBM Plex Mono)
+ * Newsreader was commissioned by Google Fonts for long-form reading on
+ * screens. Its small x-height wants a bigger body size, and its display
+ * optical size makes lighter headings look sharp and elegant.
+ */
+html[data-prose="e"] {
+  --prose-body-font: "Newsreader", Georgia, serif;
+  --prose-heading-font: "Newsreader", Georgia, serif;
+  --prose-mono-font: "IBM Plex Mono", ui-monospace, monospace;
+  --prose-heading-weight: 500;
+  --prose-strong-weight: 650;
+
+  --prose-body-size: clamp(1.1875rem, 1.1rem + 0.4vw, 1.3125rem); /* 19–21px */
+  --prose-body-leading: 1.55;
+  --prose-heading-leading: 1.1;
+  --prose-heading-tracking: -0.015em;
+
+  --prose-title-size: clamp(2.5rem, 1.8rem + 3.4vw, 3.5rem);
+  --prose-h2-size: clamp(1.875rem, 1.5rem + 1.6vw, 2.5rem);
+  --prose-h3-size: clamp(1.5rem, 1.35rem + 0.7vw, 1.875rem);
+  --prose-h4-size: 1.375rem;
+  --prose-h5-size: 1.1875rem;
+
+  --prose-flow: 0.9;
+  --prose-list-gap: 0.25lh;
+  --prose-before-h2: 2.25;
+  --prose-before-h3: 1.75;
+  --prose-before-h4: 1.25;
+  --prose-before-h5: 1.25;
+  --prose-after-heading: 0.4;
+  --prose-heading-stack: 0.5;
+}
+
+html[data-prose="e"] .article-prose :is(h4, h5) {
+  font-weight: 600;
+}
+
+/**
+ * Variant F — Cozy (Fraunces + Charis SIL + Source Code Pro)
+ * Soft, rounded Fraunces headings over Charis SIL, which is based on
+ * Bitstream Charter, the typeface Medium uses for its article body text.
+ * Medium sets it at roughly 20px on a ~1.58 line height.
+ */
+html[data-prose="f"] {
+  --prose-body-font: "Charis SIL", Charter, Georgia, serif;
+  --prose-heading-font: "Fraunces", Georgia, serif;
+  --prose-mono-font: "Source Code Pro", ui-monospace, monospace;
+  --prose-heading-weight: 600;
+  --prose-heading-variation: "SOFT" 100, "WONK" 0;
+  --prose-strong-weight: 700;
+
+  --prose-body-size: clamp(1.0625rem, 0.95rem + 0.5vw, 1.25rem); /* 17–20px */
+  --prose-body-leading: 1.6;
+  --prose-heading-leading: 1.15;
+  --prose-heading-tracking: -0.01em;
+
+  --prose-title-size: clamp(2.375rem, 1.7rem + 3.2vw, 3.25rem);
+  --prose-h2-size: clamp(1.625rem, 1.35rem + 1.3vw, 2.125rem);
+  --prose-h3-size: clamp(1.375rem, 1.25rem + 0.6vw, 1.625rem);
+  --prose-h4-size: 1.25rem;
+  --prose-h5-size: 1.0625rem;
+
+  --prose-flow: 0.9;
+  --prose-list-gap: 0.3lh;
+  --prose-before-h2: 2;
+  --prose-before-h3: 1.5;
+  --prose-before-h4: 1.25;
+  --prose-before-h5: 1.25;
+  --prose-after-heading: 0.45;
+  --prose-heading-stack: 0.5;
+}
+
+/**
  * Shared rules, driven by the variables above.
+ * Font variables fall back to today's fonts, so A, B and C keep them.
  */
 html[data-prose] .article-header h1 {
+  font-family: var(--prose-heading-font, "Merriweather", serif);
+  font-weight: var(--prose-heading-weight, 700);
+  font-variation-settings: var(--prose-heading-variation, "wdth" 100);
   font-size: var(--prose-title-size);
   line-height: var(--prose-heading-leading);
   letter-spacing: var(--prose-heading-tracking);
@@ -129,6 +245,27 @@ html[data-prose] .article-prose {
   padding-block-start: calc(var(--prose-baseline) * 2);
 }
 
+html[data-prose] .article-prose :is(p, li, td, th, dd, dt, summary) {
+  font-family: var(--prose-body-font, "Inter", sans-serif);
+}
+
+html[data-prose] .article-prose :is(strong, b) {
+  font-weight: var(--prose-strong-weight, 600);
+}
+
+html[data-prose] .article-prose :is(code, kbd) {
+  font-family: var(
+    --prose-mono-font,
+    ui-monospace,
+    SFMono-Regular,
+    "SF Mono",
+    Menlo,
+    Consolas,
+    "Liberation Mono",
+    monospace
+  );
+}
+
 html[data-prose] .article-prose :is(p, li) {
   font-size: var(--prose-body-size);
   line-height: var(--prose-body-leading);
@@ -136,6 +273,9 @@ html[data-prose] .article-prose :is(p, li) {
 }
 
 html[data-prose] .article-prose :is(h2, h3, h4, h5) {
+  font-family: var(--prose-heading-font, "Merriweather", serif);
+  font-weight: var(--prose-heading-weight, 700);
+  font-variation-settings: var(--prose-heading-variation, "wdth" 100);
   line-height: var(--prose-heading-leading);
   letter-spacing: var(--prose-heading-tracking);
   text-wrap: balance;

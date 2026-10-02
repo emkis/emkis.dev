@@ -9,13 +9,19 @@ const variants = [
   { value: 'a', label: 'A · Compact' },
   { value: 'b', label: 'B · Balanced' },
   { value: 'c', label: 'C · Editorial' },
+  { value: 'd', label: 'D · Book' },
+  { value: 'e', label: 'E · Newspaper' },
+  { value: 'f', label: 'F · Cozy' },
 ]
 ---
+
+<!-- Fonts used by variants D, E and F (demo only). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" />
 
 <script is:inline>
   // Runs before first paint to avoid a flash of the default styles.
   ;(() => {
-    const allowed = ['a', 'b', 'c']
+    const allowed = ['a', 'b', 'c', 'd', 'e', 'f']
     let variant = new URLSearchParams(location.search).get('prose')
     if (!variant) {
       try {
