@@ -19,8 +19,7 @@ function isPublished(article: Article): boolean {
 function sortDescendingPublishedDate(a: Article, b: Article): number {
   return (
     new Date(b.data.published_at).valueOf() -
-      new Date(a.data.published_at).valueOf() ||
-    a.data.title.localeCompare(b.data.title)
+    new Date(a.data.published_at).valueOf()
   )
 }
 
