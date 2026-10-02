@@ -3,7 +3,7 @@ interface Props {
   title: string
   description: string
   publishedAt: string
-  updatedAt: string
+  updatedAt?: string
 }
 
 const { title, description, publishedAt, updatedAt } = Astro.props
@@ -14,7 +14,7 @@ const structuredData = {
   headline: title,
   description,
   datePublished: new Date(publishedAt).toISOString(),
-  dateModified: new Date(updatedAt).toISOString(),
+  dateModified: updatedAt ? new Date(updatedAt).toISOString() : undefined,
   url: canonicalUrl.toString(),
   author: {
     '@type': 'Person',

@@ -2,6 +2,7 @@
 import { defineCollection } from 'astro:content'
 import { glob } from 'astro/loaders'
 import { z } from 'astro/zod'
+import { getSlugFromFilename } from './content/filename.ts'
 
 /**
  * I've read multiple recommendations on the internet about keeping these
@@ -11,13 +12,18 @@ import { z } from 'astro/zod'
 const maxDescriptionLength = 150
 
 const collection = defineCollection({
-  loader: glob({ base: './writing', pattern: '**/*.{md,mdx}' }),
+  loader: glob({
+    base: './writing',
+    pattern: '**/*.{md,mdx}',
+    generateId: ({ entry }) => getSlugFromFilename(entry),
+  }),
   schema: (_context) =>
     z.object({
       title: z.string(),
       description: z.string().max(maxDescriptionLength),
       published_at: z.iso.date(),
-      updated_at: z.iso.date(),
+      updated_at: z.iso.date().optional(),
+      draft: z.boolean().optional(),
       featured: z.boolean().optional(),
       color: z.string(),
     }),

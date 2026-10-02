@@ -33,8 +33,9 @@ type Props = Article
 const article = Astro.props
 const { Content, remarkPluginFrontmatter } = await render(article)
 const publishedDate = new Date(article.data.published_at)
-const updatedDate = new Date(article.data.updated_at)
-const wasUpdated = article.data.updated_at !== article.data.published_at
+const updatedDate = article.data.updated_at
+  ? new Date(article.data.updated_at)
+  : undefined
 const articleReadingTime = remarkPluginFrontmatter.minutesToRead
 
 const formatDate = new Intl.DateTimeFormat('en', {
@@ -77,7 +78,7 @@ const formatDate = new Intl.DateTimeFormat('en', {
             <Heading level="1">{article.data.title}</Heading>
             <div class="article-meta">
               <Text size="small" color="secondary">Published <time datetime={publishedDate.toISOString()}>{formatDate.format(publishedDate)}</time></Text>
-              {wasUpdated && (
+              {updatedDate && (
                 <Text size="small" color="secondary">Updated <time datetime={updatedDate.toISOString()}>{formatDate.format(updatedDate)}</time></Text>
               )}
               <Text size="small" color="secondary">{articleReadingTime}</Text>
