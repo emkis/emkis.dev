@@ -15,11 +15,19 @@
     "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
     "Liberation Mono", monospace;
 
-  --text-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem); /* 17–19px */
-  --text-leading: 1.65;
+  --text-size: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem); /* 17–18px */
+  /* Longer lines need more room between them to keep the eye on track */
+  --text-leading: 1.7;
 
   /* Space between page sections, 64px on phones up to 112px on desktop */
   --space-section: clamp(4rem, 2.5rem + 6vw, 7rem);
+}
+
+/* Formula: (75ch + padding * 2) but in pixels, same as the layout */
+@media (min-width: 786.69px) {
+  :root {
+    --text-leading: 1.8;
+  }
 }
 
 html {
