@@ -1,6 +1,5 @@
 import { unified } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
-import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import { defineConfig } from 'astro/config'
 import { rehypeDeleteH1s } from './src/rehype.ts'
@@ -16,5 +15,5 @@ export default defineConfig({
       remarkPlugins: [remarkReadingTime],
     }),
   },
-  integrations: [mdx(), sitemap(), react()],
+  integrations: [mdx(), sitemap()],
 })
