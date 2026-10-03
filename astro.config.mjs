@@ -12,6 +12,9 @@ export default defineConfig({
     prefetchAll: true,
     defaultStrategy: 'hover',
   },
+  build: {
+    inlineStylesheets: 'always',
+  },
   markdown: {
     processor: unified({
       rehypePlugins: [rehypeDeleteH1s],
