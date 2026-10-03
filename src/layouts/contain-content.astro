@@ -13,26 +13,19 @@ const Element = as || 'div'
 
 <style>
 .contain-content {
-  /*
-   * `ch` is the width of "0" in this element's font, so the container uses
-   * the body text font and size to make the width follow the text. "0" is
-   * wider than the average letter, so 68ch fits about 78 characters of
-   * Literata per line. On narrow screens the min() keeps a 16px gutter on
-   * each side.
-   */
+  /* Measured in body text so the line length stays comfortable to read */
   font-family: var(--font-body);
   font-size: var(--text-size);
   width: min(68ch, 100% - 32px);
   margin: 0 auto;
   display: grid;
-  /* minmax(0, 1fr) lets wide children (like code blocks) scroll instead of stretching the page */
+  /* Keeps wide code blocks from stretching the page on mobile */
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "nav" "main" "footer";
   min-height: 100svh;
   min-height: 100vh;
 
-  /* Below the desktop breakpoint, see `--text-leading` in global.css */
   @media (max-width: 44.99rem) {
     padding-block: 16px;
   }

@@ -1,35 +1,9 @@
 @import "./colors.css";
+@import "./typography.css";
 
-/**
- * Typography tokens.
- * Body and headings: Literata, made for long reads in Google Play Books.
- * Code: JetBrains Mono.
- */
 :root {
-  --font-body: "Literata", Georgia, serif;
-  --font-heading: "Literata", Georgia, serif;
-  --font-heading-weight: 700;
-  --font-mono:
-    "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
-
-  --text-size: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem); /* 17–18px */
-  /* Longer lines need more room between them to keep the eye on track */
-  --text-leading: 1.7;
-
   /* Space between page sections, 64px on phones up to 112px on desktop */
   --space-section: clamp(4rem, 2.5rem + 6vw, 7rem);
-}
-
-/**
- * Desktop breakpoint, roughly where the layout reaches its full 68ch width
- * (68ch of 18px Literata + 16px gutters ≈ 712px). Media queries can't use the
- * layout's `ch`, since they resolve against the browser's default font.
- */
-@media (min-width: 45rem) {
-  :root {
-    --text-leading: 1.8;
-  }
 }
 
 html {
