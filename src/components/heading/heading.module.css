@@ -1,35 +1,37 @@
 /**
- * Typography scale was created using: https://baseline.is/tools/type-scale-generator
- * The chosen scale is "Major third", starting at 18px for the body text.
+ * Fluid sizes: each level shrinks on small screens and grows up to its
+ * desktop size, so headings don't take over the viewport on phones.
  */
 .heading {
-  font-family: "Merriweather", serif;
+  font-family: var(--font-heading);
   font-optical-sizing: auto;
-  font-weight: 700;
+  font-weight: var(--font-heading-weight);
   font-style: normal;
-  font-variation-settings: "wdth" 100;
   line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
   margin: 0;
 }
 
 .level-1 {
-  font-size: 3.43325rem; /* 54.932px */
+  font-size: clamp(2.25rem, 1.6rem + 3vw, 3rem); /* 36–48px */
 }
 
 .level-2 {
-  font-size: 2.7465625rem; /* 43.945px */
+  font-size: clamp(1.625rem, 1.35rem + 1.3vw, 2.125rem); /* 26–34px */
 }
 
 .level-3 {
-  font-size: 2.19725rem; /* 35.156px */
+  font-size: clamp(1.375rem, 1.25rem + 0.6vw, 1.625rem); /* 22–26px */
 }
 
 .level-4 {
-  font-size: 1.7578125rem; /* 28.125px */
+  font-size: 1.25rem; /* 20px */
 }
 
 .level-5 {
-  font-size: 1.40625rem; /* 22.5px */
+  font-size: 1.125rem; /* 18px */
+  letter-spacing: 0;
 }
 
 .color-primary {

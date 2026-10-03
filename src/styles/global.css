@@ -1,8 +1,15 @@
 @import "./colors.css";
+@import "./typography.css";
+
+:root {
+  /* Space between page sections, 64px on phones up to 112px on desktop */
+  --space-section: clamp(4rem, 2.5rem + 6vw, 7rem);
+}
 
 html {
   background-color: var(--slate-1);
   color-scheme: light dark;
+  font-family: var(--font-body);
 }
 
 ::selection {

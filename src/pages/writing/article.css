@@ -1,14 +1,28 @@
 /**
- * Base text styles - matching text.module.css
+ * Vertical rhythm: every gap in the prose is a multiple of one line of body
+ * text. `--prose-baseline` is registered as a <length>, so `1lh` resolves to
+ * pixels on `.article-prose` and children inherit that fixed value, instead
+ * of resolving against their own (bigger) line height.
  */
 /* biome-ignore-all lint/style/noExcessiveLinesPerFile: prose stylesheet, naturally long */
-.article-prose :is(p, li, td, th) {
-  font-family: "Inter", sans-serif;
+/* biome-ignore-all lint/style/noDescendingSpecificity: spacing rules are grouped at the end on purpose */
+@property --prose-baseline {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+/**
+ * Base text styles - matching text.module.css
+ */
+.article-prose :is(p, li, td, th, dt, dd, summary) {
+  font-family: var(--font-body);
   font-optical-sizing: auto;
   font-style: normal;
-  font-size: 1.125rem; /* 18px */
+  font-size: var(--text-size);
   font-weight: 400;
-  line-height: 160%;
+  line-height: var(--text-leading);
+  text-wrap: pretty;
   margin: 0;
   color: var(--slate-12);
 }
@@ -17,41 +31,46 @@
  * Heading styles - matching heading.module.css
  */
 .article-prose :is(h1, h2, h3, h4, h5) {
-  font-family: "Merriweather", serif;
+  font-family: var(--font-heading);
   font-optical-sizing: auto;
-  font-weight: 700;
+  font-weight: var(--font-heading-weight);
   font-style: normal;
-  font-variation-settings: "wdth" 100;
   line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
   margin: 0;
   color: var(--slate-12);
 }
 
 .article-prose h1 {
-  font-size: 3.43325rem; /* 54.932px */
+  font-size: clamp(2.25rem, 1.6rem + 3vw, 3rem); /* 36–48px */
 }
 
 .article-prose h2 {
-  font-size: 2.7465625rem; /* 43.945px */
+  font-size: clamp(1.625rem, 1.35rem + 1.3vw, 2.125rem); /* 26–34px */
 }
 
 .article-prose h3 {
-  font-size: 2.19725rem; /* 35.156px */
+  font-size: clamp(1.375rem, 1.25rem + 0.6vw, 1.625rem); /* 22–26px */
 }
 
 .article-prose h4 {
-  font-size: 1.7578125rem; /* 28.125px */
+  font-size: 1.25rem; /* 20px */
 }
 
 .article-prose h5 {
-  font-size: 1.40625rem; /* 22.5px */
+  font-size: 1.125rem; /* 18px */
+  letter-spacing: 0;
 }
 
 /**
  * Main container
  */
 .article-prose {
-  padding-block: 64px 176px;
+  font-size: var(--text-size);
+  line-height: var(--text-leading);
+  --prose-baseline: 1lh;
+  padding-block: calc(var(--prose-baseline) * 2) var(--space-section);
   color: var(--slate-12);
 }
 
@@ -103,7 +122,11 @@
 }
 
 .article-prose li {
-  margin-top: 0.5rem;
+  margin-top: 0.3lh;
+}
+
+.article-prose li > :is(ul, ol) {
+  margin-top: 0.3lh;
 }
 
 .article-prose li:first-child {
@@ -119,7 +142,7 @@
  */
 .article-prose blockquote {
   margin: 0;
-  padding: 0 0 0 1.5rem;
+  padding: 0 0 0 1em;
   border-left: 3px solid var(--slate-6);
   font-style: italic;
 }
@@ -144,23 +167,26 @@
  * Code blocks and inline code
  */
 .article-prose pre {
+  /* Sets the line box size, otherwise lines inherit the taller body text strut */
+  font-size: 0.875rem;
+  line-height: 1.7;
   border-radius: 8px;
-  padding: 1.5rem; /* 24px */
+  padding: 1lh;
   border: 1px solid var(--slate-4);
 }
 
 .article-prose code {
-  font-family:
-    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
-    monospace;
+  font-family: var(--font-mono);
   font-size: 0.875em;
+  /* Show operators like => and !== as typed, which matters when teaching */
+  font-variant-ligatures: none;
 }
 
 .article-prose pre code {
   background: none;
   padding: 0;
-  font-size: 0.875rem;
-  line-height: 1.7;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .article-prose :not(pre) > code {
@@ -182,19 +208,23 @@
   text-align: left;
 }
 
+.article-prose :is(td, th) {
+  font-size: 0.9375rem;
+}
+
 .article-prose thead {
   border-bottom: 2px solid var(--slate-6);
 }
 
 .article-prose th {
   font-weight: 600;
-  padding: 1rem;
+  padding: 0.5lh 0.75em;
   color: var(--slate-12);
   background-color: var(--slate-2);
 }
 
 .article-prose td {
-  padding: 1rem;
+  padding: 0.5lh 0.75em;
   border-bottom: 1px solid var(--slate-4);
 }
 
@@ -246,7 +276,7 @@
     var(--slate-6) 80%,
     transparent
   );
-  margin: 3rem 0;
+  margin: calc(var(--prose-baseline) * 2) 0;
 }
 
 /**
@@ -272,9 +302,7 @@
  * Keyboard input
  */
 .article-prose kbd {
-  font-family:
-    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
-    monospace;
+  font-family: var(--font-mono);
   font-size: 0.875em;
   padding: 0.5rem;
   background-color: var(--slate-3);
@@ -367,16 +395,30 @@
 }
 
 /**
- * Spacing between elements
+ * Spacing between elements, in lines of body text.
+ * A heading sits much closer to the text it introduces than to the text
+ * before it. Order matters: later rules win specificity ties.
  */
-.article-prose * + :is(p, pre, ul, ol, blockquote, figure, table) {
-  margin-top: 1.5rem; /* 24px */
+.article-prose * + :is(p, pre, ul, ol, blockquote, figure, table, dl, details) {
+  margin-top: var(--prose-baseline);
 }
 
-.article-prose :is(h1, h2, h3, h4, h5) + * {
-  margin-top: 2rem; /* 32px */
+.article-prose * + h2 {
+  margin-top: calc(var(--prose-baseline) * 2.25);
 }
 
-.article-prose * + :is(h1, h2, h3, h4, h5) {
-  margin-top: 4rem; /* 64px */
+.article-prose * + h3 {
+  margin-top: calc(var(--prose-baseline) * 1.75);
+}
+
+.article-prose * + :is(h4, h5) {
+  margin-top: calc(var(--prose-baseline) * 1.5);
+}
+
+.article-prose :is(h2, h3, h4, h5) + * {
+  margin-top: calc(var(--prose-baseline) * 0.5);
+}
+
+.article-prose :is(h2, h3, h4, h5) + :is(h2, h3, h4, h5) {
+  margin-top: calc(var(--prose-baseline) * 0.6);
 }

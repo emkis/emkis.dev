@@ -97,7 +97,7 @@ const formatDate = new Intl.DateTimeFormat('en', {
 
 <style>
   .article-header {
-    padding-top: 176px;
+    padding-top: var(--space-section);
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -117,7 +117,8 @@ const formatDate = new Intl.DateTimeFormat('en', {
     margin: 8px 0 0;
   }
 
-  @media (min-width: 786.69px) {
+  /* Desktop breakpoint, see typography.css */
+  @media (min-width: 45rem) {
     .article-meta {
       flex-direction: row;
       align-items: center;

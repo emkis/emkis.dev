@@ -1,9 +1,9 @@
 .text {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-body);
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 400;
-  line-height: 160%;
+  line-height: var(--text-leading);
   display: inline-block;
   margin: 0;
 }
@@ -26,9 +26,9 @@
 }
 
 .size-medium {
-  font-size: 1.125rem; /* 18px */
+  font-size: var(--text-size);
 }
 
 .size-small {
-  font-size: 0.9rem; /* 14.4px */
+  font-size: 0.9375rem; /* 15px */
 }
