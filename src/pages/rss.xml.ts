@@ -22,7 +22,7 @@ const GET: APIRoute = async (context) => {
     items: articles.map((post) => ({
       title: post.data.title,
       description: post.data.description,
-      link: `${getArticlePathname(post)}/`,
+      link: getArticlePathname(post),
       pubDate: new Date(post.data.published_at),
     })),
   })
