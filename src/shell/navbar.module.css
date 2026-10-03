@@ -50,13 +50,16 @@
   border-radius: 999px;
   transition: color 150ms ease;
   line-height: 1;
+  -webkit-tap-highlight-color: transparent;
 
   &:not([aria-current="page"]) {
     color: var(--slate-11);
   }
 
-  &:hover {
-    color: var(--slate-12);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--slate-12);
+    }
   }
 }
 
