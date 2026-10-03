@@ -13,10 +13,10 @@ const Element = as || 'div'
 
 <style>
 .contain-content {
-  /* Measured in body text so the line length stays comfortable to read */
   font-family: var(--font-body);
   font-size: var(--text-size);
-  width: min(68ch, 100% - 32px);
+  /* Hardcoded px (originally min(68ch, 100% - 32px)) to avoid layout shift when the webfont swaps in */
+  width: min(710px, 100% - 32px);
   margin: 0 auto;
   display: grid;
   /* Keeps wide code blocks from stretching the page on mobile */
