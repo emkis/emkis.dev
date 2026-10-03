@@ -9,8 +9,35 @@ import {
   MetaOpenGraph,
   MetaTitle,
   NavBar,
+  ViewTransitionsLoader,
 } from '@/shell'
-import { Fonts, GlobalStyles, Heading, SectionStack, Stack, Text } from '@/ui'
+import {
+  ArrowIcon,
+  Fonts,
+  GlobalStyles,
+  Heading,
+  SectionStack,
+  Stack,
+  Text,
+} from '@/ui'
+
+const contactLinks = [
+  {
+    name: 'LinkedIn',
+    handle: 'nicolas-jardim',
+    href: 'https://linkedin.com/in/nicolas-jardim',
+  },
+  {
+    name: 'GitHub',
+    handle: 'emkis',
+    href: 'https://github.com/emkis',
+  },
+  {
+    name: 'X',
+    handle: '@emkisn',
+    href: 'https://x.com/emkisn',
+  },
+]
 ---
 
 <!doctype html>
@@ -18,6 +45,7 @@ import { Fonts, GlobalStyles, Heading, SectionStack, Stack, Text } from '@/ui'
   <head>
     <AnalyticsLoader />
     <GlobalStyles />
+    <ViewTransitionsLoader />
     <Fonts />
     <IconLoader />
     <MetaBase />
@@ -38,12 +66,26 @@ import { Fonts, GlobalStyles, Heading, SectionStack, Stack, Text } from '@/ui'
               </Text>
             </Stack>
 
-            <nav class="contact-links">
-              <Text as="a" color="secondary" decoration="underline" href="https://linkedin.com/in/nicolas-jardim" target="_blank" rel="noopener">LinkedIn</Text>
-              <Text as="a" color="secondary" decoration="underline" href="https://x.com/emkisn" target="_blank" rel="noopener">X (Twitter)</Text>
-              <Text as="a" color="secondary" decoration="underline" href="https://github.com/emkis" target="_blank" rel="noopener">GitHub</Text>
-              <Text as="a" color="secondary" decoration="underline" href="mailto:nicolasemkis@gmail.com">Email</Text>
-            </nav>
+            <ul class="contact-links">
+              {contactLinks.map((link) => {
+                const isExternal = link.href.startsWith('https')
+
+                return (
+                  <li>
+                    <a
+                      class="contact-link"
+                      href={link.href}
+                      target={isExternal ? '_blank' : undefined}
+                      rel={isExternal ? 'noopener' : undefined}
+                    >
+                      <Text>{link.name}</Text>
+                      <Text color="secondary" class="contact-handle">{link.handle}</Text>
+                      <ArrowIcon class="contact-arrow" direction={isExternal ? 'up-right' : 'right'} />
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
           </Stack>
         </section>
       </SectionStack>
@@ -54,15 +96,41 @@ import { Fonts, GlobalStyles, Heading, SectionStack, Stack, Text } from '@/ui'
 
 <style>
 .contact-links {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--slate-5);
 }
 
-/* Desktop breakpoint, see typography.css */
-@media (min-width: 45rem) {
-  .contact-links {
-    flex-direction: row;
+.contact-links > li {
+  border-bottom: 1px solid var(--slate-5);
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 12px;
+  margin-inline: -12px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background-color 150ms ease;
+
+  &:hover {
+    background-color: var(--slate-3);
   }
+}
+
+.contact-handle {
+  margin-left: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.contact-link :global(.contact-arrow) {
+  flex-shrink: 0;
+  color: var(--slate-9);
 }
 </style>

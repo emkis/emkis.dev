@@ -1,3 +1,4 @@
+export { default as ArrowIcon } from './arrow-icon.astro'
 export { default as Fonts } from './fonts.astro'
 export { default as GlobalStyles } from './global-styles.astro'
 export { default as Heading } from './heading.astro'

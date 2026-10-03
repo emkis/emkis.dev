@@ -8,6 +8,10 @@ import { rehypeDeleteH1s, remarkReadingTime } from './src/writing/markdown.ts'
 export default defineConfig({
   site: 'https://emkis.dev',
   trailingSlash: 'never',
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover',
+  },
   markdown: {
     processor: unified({
       rehypePlugins: [rehypeDeleteH1s],

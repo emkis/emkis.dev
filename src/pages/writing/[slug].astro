@@ -10,6 +10,7 @@ import {
   MetaOpenGraph,
   MetaTitle,
   NavBar,
+  ViewTransitionsLoader,
 } from '@/shell'
 import { Fonts, GlobalStyles, Heading, Text } from '@/ui'
 import { type Article, getSortedArticles, StructuredData } from '@/writing'
@@ -48,6 +49,7 @@ const formatDate = new Intl.DateTimeFormat('en', {
 	<head>
 		<AnalyticsLoader />
 		<GlobalStyles />
+		<ViewTransitionsLoader />
 		<Fonts />
 		<IconLoader />
 		<MetaBase />

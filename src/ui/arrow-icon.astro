@@ -1,0 +1,37 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type ArrowDirection = 'right' | 'up-right'
+
+interface Props extends HTMLAttributes<'span'> {
+  direction: ArrowDirection
+}
+
+const { direction, class: className, ...restProps } = Astro.props
+---
+
+<span
+  {...restProps}
+  aria-hidden="true"
+  class:list={['arrow-icon', `direction-${direction}`, className]}
+>
+  -&gt;
+</span>
+
+<style>
+/**
+ * Plain ASCII "->" that JetBrains Mono turns into an arrow with a ligature.
+ */
+.arrow-icon {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-variant-ligatures: normal;
+  line-height: 1;
+}
+
+.direction-up-right {
+  translate: 0 2px;
+  rotate: -45deg;
+}
+</style>

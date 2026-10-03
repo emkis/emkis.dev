@@ -6,9 +6,17 @@ const navbarLinks = [
   { name: 'Writing', pathname: '/writing' },
   { name: 'Contact', pathname: '/contact' },
 ]
+
+const currentPathname = Astro.url.pathname.replace(/\/$/, '')
+
+function isLinkActive(pathname: string): boolean {
+  return (
+    currentPathname === pathname || currentPathname.startsWith(`${pathname}/`)
+  )
+}
 ---
 
-<nav>
+<nav class={styles.navbar}>
   <ul class={styles.links}>
     <li>
       <a aria-label="Navigate to index page" href="/" class={styles.logo}>
@@ -18,12 +26,19 @@ const navbarLinks = [
       </a>
     </li>
     {navbarLinks.map((link) => {
-      const currentPathname = Astro.url.pathname
-      const isLinkActive = currentPathname === link.pathname;
+      const isActive = isLinkActive(link.pathname)
 
       return (
-        <li>
-          <Text as="a" decoration={ isLinkActive ? "underline" : "none"} aria-current={isLinkActive ? "page" : undefined} href={link.pathname}>{link.name}</Text>
+        <li class={styles.item}>
+          {isActive && <span class={styles.indicator} data-nav-indicator aria-hidden="true" />}
+          <Text
+            as="a"
+            class={styles.link}
+            aria-current={isActive ? 'page' : undefined}
+            href={link.pathname}
+          >
+            {link.name}
+          </Text>
         </li>
       )
     })}
