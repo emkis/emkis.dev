@@ -12,7 +12,15 @@ import {
   NavBar,
   ViewTransitionsLoader,
 } from '@/shell'
-import { Fonts, GlobalStyles, Heading, SectionStack, Stack, Text } from '@/ui'
+import {
+  ArrowIcon,
+  Fonts,
+  GlobalStyles,
+  Heading,
+  SectionStack,
+  Stack,
+  Text,
+} from '@/ui'
 import {
   ArticleList,
   ArticleListItem,
@@ -21,6 +29,9 @@ import {
 } from '@/writing'
 
 const articles = await getSortedArticles()
+const latestArticlesCount = 3
+const latestArticles = articles.slice(0, latestArticlesCount)
+const hasMoreArticles = articles.length > latestArticlesCount
 ---
 
 <!doctype html>
@@ -62,18 +73,26 @@ const articles = await getSortedArticles()
           <Heading level="4" as="h2">
             Latest writing
           </Heading>
-          <ArticleList>
-            {articles.map((post) => (
-              <ArticleListItem
-                variant="long"
-                publishedAt={new Date(post.data.published_at)}
-                color={post.data.color}
-                pathname={getArticlePathname(post)}
-              >
-                {post.data.title}
-              </ArticleListItem>
-            ))}
-          </ArticleList>
+          <Stack spacing="4px">
+            <ArticleList>
+              {latestArticles.map((post) => (
+                <ArticleListItem
+                  variant="long"
+                  publishedAt={new Date(post.data.published_at)}
+                  color={post.data.color}
+                  pathname={getArticlePathname(post)}
+                >
+                  {post.data.title}
+                </ArticleListItem>
+              ))}
+            </ArticleList>
+            {hasMoreArticles && (
+              <Text as="a" href="/writing" color="secondary" size="small" class="browse-all-link">
+                Browse all articles
+                <ArrowIcon direction="up-right" />
+              </Text>
+            )}
+          </Stack>
         </Stack>
 
         <Stack as="section" spacing="24px">
@@ -105,11 +124,6 @@ const articles = await getSortedArticles()
                 </Text>
               </blockquote>
             </li>
-            <li class="belief">
-              <blockquote>
-                <Text>Small teams ship faster</Text>
-              </blockquote>
-            </li>
           </ol>
         </Stack>
       </SectionStack>
@@ -119,6 +133,20 @@ const articles = await getSortedArticles()
 </html>
 
 <style>
+.browse-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  flex-shrink: 0;
+  color: var(--slate-9);
+  transition: color 150ms ease;
+
+  &:hover {
+    color: var(--slate-12);
+  }
+}
+
 .beliefs {
   list-style: none;
   padding: 0;
