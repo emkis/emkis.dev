@@ -36,4 +36,13 @@ async function getSortedArticlesByYear(): Promise<Map<number, Article[]>> {
   })
 }
 
-export { type Article, getSortedArticles, getSortedArticlesByYear }
+function getArticlePathname(article: Article): string {
+  return `/writing/${article.id}`
+}
+
+export {
+  type Article,
+  getArticlePathname,
+  getSortedArticles,
+  getSortedArticlesByYear,
+}

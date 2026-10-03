@@ -2,8 +2,7 @@ import { unified } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import { defineConfig } from 'astro/config'
-import { rehypeDeleteH1s } from './src/rehype.ts'
-import { remarkReadingTime } from './src/remark.ts'
+import { rehypeDeleteH1s, remarkReadingTime } from './src/writing/markdown.ts'
 
 // https://astro.build/config
 export default defineConfig({
