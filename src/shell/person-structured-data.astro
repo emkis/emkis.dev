@@ -1,0 +1,20 @@
+---
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Nicolas Jardim',
+  // biome-ignore lint/style/noNonNullAssertion: site is guaranteed to be defined in Astro config
+  url: new URL(Astro.site!),
+  sameAs: [
+    'https://linkedin.com/in/nicolas-jardim',
+    'https://github.com/emkis',
+    'https://x.com/emkisn',
+  ],
+}
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(structuredData)}
+/>

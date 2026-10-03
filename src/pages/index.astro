@@ -10,6 +10,7 @@ import {
   MetaTitle,
   metadata,
   NavBar,
+  PersonStructuredData,
   ViewTransitionsLoader,
 } from '@/shell'
 import {
@@ -46,6 +47,7 @@ const hasMoreArticles = articles.length > latestArticlesCount
 		<MetaTitle />
 		<MetaDescription description={metadata.description} />
 		<MetaOpenGraph type="website" title={metadata.title} description={metadata.description} />
+		<PersonStructuredData />
 	</head>
 	<body>
 	  <ContainContent>
