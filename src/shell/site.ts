@@ -3,7 +3,7 @@
  */
 const metadata = {
   title: 'Nicolas Jardim',
-  description: 'A blog by Nicolas Jardim.',
+  description: 'Essays on building software, thinking in public.',
 }
 
 export { metadata }
