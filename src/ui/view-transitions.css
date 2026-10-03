@@ -1,0 +1,88 @@
+/**
+ * Cross-document view transitions.
+ * Docs: https://developer.chrome.com/docs/web-platform/view-transitions/cross-document
+ *
+ * Browsers without support simply navigate as usual. People who prefer
+ * reduced motion never opt in, so they get instant navigations.
+ *
+ * Named elements (kept intentionally few):
+ * - "site-header": the navbar stays still while the page changes under it.
+ * - "nav-indicator": the active pill slides between navbar links.
+ * - "site-footer": the footer jumps to its new place, no sliding or fading.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+:root {
+  --transition-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The page itself: the old content fades out quickly, the new one rises in */
+::view-transition-old(root) {
+  animation: 100ms ease-out both vt-fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 240ms var(--transition-ease-out) both vt-rise-in;
+}
+
+/* Shared elements move with the same easing so everything feels connected */
+::view-transition-group(*) {
+  animation-duration: 260ms;
+  animation-timing-function: var(--transition-ease-out);
+}
+
+/**
+ * The header looks the same on every page, so it never moves. Otherwise
+ * it would slide in from above when navigating from a scrolled page.
+ *
+ * Snapshots are stacked in DOM order, so the pill would paint over the
+ * navbar text while sliding. Lift the header above it, the pill is cut out
+ * of the header snapshot so it still shows through.
+ */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 1;
+}
+
+/**
+ * Show the new header right away instead of cross-fading the two snapshots.
+ * Halfway through a cross-fade both copies are semi-transparent, which
+ * makes the text look thinner, like a different font.
+ */
+::view-transition-old(site-header) {
+  display: none;
+}
+
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/**
+ * Pages have different heights, so the footer and its divider would slide
+ * across the bottom of the screen. It shows up in its new place instead.
+ */
+::view-transition-group(site-footer),
+::view-transition-new(site-footer) {
+  animation: none;
+}
+
+::view-transition-old(site-footer) {
+  display: none;
+}

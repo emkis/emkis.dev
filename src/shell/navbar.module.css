@@ -1,5 +1,11 @@
+.navbar {
+  /* Stays in place while the rest of the page transitions */
+  view-transition-name: site-header;
+}
+
 .logo {
   --logo-size: 48px;
+  display: block;
   width: var(--logo-size);
   height: var(--logo-size);
   text-decoration: none;
@@ -20,7 +26,7 @@
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 4px;
   height: 80px;
 }
 
@@ -31,4 +37,34 @@
 
 .links > *:nth-child(1) {
   margin-right: auto;
+}
+
+.item {
+  position: relative;
+}
+
+.link {
+  position: relative;
+  z-index: 1;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: color 150ms ease;
+  line-height: 1;
+
+  &:not([aria-current="page"]) {
+    color: var(--slate-11);
+  }
+
+  &:hover {
+    color: var(--slate-12);
+  }
+}
+
+/* The pill behind the active link, it slides between links when navigating */
+.indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background-color: var(--slate-4);
+  view-transition-name: nav-indicator;
 }

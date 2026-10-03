@@ -1,0 +1,19 @@
+<script is:inline>
+  /**
+   * When user scrolls down the navbar is out of view, sliding it in
+   * from above looks odd, so it just fades with the page instead.
+   *
+   * This has to live in the head, Chrome skipped the transitions when this
+   * script was inline in the body.
+   */
+  function skipIndicatorTransitionWhenScrolled() {
+    if (window.scrollY === 0) {
+      return
+    }
+    document
+      .querySelector('[data-nav-indicator]')
+      ?.style.setProperty('view-transition-name', 'none')
+  }
+  window.addEventListener('pageswap', skipIndicatorTransitionWhenScrolled)
+  window.addEventListener('pagereveal', skipIndicatorTransitionWhenScrolled)
+</script>

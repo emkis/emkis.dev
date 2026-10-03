@@ -10,6 +10,7 @@ import {
   MetaTitle,
   metadata,
   NavBar,
+  ViewTransitionsLoader,
 } from '@/shell'
 import { Fonts, GlobalStyles, Heading, SectionStack, Stack, Text } from '@/ui'
 import {
@@ -27,6 +28,7 @@ const articles = await getSortedArticles()
 	<head>
     <AnalyticsLoader />
     <GlobalStyles />
+    <ViewTransitionsLoader />
 		<Fonts />
     <IconLoader />
 		<MetaBase />
