@@ -70,11 +70,11 @@ const hasMoreArticles = articles.length > latestArticlesCount
         </Stack>
 
         <Stack as="section" spacing="16px">
-          <Heading level="4" as="h2">
+          <Heading level="4" as="h2" id="latest-writing-heading">
             Latest writing
           </Heading>
           <Stack spacing="4px">
-            <ArticleList>
+            <ArticleList aria-labelledby="latest-writing-heading">
               {latestArticles.map((post) => (
                 <ArticleListItem
                   variant="long"
@@ -99,7 +99,7 @@ const hasMoreArticles = articles.length > latestArticlesCount
           <Heading level="4" as="h2">
             Things I believe
           </Heading>
-          <ol class="beliefs" role="list">
+          <ol class="beliefs" role="list" aria-label="Things I believe">
             <li class="belief">
               <blockquote>
                 <Text>The magic is in the details</Text>
