@@ -19,6 +19,8 @@ const GET: APIRoute = async (context) => {
     },
     // biome-ignore lint/style/noNonNullAssertion: The site will be always defined
     site: context.site!,
+    // Match the site's `trailingSlash: 'never'`, the plugin adds one by default
+    trailingSlash: false,
     items: articles.map((post) => ({
       title: post.data.title,
       description: post.data.description,
