@@ -14,6 +14,17 @@ html {
   background-color: var(--brown-11);
 }
 
+/* Prevent the gray flash Safari/Chrome on mobile paint over tappable elements on touch */
+a,
+button,
+input,
+textarea,
+select,
+summary,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
 :focus-visible {
   outline: 2px solid var(--brown-12);
   outline-offset: 3px;
