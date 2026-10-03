@@ -1,0 +1,6 @@
+export { default as Fonts } from './fonts.astro'
+export { default as GlobalStyles } from './global-styles.astro'
+export { default as Heading } from './heading.astro'
+export { default as SectionStack } from './section-stack.astro'
+export { default as Stack } from './stack.astro'
+export { default as Text } from './text.astro'

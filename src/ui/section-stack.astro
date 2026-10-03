@@ -7,12 +7,12 @@ const { as, class: className, ...restProps } = Astro.props
 const Element = as || 'div'
 ---
 
-<Element {...restProps} class:list={["layout", className]}>
+<Element {...restProps} class:list={["section-stack", className]}>
   <slot />
 </Element>
 
 <style>
-.layout {
+.section-stack {
   --spacing: var(--space-section);
   display: grid;
   gap: var(--spacing);

@@ -1,23 +1,23 @@
 ---
-import ArticleList from '@/components/article-list/article-list.astro'
-import ArticleListItem from '@/components/article-list/article-listitem.astro'
-import Footer from '@/components/footer/footer.astro'
-import AnalyticsLoader from '@/components/head/analytics-loader.astro'
-import IconLoader from '@/components/head/icon-loader.astro'
-import MetaBase from '@/components/head/meta-base.astro'
-import MetaDescription from '@/components/head/meta-description.astro'
-import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
-import MetaTitle from '@/components/head/meta-title.astro'
-import StylesLoader from '@/components/head/styles-loader.astro'
-import TypographyLoader from '@/components/head/typography-loader.astro'
-import Heading from '@/components/heading/heading.astro'
-import NavBar from '@/components/navbar/navbar.astro'
-import Stack from '@/components/stack/stack.astro'
-import Text from '@/components/text/text.astro'
-import { getSortedArticles } from '@/content/articles'
-import ContainContent from '@/layouts/contain-content.astro'
-import DefaultLayout from '@/layouts/default-layout.astro'
-import { metadata } from '@/metadata'
+import {
+  AnalyticsLoader,
+  ContainContent,
+  Footer,
+  IconLoader,
+  MetaBase,
+  MetaDescription,
+  MetaOpenGraph,
+  MetaTitle,
+  metadata,
+  NavBar,
+} from '@/shell'
+import { Fonts, GlobalStyles, Heading, SectionStack, Stack, Text } from '@/ui'
+import {
+  ArticleList,
+  ArticleListItem,
+  getArticlePathname,
+  getSortedArticles,
+} from '@/writing'
 
 const articles = await getSortedArticles()
 ---
@@ -26,8 +26,8 @@ const articles = await getSortedArticles()
 <html lang="en">
 	<head>
     <AnalyticsLoader />
-    <StylesLoader />
-		<TypographyLoader />
+    <GlobalStyles />
+		<Fonts />
     <IconLoader />
 		<MetaBase />
 		<MetaTitle />
@@ -37,7 +37,7 @@ const articles = await getSortedArticles()
 	<body>
 	  <ContainContent>
   	  <NavBar />
-  		<DefaultLayout as="main">
+  		<SectionStack as="main">
         <Stack as="section" spacing="8px">
           <Heading level="1">Nicolas Jardim</Heading>
           <Text color="secondary" as="h2">
@@ -66,7 +66,7 @@ const articles = await getSortedArticles()
                 variant="long"
                 publishedAt={new Date(post.data.published_at)}
                 color={post.data.color}
-                pathname={`/writing/${post.id}`}
+                pathname={getArticlePathname(post)}
               >
                 {post.data.title}
               </ArticleListItem>
@@ -110,7 +110,7 @@ const articles = await getSortedArticles()
             </li>
           </ol>
         </Stack>
-      </DefaultLayout>
+      </SectionStack>
       <Footer />
 		</ContainContent>
 	</body>

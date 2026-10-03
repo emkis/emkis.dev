@@ -1,27 +1,24 @@
 ---
-import Footer from '@/components/footer/footer.astro'
-import AnalyticsLoader from '@/components/head/analytics-loader.astro'
-import IconLoader from '@/components/head/icon-loader.astro'
-import MetaBase from '@/components/head/meta-base.astro'
-import MetaDescription from '@/components/head/meta-description.astro'
-import MetaOpenGraph from '@/components/head/meta-open-graph.astro'
-import MetaTitle from '@/components/head/meta-title.astro'
-import StylesLoader from '@/components/head/styles-loader.astro'
-import TypographyLoader from '@/components/head/typography-loader.astro'
-import Heading from '@/components/heading/heading.astro'
-import NavBar from '@/components/navbar/navbar.astro'
-import Stack from '@/components/stack/stack.astro'
-import Text from '@/components/text/text.astro'
-import ContainContent from '@/layouts/contain-content.astro'
-import DefaultLayout from '@/layouts/default-layout.astro'
+import {
+  AnalyticsLoader,
+  ContainContent,
+  Footer,
+  IconLoader,
+  MetaBase,
+  MetaDescription,
+  MetaOpenGraph,
+  MetaTitle,
+  NavBar,
+} from '@/shell'
+import { Fonts, GlobalStyles, Heading, SectionStack, Stack, Text } from '@/ui'
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<AnalyticsLoader />
-		<StylesLoader />
-		<TypographyLoader />
+		<GlobalStyles />
+		<Fonts />
 		<IconLoader />
 		<MetaBase />
 		<MetaTitle title="Not found" />
@@ -31,14 +28,14 @@ import DefaultLayout from '@/layouts/default-layout.astro'
 	<body>
 	  <ContainContent>
   	  <NavBar />
-  		<DefaultLayout as="main">
+  		<SectionStack as="main">
         <Stack as="section" spacing="8px">
           <Heading level="1">Not found</Heading>
           <Text color="secondary" as="h2">
 	          Sorry, the page you're looking for doesn't exist.
           </Text>
         </Stack>
-      </DefaultLayout>
+      </SectionStack>
       <Footer />
 		</ContainContent>
 	</body>

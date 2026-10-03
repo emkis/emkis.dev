@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss'
 import type { APIRoute } from 'astro'
-import { getSortedArticles } from '@/content/articles'
-import { metadata } from '@/metadata'
+import { metadata } from '@/shell'
+import { getArticlePathname, getSortedArticles } from '@/writing'
 
 const GET: APIRoute = async (context) => {
   const articles = await getSortedArticles()
@@ -19,10 +19,12 @@ const GET: APIRoute = async (context) => {
     },
     // biome-ignore lint/style/noNonNullAssertion: The site will be always defined
     site: context.site!,
+    // Match the site's `trailingSlash: 'never'`, the plugin adds one by default
+    trailingSlash: false,
     items: articles.map((post) => ({
       title: post.data.title,
       description: post.data.description,
-      link: `/writing/${post.id}/`,
+      link: getArticlePathname(post),
       pubDate: new Date(post.data.published_at),
     })),
   })

@@ -66,6 +66,112 @@
   },
   "overrides": [
     {
+      "includes": [
+        "src/*/index.ts",
+        "src/writing/markdown.ts",
+        "src/content.config.ts"
+      ],
+      "linter": {
+        "rules": {
+          "performance": {
+            "noBarrelFile": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/**", "astro.config.mjs"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/*/**", "!@/writing/collection", "../**"],
+                    "message": "Import from a vertical's entry point (e.g. '@/writing', '@/writing/collection'), not from its internal files."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/ui/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/*/**", "!@/writing/collection", "../**"],
+                    "message": "Import from a vertical's entry point (e.g. '@/writing', '@/writing/collection'), not from its internal files."
+                  },
+                  {
+                    "group": ["@/shell", "@/writing"],
+                    "message": "The 'ui' vertical can't depend on other verticals."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/shell/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/*/**", "!@/writing/collection", "../**"],
+                    "message": "Import from a vertical's entry point (e.g. '@/writing', '@/writing/collection'), not from its internal files. See AGENTS.md."
+                  },
+                  {
+                    "group": ["@/writing"],
+                    "message": "The shell vertical can only depend on '@/ui'."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/writing/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/*/**", "!@/writing/collection", "../**"],
+                    "message": "Import from a vertical's entry point (e.g. '@/writing', '@/writing/collection'), not from its internal files. See AGENTS.md."
+                  },
+                  {
+                    "group": ["@/shell"],
+                    "message": "The writing vertical can only depend on '@/ui'. See AGENTS.md."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "includes": ["astro.config.mjs"],
       "linter": {
         "rules": {
