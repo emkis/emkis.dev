@@ -1,12 +1,1 @@
-{
-  "rewrites": [
-    {
-      "source": "/js/script.js",
-      "destination": "https://plausible.io/js/pa-xHXH1x-ivR5BEt8JB1vgi.js"
-    },
-    {
-      "source": "/api/event",
-      "destination": "https://plausible.io/api/event"
-    }
-  ]
-}
+{}
