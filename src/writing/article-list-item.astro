@@ -27,14 +27,13 @@ const formatDate = new Intl.DateTimeFormat('en', {
 ---
 
 <li {...restProps} class="article-listitem">
-  <a class="hidden-link" aria-hidden="true" href={pathname} />
   <span
     class="article-color-block"
     aria-hidden={true}
     style={{ backgroundColor: color }}
   />
   <div class="article-info">
-    <Text as="a" href={pathname} tabindex={-1}><slot /></Text>
+    <Text as="a" href={pathname} class="title-link"><slot /></Text>
     <Text as="time" datetime={publishedAt.toISOString()} color="secondary">{formatDate.format(publishedAt)}</Text>
   </div>
 </li>
@@ -60,7 +59,7 @@ const formatDate = new Intl.DateTimeFormat('en', {
     }
   }
 
-  &:has(.hidden-link:active) {
+  &:has(:global(.title-link):active) {
     background-color: var(--slate-4);
   }
 }
@@ -79,17 +78,24 @@ const formatDate = new Intl.DateTimeFormat('en', {
   flex-direction: column;
 }
 
-.hidden-link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  cursor: pointer;
+/* Stretches the real, accessible title link to cover the whole row as the click/tap target */
+:global(.title-link) {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
 
   &:focus-visible {
-    border-radius: var(--outer-radius);
+    outline: none;
+
+    &::after {
+      outline: 2px solid var(--brown-12);
+      outline-offset: -2px;
+      border-radius: var(--outer-radius);
+    }
   }
 }
 </style>
