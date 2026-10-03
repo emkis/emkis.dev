@@ -7,7 +7,8 @@ numbered MDX files (`001-hello-world.mdx`).
 
 - `pnpm dev`: start the dev server
 - `pnpm build`: build the static site into `dist/`
-- `pnpm lint`: run Biome (lint + format check), `pnpm lint --fix` to apply fixes
+- `pnpm lint`: run lint and formatter
+- `pnpm lint:fix`: auto-fixes all linting and formatter issues
 
 ## Code organization
 
@@ -19,7 +20,7 @@ src/
 ├── pages/      routing: every route, with its own markup and styles
 ├── writing/    articles: collection, queries, markdown plugins, article UI
 ├── shell/      site chrome: navbar, footer, page container, <head> metadata
-├── ui/         design system: typography, layout primitives, global styles
+├── ui/         style guide: typography, layout primitives, global styles
 └── content.config.ts
 ```
 

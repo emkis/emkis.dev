@@ -11,7 +11,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "lint": "biome check"
+    "lint": "biome check",
+    "lint:fix": "biome check --fix"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.1",
