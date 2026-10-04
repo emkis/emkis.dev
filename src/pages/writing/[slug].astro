@@ -7,13 +7,19 @@ import {
   IconLoader,
   MetaBase,
   MetaDescription,
+  MetaMarkdownAlternate,
   MetaOpenGraph,
   MetaTitle,
   NavBar,
   ViewTransitionsLoader,
 } from '@/shell'
 import { Fonts, GlobalStyles, Heading, Text } from '@/ui'
-import { type Article, getSortedArticles, StructuredData } from '@/writing'
+import {
+  type Article,
+  getArticlePathname,
+  getSortedArticles,
+  StructuredData,
+} from '@/writing'
 import './article.css'
 
 // biome-ignore lint/style/useExportsLast: Astro requires this export
@@ -55,6 +61,7 @@ const formatDate = new Intl.DateTimeFormat('en', {
 		<MetaBase />
 		<MetaTitle title={article.data.title} />
 		<MetaDescription description={article.data.description} />
+		<MetaMarkdownAlternate href={`${getArticlePathname(article)}.md`} />
 		<MetaOpenGraph
 		  type="article"
 		  title={article.data.title}
