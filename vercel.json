@@ -1,43 +1,5 @@
 {
-  "rewrites": [
-    {
-      "source": "/writing/:slug([^./]+)",
-      "has": [
-        {
-          "type": "header",
-          "key": "Accept",
-          "value": ".*text/markdown.*"
-        }
-      ],
-      "destination": "/writing/:slug.md"
-    }
-  ],
   "headers": [
-    {
-      "source": "/writing/:slug([^./]+)",
-      "headers": [
-        {
-          "key": "Vary",
-          "value": "Accept"
-        }
-      ]
-    },
-    {
-      "source": "/writing/:slug([^./]+)",
-      "has": [
-        {
-          "type": "header",
-          "key": "Accept",
-          "value": ".*text/markdown.*"
-        }
-      ],
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/markdown; charset=utf-8"
-        }
-      ]
-    },
     {
       "source": "/writing/(.*)\\.md",
       "headers": [
