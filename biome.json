@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.6.4/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -41,7 +41,19 @@
       "security": "on",
       "suspicious": {
         "preset": "all",
-        "noShadow": "off"
+        "noShadow": "off",
+        "useBaseline": {
+          "level": "on",
+          "options": {
+            "allowAtRules": ["property", "view-transition"],
+            "allowProperties": [
+              "text-wrap",
+              "view-transition-name",
+              "text-size-adjust"
+            ],
+            "allowSelectors": ["marker", "selection"]
+          }
+        }
       }
     }
   },

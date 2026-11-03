@@ -7,7 +7,7 @@ const navbarLinks = [
   { name: 'Contact', pathname: '/contact' },
 ]
 
-const currentPathname = Astro.url.pathname.replace(/\/$/, '')
+const currentPathname = Astro.url.pathname.replace(/\/$/u, '')
 
 function isLinkActive(pathname: string): boolean {
   return (
