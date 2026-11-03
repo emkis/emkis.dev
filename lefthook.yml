@@ -12,3 +12,8 @@ pre-commit:
         - "*.{md,mdx}"
         - "*.env.*"
         - "*.gitignore"
+
+pre-push:
+  jobs:
+    - name: Typecheck
+      run: pnpm typecheck

@@ -8,6 +8,7 @@ Personal website and blog built with Astro. Articles are numbered MDX files in
 - `pnpm dev`: start the dev server
 - `pnpm build`: build into `dist/`
 - `pnpm lint` / `pnpm lint:fix`: check / auto-fix lint and formatting
+- `pnpm typecheck`: type-check `.ts` and `.astro` files (`tsc` with `@astrojs/ts-content-mapper`)
 
 ## Architecture
 
